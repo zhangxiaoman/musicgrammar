@@ -66,6 +66,7 @@ class Group extends MY_Controller {
     {
         $group_id = $this->input->post("group_id");
         $users = $this->user_model->group_ready_user($group_id);
+
         $user_ids = array();
         foreach ($users as $item) {
             $user_ids[] = $item['id'];
@@ -79,6 +80,24 @@ class Group extends MY_Controller {
                 $item['status'] = User_Model::STATUS_BEGIN;
             }
             $this->success($users);
+        }
+        $this->error();
+    }
+
+    /**
+     * 清空 user
+     */
+    public function clear()
+    {
+        $group_id = $this->input->post("group_id");
+        if (empty($group_id)) {
+            $this->error("参数错误");
+        }
+
+        $result = $this->user_model->delete_by_group_id($group_id);
+
+        if ($result) {
+            $this->success();
         }
         $this->error();
     }

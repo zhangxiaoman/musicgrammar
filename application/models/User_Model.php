@@ -45,7 +45,7 @@ class User_Model extends CI_Model {
 
     public function group_users($groupId)
     {
-        $this->db->where('group_id', $groupId);
+        $this->db->where('group_id', $groupId)->where("is_deleted", 0);
         $this->db->limit(10);
         $this->db->order_by("create_at", "desc");
         $query = $this->db->get('user');
@@ -54,7 +54,7 @@ class User_Model extends CI_Model {
 
     public function group_ready_user($groupId)
     {
-        $this->db->where('group_id', $groupId);
+        $this->db->where('group_id', $groupId)->where("is_deleted", 0);
         $this->db->where('status', self::STATUS_READY);
         $this->db->limit(10);
         $this->db->order_by("create_at", "desc");
@@ -64,7 +64,12 @@ class User_Model extends CI_Model {
 
     public function get($id)
     {
-        return $this->db->where('id' , $id)->get('user')->row_array();
+        return $this->db->where('id' , $id)->where("is_deleted", 0)->get('user')->row_array();
+    }
+
+    public function delete_by_group_id($group_id)
+    {
+        return $this->db->set("is_deleted", 1)->where('group_id', $group_id)->update("user");
     }
 
 }
