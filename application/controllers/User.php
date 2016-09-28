@@ -18,36 +18,52 @@ class User extends MY_Controller {
 
     public function create()
     {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $name = $this->input->post('name');
+        $group_id = $this->input->post('group_id');
 
-        $is_ajax = $this->input->post('ajax');
-        $data['title'] = 'Create a news user';
-
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('group_id', 'Group', 'required');
-
-        if ($this->form_validation->run() === FALSE)
+        if (empty($name) || empty($group_id))
         {
-            $this->load->view('user/create',$data);
+            $this->error("参数错误");
         }
-        else
-        {
-            $data['id'] = $this->user_model->create();
-            if ($is_ajax) {
-                die(json_encode(array('code' => 0, 'data' => array())));
-            }
-            $this->load->view('user/success', $data);
-        }
+        $data['id'] = $this->user_model->create($name, $group_id);
+        $this->success($data);
     }
 
+    /**
+     * Ready.
+     */
     public function ready()
     {
-        $result = $this->user_model->update_status();
+        $id = $this->input->post("id");
+        $result = $this->user_model->update_status(User_Model::STATUS_READY, array($id));
         if($result) {
-            die(json_encode(array('code' => 0, 'data' => array())));
+           $this->success();
         }
-        die(json_encode(array('code' => 1, 'message' => '网络异常,请稍后再试', 'data' => array())));
+        $this->error();
+    }
+
+    /**
+     * End
+     */
+    public function end()
+    {
+        $id = $this->input->post("id");
+        $result = $this->user_model->update_status(User_Model::STATUS_END, array($id));
+        if($result) {
+            $this->success();
+        }
+        $this->error();
+    }
+
+    public function view()
+    {
+        $id = $this->input->post("id");
+        $user = $this->user_model->get($id);
+        if (empty($user)) {
+            $this->error();
+        }
+        $user['create_at'] = date("Y-m-d H:i:s", $user['create_at']);
+        $this->success($user);
     }
 
 }

@@ -6,6 +6,11 @@ class Group_Model extends CI_Model {
         $this->load->database();
     }
 
+    public function get_group($id)
+    {
+        return $this->db->where('id', $id)->get("group")->row_array();
+    }
+
     public function get_groups()
     {
         $this->db->limit(3);
@@ -14,15 +19,18 @@ class Group_Model extends CI_Model {
         return $query->result_array();
     }
 
-    public function create()
+    public function create($name)
     {
         $group = array(
-            'name' => $this->input->post('name'),
+            'name' => $name,
             'create_at' => time()
         );
         $this->db->insert('group', $group);
         $id = $this->db->insert_id();
-        return $id;
+
+        $this->db->where("id", $id);
+        $result = $this->db->get("group")->row_array();
+        return $result;
     }
 
 }
