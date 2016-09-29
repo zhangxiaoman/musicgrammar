@@ -7,14 +7,96 @@ html, body {
 }
 .wrap {
 	width: 1024px;
-	height: 500px;
+	height: 768px;
 	overflow: hidden;
 	background: url('../image/bg2.png') no-repeat;
 }
 .screen {
+	position: relative;
 	margin: 20px auto;
-	width: 984px;
-	height: 471px;
-	background: url('../image/Singlehammer_bg.png') no-repeat;
+	width: 900px;
+	height: 400px;
+	background: url('../image/Singlehammer_bg.png') 0 0 / 100% 100% no-repeat;
+}
+.btn-start {
+	position: absolute;
+	width: 120px;
+	height: 40px;
+	left: 115px;
+	bottom: 50px;
+	background: url('../image/startBtn.png') no-repeat;
+	-webkit-background-size: cover;
 	background-size: cover;
+}
+.play-scene {
+	position: absolute;
+	right: 70px;
+	top: 35px;
+	width: 480px;
+	height: 350px;
+}
+.jiezou-con {
+	position: absolute;
+	height: 100%;
+	font-size: 0;
+}
+.t-box {
+	display: inline-block;
+	width: 100px;
+}
+.t-box .grammar {
+	height: 70px;	
+	width: 100px;
+}
+.grammar_type1 {
+	background: url('../image/tabour.png') center no-repeat;
+	background-size: 80px auto;
+}
+.grammar_type2 {
+	background: url('../image/gong.png') center no-repeat;
+	background-size: 80px auto;
+}
+.grammar_type3 {
+	background: url('../image/horse_gong.png') center no-repeat;
+	background-size: 80px auto;
+}
+.grammar_type4 {
+	background: url('../image/cymbal.png') center no-repeat;
+	background-size: 80px auto;
+}
+.grammar_type5 {
+	background: url('../image/drum.png') center no-repeat;
+	background-size: 80px auto;
+}
+.handler-area {
+	margin: 0 auto;
+	width: 900px;
+	height: 150px;
+	font-size: 0;
+	background: url('../image/operation_bg.png') 0 0 / 100% 100% no-repeat;
+}
+.operat-button {
+	display: inline-block;	
+	width: 20%;
+	height: 100%;
+}
+.operat-button.t1 {
+	background: url('../image/tabour.png') center no-repeat;
+	background-size: auto 120px;
+}
+.operat-button.t2 {
+	background: url('../image/gong.png') center no-repeat;
+	background-size: auto 120px;
+}
+.operat-button.t3 {
+	background: url('../image/horse_gong.png') center no-repeat;
+	background-size: auto 120px;
+}
+.operat-button.t4 {
+	background: url('../image/cymbal.png') center no-repeat;
+	background-size: auto 120px;
+}
+.operat-button.t5 {
+	background: url('../image/drum.png') center no-repeat;
+	background-size: auto 120px;
 }

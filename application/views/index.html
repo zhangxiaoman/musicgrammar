@@ -8,11 +8,37 @@
 <body>
 	<div class="wrap">
 		<div class="screen">
-			<div class="score"></div>
+			<div class="score-area"></div>
+			<div class="play-scene">
+				<div class="jiezou-con">
+					<div class="t-box">
+						<div class="grammar grammar_type1"></div>
+						<div class="grammar grammar_type2"></div>
+						<div class="grammar grammar_type3"></div>
+						<div class="grammar grammar_type4"></div>
+						<div class="grammar grammar_type5"></div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-start"></div>
 		</div>
 		<div class="handler-area">
-		
+			<div class="operat-button t1"></div>
+			<div class="operat-button t2"></div>
+			<div class="operat-button t3"></div>
+			<div class="operat-button t4"></div>
+			<div class="operat-button t5"></div>
 		</div>
+		<audio id="readyMp3" src="../../public/audio/ready_go.mp3" preload></audio>
 	</div>
+	<script src="../../public/js/jquery-1.11.1.min.js"></script>
+	<script>
+		$(function() {
+			var $readyMp3 = document.getElementById('readyMp3');
+			$('.btn-start').on('click', function() {
+				$readyMp3.play();
+			});
+		});
+	</script>
 </body>
 </html>
