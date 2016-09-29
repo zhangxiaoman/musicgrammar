@@ -23,7 +23,7 @@
 			<div class="btn-start"></div>
 		</div>
 		<div class="handler-area">
-			<div class="operat-button t1"></div>
+			<div id="tabour" class="operat-button t1"></div>
 			<div class="operat-button t2"></div>
 			<div class="operat-button t3"></div>
 			<div class="operat-button t4"></div>
@@ -34,9 +34,14 @@
 	<script src="../../public/js/jquery-1.11.1.min.js"></script>
 	<script>
 		$(function() {
-			var $readyMp3 = document.getElementById('readyMp3');
+			var Reaygo = new Audio('../../public/audio/ready_go.mp3');
+			var Tabour = new Audio('../../public/audio/Tabour.wav');
 			$('.btn-start').on('click', function() {
-				$readyMp3.play();
+				Reaygo.play();
+			});
+			//点击小鼓
+			$('#tabour').click(function() {
+				Tabour.play();
 			});
 		});
 	</script>
