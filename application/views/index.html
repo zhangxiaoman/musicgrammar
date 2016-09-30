@@ -18,9 +18,36 @@
 						<div class="grammar grammar_type4"></div>
 						<div class="grammar grammar_type5"></div>
 					</div>
+					<div class="t-box">
+						<div class="grammar grammar_type1"></div>
+						<div class="grammar grammar_type2"></div>
+						<div class="grammar grammar_type3"></div>
+						<div class="grammar grammar_type4"></div>
+						<div class="grammar grammar_type5"></div>
+					</div>
+					<div class="t-box">
+						<div class="grammar grammar_type3"></div>
+						<div class="grammar grammar_type4"></div>
+						<div class="grammar grammar_type5"></div>
+					</div>
+					<div class="t-box">
+						<div class="grammar grammar_type1"></div>
+						<div class="grammar grammar_type2"></div>
+						<div class="grammar grammar_type3"></div>
+						<div class="grammar grammar_type4"></div>
+						<div class="grammar grammar_type5"></div>
+					</div>
+					<div class="t-box">
+						<div class="grammar grammar_type1"></div>
+						<div class="grammar grammar_type5"></div>
+					</div>
 				</div>
 			</div>
 			<div class="btn-start"></div>
+		</div>
+		<div class="countdown">
+			<div class="countdown-text"></div>
+			<div class="ready-text">Ready Go!</div>
 		</div>
 		<div class="handler-area">
 			<div id="tabour" class="operat-button t1"></div>
@@ -40,9 +67,11 @@
 			var Maluo = new Audio('../../public/audio/maluo.wav');
 			var Dabo = new Audio('../../public/audio/dabo.wav');
 			var Tanggu = new Audio('../../public/audio/tanggu.wav');
+
 			$('.btn-start').on('click', function() {
-				Reaygo.play();
+				game.init();
 			});
+
 			$('.handler-area').on('click', '.operat-button', function() {
 				var $this = $(this);
 				var id = $this.attr('id');
@@ -60,6 +89,50 @@
 					default:
 				}
 			});
+
+			var game = {
+				init: function() {
+					this.$el = $('.jiezou-con');
+					this.comp = {
+						$countdown: $('.countdown'),
+						$readyText: $('.ready-text')
+					}
+					this.showCountDown();
+				},
+				showCountDown: function() {
+					var self = this;
+					self.comp.$countdown.show();
+					setTimeout(function() {
+						$('.ready-text').show();
+						Reaygo.play();
+						setTimeout(function() {
+							self.comp.$countdown.hide();
+							self.comp.$readyText.hide();
+							self.start();
+						}, 1200);
+					}, 3000);
+				},
+				start: function() {
+					var self = this;
+					var w = this.$el.width();
+					$('.btn-start').hide();
+					this.$el.css('right', -w);
+					this.$el.show().animate(
+						{right: w},
+						w * 10,
+						'linear',
+						function() {
+							self.end();
+						});
+				},
+				end: function() {
+					console.log('end');
+					$('.btn-start').show();
+				},
+				fixScore: function() {
+
+				}
+			}
 		});
 	</script>
 </body>

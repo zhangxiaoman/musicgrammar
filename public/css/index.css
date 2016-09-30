@@ -21,7 +21,7 @@ html, body {
 .btn-start {
 	position: absolute;
 	width: 120px;
-	height: 40px;
+	height: 44px;
 	left: 115px;
 	bottom: 50px;
 	background: url('../image/startBtn.png') no-repeat;
@@ -30,22 +30,25 @@ html, body {
 }
 .play-scene {
 	position: absolute;
-	right: 70px;
+	right: 58px;
 	top: 35px;
-	width: 480px;
+	width: 500px;
 	height: 350px;
+	overflow: hidden;
 }
 .jiezou-con {
 	position: absolute;
 	height: 100%;
 	font-size: 0;
+	white-space: nowrap;
+	display: none;
 }
 .t-box {
 	display: inline-block;
 	width: 100px;
 }
 .t-box .grammar {
-	height: 70px;	
+	height: 70px;
 	width: 100px;
 }
 .grammar_type1 {
@@ -76,7 +79,7 @@ html, body {
 	background: url('../image/operation_bg.png') 0 0 / 100% 100% no-repeat;
 }
 .operat-button {
-	display: inline-block;	
+	display: inline-block;
 	width: 20%;
 	height: 100%;
 }
@@ -99,4 +102,64 @@ html, body {
 .operat-button.t5 {
 	background: url('../image/drum.png') center no-repeat;
 	background-size: auto 120px;
+}
+.countdown {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.6);
+}
+@keyframes countdown {
+	0% {
+		background-image: url('../image/three.png');
+	}
+	33% {
+		background-image: url('../image/three.png');
+	}
+	34% {
+		background-image: url('../image/two.png');
+	}
+	66% {
+		background-image: url('../image/two.png');
+	}
+	67% {
+		background-image: url('../image/one.png');
+	}
+	100% {
+		background-image: url('../image/one.png');
+	}
+}
+.countdown {
+	display: none;
+}
+.countdown .countdown-text {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100px;
+	height: 200px;
+	/*background: url('../image/three.png') no-repeat;*/
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	-webkit-animation: countdown 3s;
+	-o-animation: countdown 3s;
+	animation: countdown 3s;
+}
+.countdown .ready-text {
+	position: absolute;
+	display: none;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 220px;
+	height: 100px;
+	font-size: 40px;
+	color: #fff;
 }
