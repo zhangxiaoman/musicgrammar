@@ -1,5 +1,7 @@
 html {
 	font-size: 16px;
+	font-family: Helvetica, 'STHeitiSC Light', Tahoma, Verdana, Sans-Serif;
+    -webkit-font-smoothing: antialiased;
 }
 html, body {
 	margin: 0;
@@ -12,94 +14,102 @@ html, body {
 	width: 1024px;
 	height: 768px;
 	overflow: hidden;
-	background: url('../image/bg2.png') no-repeat;
-}
-.screen {
-	position: relative;
-	margin: 20px auto;
-	width: 900px;
-	height: 400px;
-	background: url('../image/Singlehammer_bg.png') 0 0 / 100% 100% no-repeat;
-}
-.btn-start {
-	position: absolute;
-	width: 120px;
-	height: 40px;
-	left: 115px;
-	bottom: 50px;
-	background: url('../image/startBtn.png') no-repeat;
+	background: url('../image/bg.jpg') no-repeat;
 	-webkit-background-size: cover;
 	background-size: cover;
 }
-.play-scene {
-	position: absolute;
-	right: 70px;
-	top: 35px;
-	width: 480px;
-	height: 350px;
-}
-.jiezou-con {
-	position: absolute;
-	height: 100%;
-	font-size: 0;
-}
-.t-box {
-	display: inline-block;
-	width: 100px;
-}
-.t-box .grammar {
-	height: 70px;	
-	width: 100px;
-}
-.grammar_type1 {
-	background: url('../image/tabour.png') center no-repeat;
-	background-size: 80px auto;
-}
-.grammar_type2 {
-	background: url('../image/gong.png') center no-repeat;
-	background-size: 80px auto;
-}
-.grammar_type3 {
-	background: url('../image/horse_gong.png') center no-repeat;
-	background-size: 80px auto;
-}
-.grammar_type4 {
-	background: url('../image/cymbal.png') center no-repeat;
-	background-size: 80px auto;
-}
-.grammar_type5 {
-	background: url('../image/drum.png') center no-repeat;
-	background-size: 80px auto;
-}
-.handler-area {
+.container {
+	width: 400px;
 	margin: 0 auto;
-	width: 900px;
-	height: 150px;
-	font-size: 0;
-	background: url('../image/operation_bg.png') 0 0 / 100% 100% no-repeat;
 }
-.operat-button {
-	display: inline-block;	
-	width: 20%;
-	height: 100%;
+.logo {
+	margin: 65px auto 0;
+	width: 380px;
+	height: 274px;
+	background: url('../image/logo.png') no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
 }
-.operat-button.t1 {
-	background: url('../image/tabour.png') center no-repeat;
-	background-size: auto 120px;
+.t-label {
+	font-size: 25px;
+	display: inline-block;
+	width: 116px;
 }
-.operat-button.t2 {
-	background: url('../image/gong.png') center no-repeat;
-	background-size: auto 120px;
+.username {
+	margin-top: 54px;
+	margin-bottom: 48px;
+	height: 32px;
+	line-height: 32px;
 }
-.operat-button.t3 {
-	background: url('../image/horse_gong.png') center no-repeat;
-	background-size: auto 120px;
+.username input {
+	vertical-align: top;
+	width: 270px;
+	height: 32px;
+	padding: 0 16px;
+	color: #333;
+	font-size: 22px;
+	text-align: center;
+	outline: none;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #333;
 }
-.operat-button.t4 {
-	background: url('../image/cymbal.png') center no-repeat;
-	background-size: auto 120px;
+.ilb {
+	display: inline-block;
 }
-.operat-button.t5 {
-	background: url('../image/drum.png') center no-repeat;
-	background-size: auto 120px;
+.group .t-label {
+	vertical-align: top;
+	margin-top: 20px;
+}
+.group-item {
+	display: inline-block;
+	margin-right: 16px;
+	width: 77px;
+	text-align: center;
+}
+.group-item:last-child {
+	margin-right: 0;
+}
+.group-item .group-bg {
+	width: 77px;
+	height: 77px;
+	overflow: hidden;
+	background: url('../image/btn_level_bg.png') no-repeat;
+	-webkit-background-size: 70px 72px;
+}
+.gruop-text {
+	margin-top: 8px;
+	font-size: 14px;
+	text-align: center;
+	color: #333;
+}
+.group-item .group-icon {
+	margin-top: 4px;
+	margin-left: 3px;
+	width: 65px;
+	height: 66px;
+}
+.group-a .group-icon {
+	background: url('../image/A.png') no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.group-b .group-icon {
+	background: url('../image/B.png') no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.group-c .group-icon {
+	background: url('../image/C.png') no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.btn-start {
+	margin-top: 60px;
+	margin-left: 25px;
+	width: 340px;
+	height: 70px;
+	background: url('../image/btn_start.png') no-repeat;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
 }
