@@ -72,4 +72,12 @@ class User_Model extends CI_Model {
         return $this->db->set("is_deleted", 1)->where('group_id', $group_id)->update("user");
     }
 
+    public function get_count_by_group($group_id)
+    {
+        $sql = "select count(1) as num from user where group_id = {$group_id}";
+        $result = $this->db->query($sql)->row_array();
+
+        return $result['num'];
+    }
+
 }

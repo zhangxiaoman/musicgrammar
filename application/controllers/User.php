@@ -25,6 +25,11 @@ class User extends MY_Controller {
         {
             $this->error("参数错误");
         }
+        
+        $user_count = $this->user_model->get_count_by_group($group_id);
+        if ($user_count >= 5) {
+            $this->error(1,"当前组下已经有5个小伙伴啦...");
+        }
         $data['id'] = $this->user_model->create($name, $group_id);
         $this->success($data);
     }

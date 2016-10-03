@@ -33,4 +33,32 @@ class Group_Model extends CI_Model {
         return $result;
     }
 
+
+    public function group_list()
+    {
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get('group');
+        $groups =  $query->result_array();
+
+        $sql = "select group_id as id, count(1) as num from user group by group_id";
+        $group_users_count = $this->db->query($sql)->result_array();
+
+        $tempArr = array();
+        foreach($group_users_count as $item) {
+            $tempArr[$item['id']] = $item;
+        }
+
+        foreach($groups as $key => &$group) {
+
+            if (!isset($tempArr[$group['id']])) {
+                $group['user_count'] = 0;
+                continue;
+            }
+            $group['user_count'] = $tempArr[$group['id']]['num'];
+
+        }
+
+        return $groups;
+    }
+
 }

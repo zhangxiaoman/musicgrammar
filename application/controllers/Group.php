@@ -102,4 +102,10 @@ class Group extends MY_Controller {
         $this->error();
     }
 
+    public function lists()
+    {
+        $this->group_model->group_list();
+    }
+
+
 }
