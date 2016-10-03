@@ -1,0 +1,365 @@
+html {
+  font-size: 16px;
+  font-family: Helvetica, 'STHeitiSC Light', Tahoma, Verdana, Sans-Serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.wrap {
+  width: 1024px;
+  height: 768px;
+  overflow: hidden;
+  background: url('../image/bg.jpg') no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+#main {
+  width: 100%;
+  height: 438px;
+  clear: both;
+  overflow: hidden;
+  zoom: 1;
+}
+.title {
+  margin-left: 30px;
+  margin-top: 30px;
+  width: 275px;
+  height: 108px;
+  border-bottom: 1px solid #e88a12;
+}
+.group-icon {
+  display: inline-block;
+  width: 95px;
+  height: 98px;
+  background: url('../image/bzu_big.png') no-repeat;
+}
+.music-name {
+  margin-top: 55px;
+  vertical-align: top;
+  display: inline-block;
+  width: 170px;
+  font-size: 20px;
+  color: #ffa00b;
+  text-align: center;
+}
+.h3 {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #4a4a4a;
+  text-align: center;
+}
+.edition {
+  position: absolute;
+  top: 63px;
+  right: 25px;
+  width: 220px;
+  height: 60px;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.edition.exec {
+  background-image: url('../image/exec_edition.png');
+}
+.edition.go {
+  background-image: url('../image/go_edition.png');
+}
+.left-area {
+  float: left;
+  width: 304px;
+  padding-top: 56px;
+  text-align: center;
+}
+.game-info {
+  position: relative;
+  display: inline-block;
+  width: 206px;
+  height: 129px;
+  background: url('../image/panel.png') no-repeat;
+}
+.game-info .game-name {
+  position: absolute;
+  left: 40px;
+  top: -12px;
+  width: 128px;
+  height: 37px;
+  background: url('../image/exec1.png') no-repeat;
+}
+.btn-freedom-exec {
+  margin: 40px auto 36px;
+  display: inline-block;
+  width: 147px;
+  height: 49px;
+  background: url('../image/ziyou.png') no-repeat;
+}
+.btn-start-exec {
+  margin: 0 auto;
+  width: 147px;
+  height: 49px;
+  background: url('../image/start_s.png') no-repeat;
+}
+.game-scene {
+  float: right;
+  position: relative;
+  margin-top: 10px;
+  width: 720px;
+  height: 390px;
+  background: url('../image/gamescene_bg.png') no-repeat;
+}
+.play-line {
+  position: absolute;
+  left: 57px;
+  top: 0;
+  z-index: 2;
+  width: 27px;
+  height: 412px;
+  background: url('../image/play_icon.png') bottom center no-repeat;
+  background-size: 100% auto;
+}
+.play-line .line {
+  margin-left: 12px;
+  height: 391px;
+  width: 2px;
+  background: #f7d3a1;
+}
+.mg-wrap {
+  width: 100%;
+  height: 100%;
+}
+.rhythm {
+  width: 100px;
+  height: 100%;
+  text-align: center;
+}
+.rhythm .mg-row {
+  height: 20%;
+  line-height: 78px;
+  text-align: center;
+}
+.mg-row > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+.rhythm .xiaogu {
+  width: 40px;
+  height: 46px;
+  background: url('../image/xiaogu_s.png') no-repeat;
+}
+.rhythm .tanggu {
+  width: 67px;
+  height: 42px;
+  background: url('../image/tanggu_s.png') no-repeat;
+}
+.rhythm .daluo {
+  width: 60px;
+  height: 72px;
+  background: url('../image/daluo_s.png') no-repeat;
+}
+.rhythm .dabo {
+  width: 53px;
+  height: 50px;
+  background: url('../image/dabo_s.png') no-repeat;
+}
+.rhythm .xiaoluo {
+  width: 55px;
+  height: 55px;
+  background: url('../image/xiaoluo_s.png') no-repeat;
+}
+.hit-area {
+  margin-top: 12px;
+  width: 100%;
+  font-size: 0;
+}
+.grammar {
+  display: inline-block;
+  margin-left: 58px;
+  width: 146px;
+  height: 170px;
+  padding-top: 150px;
+  font-size: 18px;
+  color: #4a4a4a;
+  text-align: center;
+}
+.grammar.g-dabo {
+  margin-left: 30px;
+  background: url('../image/dabo.png') no-repeat;
+  background-size: 146px 146px;
+}
+.grammar.g-daluo {
+   background: url('../image/daluo.png') no-repeat;
+   background-size: 146px 146px;
+ }
+.grammar.g-xiaoluo {
+  background: url('../image/xiaogu.png') no-repeat;
+  background-size: 146px 146px;
+}
+.grammar.g-tanggu {
+  background: url('../image/tanggu.png') no-repeat;
+  background-size: 146px 146px;
+}
+.grammar.g-xiaogu {
+  background: url('../image/xiaogu.png') no-repeat;
+  background-size: 146px 146px;
+}
+.mask {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
+}
+.waiting-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1999;
+  width: 100%;
+}
+.waiting-wrap h2 {
+  margin-top: 218px;
+  margin-bottom: 68px;
+  font-size: 35px;
+  text-align: center;
+  color: #fff;
+}
+.player-list {
+  font-size: 0;
+  text-align: center;
+}
+.player-list .player {
+  margin-right: 38px;
+  display: inline-block;
+  width: 132px;
+}
+.player-list .player:last-child {
+  margin-right: 0;
+}
+.player-avatar {
+  margin-bottom: 20px;
+  width: 132px;
+  height: 132px;
+  border-radius: 100%;
+  background: #fff;
+}
+.player-name {
+  font-size: 15px;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/*闯关*/
+.btn-start-cg {
+  margin: 0 auto;
+  width: 147px;
+  height: 49px;
+  background: url('../image/start_ch.png') no-repeat;
+}
+.btn-select-level {
+  margin: 40px auto 36px;
+  display: inline-block;
+  width: 147px;
+  height: 49px;
+  background: url('../image/chose.png') no-repeat;
+}
+.result {
+  position: absolute;
+  z-index: 1999;
+  top: 200px;
+  left: 50%;
+  display: none;
+  margin-left: -150px;
+  width: 300px;
+  height: 186px;
+  background: url('../image/result_bg.png') no-repeat;
+}
+.success .result-text {
+  margin: 34px auto 0;
+  width: 103px;
+  height: 101px;
+  background: url('../image/success.png') no-repeat;
+}
+.btn-reload {
+  position: absolute;
+  left: 65px;
+  bottom: -42px;
+  width: 69px;
+  height: 71px;
+  background: url('../image/reload_button.png') no-repeat;
+}
+.btn-next {
+  position: absolute;
+  left: 165px;
+  bottom: -42px;
+  width: 69px;
+  height: 71px;
+  background: url('../image/next_button.png') no-repeat;
+}
+.select-level {
+  position: absolute;
+  top: 168px;
+  left: 400px;
+  z-index: 1999;
+  display: none;
+  width: 210px;
+}
+.select-level .level {
+  margin-bottom: 40px;
+  width: 210px;
+  height: 69px;
+  line-height: 65px;
+  text-align: center;
+  background: url('../image/level_bg.png') no-repeat;
+}
+.select-level .level.selected {
+  background-image: url('../image/level_selected_bg.png');
+}
+.level-text {
+  vertical-align: middle;
+  display: inline-block;
+  width: 90px;
+  height: 32px;
+  background: url('../image/level_text.png') no-repeat;
+}
+.two .level-text {
+  background-position: 0 -32px;
+}
+.three .level-text {
+  background-position: 0 -64px;
+}
+.four .level-text {
+  background-position: 0 -96px;
+}
+.five .level-text {
+  background-position: 0 -128px;
+}
+.ktv-start {
+  margin-top: 80px;
+  height: 51px;
+  font-size: 0;
+  text-align: center;
+}
+.ktv-start > span {
+  display: inline-block;
+  vertical-align: top;
+  width: 51px;
+  height: 51px;
+  background: url('../image/ktv_start.png') no-repeat;
+}
+.ktv-start .k2 {
+  margin-left: 25px;
+  background-position: -70px 0;
+}
+.ktv-start .k3 {
+  margin-left: 25px;
+  background-position: -140px 0;
+}
