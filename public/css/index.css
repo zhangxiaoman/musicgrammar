@@ -5,6 +5,9 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
+*, *:before, *:after {
+	box-sizing: border-box;
+}
 .wrap {
 	width: 1024px;
 	height: 768px;
