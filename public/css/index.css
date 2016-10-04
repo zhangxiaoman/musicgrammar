@@ -75,7 +75,10 @@ html, body {
 	height: 77px;
 	overflow: hidden;
 	background: url('../image/btn_level_bg.png') no-repeat;
-	-webkit-background-size: 70px 72px;
+}
+.group-item.selected .group-bg {
+	background-image: url(../image/btn_level_selected_bg.png);
+	background-position: -3px -4px;
 }
 .gruop-text {
 	margin-top: 8px;
