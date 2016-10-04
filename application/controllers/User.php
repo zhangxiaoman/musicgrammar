@@ -18,14 +18,14 @@ class User extends MY_Controller {
 
     public function create()
     {
-        $name = $this->input->post('name');
+        $name = $this->input->post('username');
         $group_id = $this->input->post('group_id');
 
         if (empty($name) || empty($group_id))
         {
-            $this->error("参数错误");
+            $this->error(1, "参数错误");
         }
-        
+
         $user_count = $this->user_model->get_count_by_group($group_id);
         if ($user_count >= 5) {
             $this->error(1,"当前组下已经有5个小伙伴啦...");

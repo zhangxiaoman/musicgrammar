@@ -36,7 +36,7 @@ class Group_Model extends CI_Model {
 
     public function group_list()
     {
-        $this->db->order_by("id", "desc");
+        $this->db->order_by("id", "asc");
         $query = $this->db->get('group');
         $groups =  $query->result_array();
 
