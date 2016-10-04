@@ -3,15 +3,20 @@
  */
 $(function() {
     var $username = $('#username');
-    var group = 'a';
+    var group = '1';
 
     $('.btn-start').on('click', function() {
+
+        if (!$username.val()) {
+            alert("请输入姓名");
+            return false;
+        }
         $.ajax({
-            url: '',
+            url: '/user/create',
             type: 'post',
             data: {
                 username: $username.val(),
-                group: group
+                group_id: group
             },
             dataType: 'json',
             success: function(re) {
