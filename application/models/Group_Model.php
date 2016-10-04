@@ -34,7 +34,7 @@ class Group_Model extends CI_Model {
     }
 
 
-    public function group_list()
+    public function group_list($id = 0)
     {
         $this->db->order_by("id", "asc");
         $query = $this->db->get('group');
@@ -55,7 +55,6 @@ class Group_Model extends CI_Model {
                 continue;
             }
             $group['user_count'] = $tempArr[$group['id']]['num'];
-
         }
 
         return $groups;

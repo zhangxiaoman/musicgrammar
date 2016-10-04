@@ -31,6 +31,9 @@ class Group extends MY_Controller {
     public function view()
     {
         $group_id = $this->input->post('group_id');
+        if (empty($group_id)) {
+            $group_id = $_SESSION['group_id'];
+        }
         $group_info = $this->group_model->get_group($group_id);
         $group_info['create_at'] = date('Y-m-d H:i:s', $group_info['create_at']);
         $users = $this->user_model->group_users($group_id);
@@ -56,7 +59,6 @@ class Group extends MY_Controller {
         $data['users'] = $users;
         $data['group'] = $group_info;
         $this->success($data);
-
     }
 
     /**

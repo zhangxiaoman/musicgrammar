@@ -9,8 +9,8 @@
 <body>
     <div class="wrap">
         <div class="title">
-            <div class="group-icon"></div>
-            <div class="user-name">小苹果大眼睛</div>
+            <div class="group-icon <?php echo $group_alias; ?>"></div>
+            <div class="user-name"><?php echo $user_name; ?></div>
         </div>
         <div class="edition-t exec"></div>
         <div id="main">
@@ -60,30 +60,31 @@
     <div id="waitingArea" class="waiting-wrap">
         <h2>等待其他小伙伴</h2>
         <div class="player-list">
-            <div class="player">
-                <div class="player-avatar wait"></div>
-                <div class="player-name">小苹果大眼睛</div>
-            </div>
-            <div class="player">
-                <div class="player-avatar avatar_2"></div>
-                <div class="player-name">小苹果大眼睛</div>
-            </div>
-            <div class="player">
-                <div class="player-avatar avatar_3"></div>
-                <div class="player-name">小苹果大眼睛</div>
-            </div>
-            <div class="player">
-                <div class="player-avatar avatar_4"></div>
-                <div class="player-name">小苹果大眼睛</div>
-            </div>
-            <div class="player">
-                <div class="player-avatar avatar_5"></div>
-                <div class="player-name">小苹果大眼睛</div>
-            </div>
+<!--            <div class="player">-->
+<!--                <div class="player-avatar wait"></div>-->
+<!--                <div class="player-name">小苹果大眼睛</div>-->
+<!--            </div>-->
+<!--            <div class="player">-->
+<!--                <div class="player-avatar avatar_2"></div>-->
+<!--                <div class="player-name">小苹果大眼睛</div>-->
+<!--            </div>-->
+<!--            <div class="player">-->
+<!--                <div class="player-avatar avatar_3"></div>-->
+<!--                <div class="player-name">小苹果大眼睛</div>-->
+<!--            </div>-->
+<!--            <div class="player">-->
+<!--                <div class="player-avatar avatar_4"></div>-->
+<!--                <div class="player-name">小苹果大眼睛</div>-->
+<!--            </div>-->
+<!--            <div class="player">-->
+<!--                <div class="player-avatar avatar_5"></div>-->
+<!--                <div class="player-name">小苹果大眼睛</div>-->
+<!--            </div>-->
         </div>
     </div>
     <div class="mask"></div>
     <script src="../../public/js/jquery-1.11.1.min.js"></script>
     <script src="../../public/js/exec.js"></script>
 </body>
+
 </html>

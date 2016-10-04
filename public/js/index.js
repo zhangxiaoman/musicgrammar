@@ -20,7 +20,11 @@ $(function() {
             },
             dataType: 'json',
             success: function(re) {
-
+                if (re.code == 0) {
+                    location.href= "/home/select";
+                } else {
+                    alert(re.message);
+                }
             }
         })
     });

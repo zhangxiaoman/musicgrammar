@@ -1,6 +1,7 @@
 <?php
 class User_Model extends CI_Model {
 
+    public static $avatar_arr = array('avatar_1', "avatar_2","avatar_3","avatar_4", "avatar_5");
 
     const STATUS_INIT = 0;
     const STATUS_READY = 1;
@@ -14,14 +15,18 @@ class User_Model extends CI_Model {
 
     public function create($name, $group_id)
     {
+        $avatar_index = rand(0,4);
+        $avatar = self::$avatar_arr[$avatar_index];
         $user = array(
             'name' => $name,
             'group_id' => $group_id,
+            'avatar' => $avatar,
             'create_at' => time()
         );
         $this->db->insert('user', $user);
         $id = $this->db->insert_id();
-        return $id;
+        $user['id'] = $id;
+        return $user;
     }
 
     /**

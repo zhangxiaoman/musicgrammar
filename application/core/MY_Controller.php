@@ -1,8 +1,14 @@
 <?php
 class MY_Controller extends CI_Controller {
+
+    public $domain = "";
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->domain = $_SERVER['HTTP_HOST'];
+        $this->load->library('session');
     }
 
     public function success($data = array())

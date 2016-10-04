@@ -1,11 +1,14 @@
 <?php
 class User extends MY_Controller {
 
+
     public function __construct()
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('group_model');
         $this->load->helper('url_helper');
+        $this->load->library('session');
     }
 
     public function index()
@@ -30,8 +33,16 @@ class User extends MY_Controller {
         if ($user_count >= 5) {
             $this->error(1,"当前组下已经有5个小伙伴啦...");
         }
-        $data['id'] = $this->user_model->create($name, $group_id);
-        $this->success($data);
+        $user = $this->user_model->create($name, $group_id);
+
+        $group_info = $this->group_model->get_group($group_id);
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_name'] = $name;
+        $_SESSION['group_name'] = $group_info['name'];
+        $_SESSION['group_alias'] = $group_info['alias'];
+        $_SESSION['group_id'] = $group_info['id'];
+        $_SESSION['avatar'] = $user['avatar'];
+        $this->success($user);
     }
 
     /**

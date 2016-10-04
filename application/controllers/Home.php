@@ -8,6 +8,7 @@ class Home extends MY_Controller
         $this->load->model('group_model');
         $this->load->model('user_model');
         $this->load->helper('url');
+        $this->load->library('session');
     }
 
     public function index()
@@ -19,8 +20,7 @@ class Home extends MY_Controller
 
     public function select()
     {
-        $user_id = $_REQUEST['user_id'];
-
+        $user_id = $_SESSION['user_id'];
         if (empty($user_id)) {
             redirect("/");
         }
@@ -32,12 +32,45 @@ class Home extends MY_Controller
         $group_info = $this->group_model->get_group($user_info['group_id']);
         $data['group_alias'] = $group_info['alias'];
         $data['group_name'] = $group_info['name'];
+
+        $_SESSION['group_id'] = $data['group_id'];
+        $_SESSION['group_name'] = $data['group_name'];
+
         $this->load->view('home/select', $data);
     }
 
-    public function exec()
+    public function exercise()
     {
-        $this->load->view('home/exec');
+        $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
+        $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
+        $data['group_alias'] =  empty($_SESSION['group_alias']) ? "" : $_SESSION['group_alias'];
+
+        if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
+            redirect("/");
+        }
+        $this->load->view('home/exercise', $data);
+    }
+
+
+    // 开始练习
+    public function begin_exercise()
+    {
+        $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
+        $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
+        $data['group_alias'] =  empty($_SESSION['group_alias']) ? "" : $_SESSION['group_alias'];
+        $data['group_id'] =  empty($_SESSION['group_id']) ? "" : $_SESSION['group_id'];
+
+        if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
+            redirect("/");
+        }
+
+        $users = $this->user_model->group_users($data['group_id']);
+
+        if (count($users) < 5) {
+            $this->error(1, "人数未满", array('users' => $users));
+        }
+
+        $this->load->view('home/begin_exercise', $data);
     }
 
 
