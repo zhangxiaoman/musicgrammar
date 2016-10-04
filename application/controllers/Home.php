@@ -7,6 +7,7 @@ class Home extends MY_Controller
         parent::__construct();
         $this->load->model('group_model');
         $this->load->model('user_model');
+        $this->load->model('musical_model');
         $this->load->helper('url');
         $this->load->library('session');
     }
@@ -73,5 +74,36 @@ class Home extends MY_Controller
         $this->load->view('home/begin_exercise', $data);
     }
 
+
+    public  function get_musical()
+    {
+        $id = $this->input->get("id");
+
+        $id = 1;
+        $musical = $this->musical_model->get($id);
+
+        $musical_content = json_decode($musical['content'], true);
+
+        // 节拍数.
+        $temps = count($musical_content);
+
+        // 每一拍时间.
+        $temps_time = number_format($musical['length']/$temps,0,"","");
+
+        foreach($musical_content as $key => &$item) {
+            $item_begin = $key * $temps_time;
+            foreach($item as $k => &$value) {
+
+                $value['begin_time'] = $item_begin + $value['begin'] / 10  * $temps_time;
+            }
+
+        }
+        $musical['temps'] = $temps;
+        $musical['temps_time'] = $temps_time;
+        $musical['content'] = $musical_content;
+
+        $this->success($musical);
+
+    }
 
 }
