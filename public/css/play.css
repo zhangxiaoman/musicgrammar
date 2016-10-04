@@ -39,7 +39,7 @@ html, body {
   height: 98px;
   background: url('../image/bzu_big.png') no-repeat;
 }
-.music-name {
+.user-name {
   margin-top: 55px;
   vertical-align: top;
   display: inline-block;
@@ -90,6 +90,19 @@ html, body {
   width: 128px;
   height: 37px;
   background: url('../image/exec1.png') no-repeat;
+}
+.game-info .music-name {
+  margin-top: 40px;
+  display: inline-block;
+  width: 95px;
+  height: 43px;
+  background: url('../image/chui.png') no-repeat;
+}
+.game-info .music-name.second {
+  background-position: 0 -43px;
+}
+.game-info .music-name.third {
+  background-position: 0 -86px;
 }
 .btn-freedom-exec {
   margin: 40px auto 36px;
@@ -222,6 +235,7 @@ html, body {
   left: 0;
   top: 0;
   z-index: 1999;
+  display: none;
   width: 100%;
 }
 .waiting-wrap h2 {
@@ -248,13 +262,19 @@ html, body {
   width: 132px;
   height: 132px;
   border-radius: 100%;
-  background: #fff;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .player-name {
   font-size: 15px;
   color: #fff;
   overflow: hidden;
   white-space: nowrap;
+}
+.wait .player-avatar {
+  background-image: url('../image/q.png');
+  background-size: 50px 70px;
 }
 
 /*闯关*/

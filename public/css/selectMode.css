@@ -2,6 +2,7 @@ html {
   font-size: 16px;
   font-family: Helvetica, 'STHeitiSC Light', Tahoma, Verdana, Sans-Serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 700;
 }
 html, body {
   margin: 0;
@@ -34,8 +35,19 @@ html, body {
   width: 95px;
   height: 98px;
   background: url('../image/bzu_big.png') no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
 }
-.music-name {
+.group-icon.a {
+  background-image: url('../image/azu_big.png');
+}
+.group-icon.b {
+  background-image: url('../image/bzu_big.png');
+}
+.group-icon.c {
+  background-image: url('../image/czu_big.png');
+}
+.user-name {
   margin-top: 55px;
   vertical-align: top;
   display: inline-block;
