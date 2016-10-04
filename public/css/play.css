@@ -262,9 +262,7 @@ html, body {
   width: 132px;
   height: 132px;
   border-radius: 100%;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url('../image/avatar.png') no-repeat;
 }
 .player-name {
   font-size: 15px;
@@ -272,11 +270,24 @@ html, body {
   overflow: hidden;
   white-space: nowrap;
 }
-.wait .player-avatar {
-  background-image: url('../image/q.png');
-  background-size: 50px 70px;
+.player-avatar.avatar_1 {
+  background-position: 0 0;
 }
-
+.player-avatar.avatar_2 {
+  background-position: -131px 0;
+}
+.player-avatar.avatar_3 {
+  background-position: -266px 0;
+}
+.player-avatar.avatar_4 {
+  background-position: -399px 0;
+}
+.player-avatar.avatar_5 {
+  background-position: -533px 0;
+}
+.player-avatar.wait {
+  background-position: -666px 0;
+}
 /*闯关*/
 .btn-start-cg {
   margin: 0 auto;
