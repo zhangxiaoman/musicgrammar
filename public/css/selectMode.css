@@ -1,0 +1,32 @@
+html {
+  font-size: 16px;
+  font-family: Helvetica, 'STHeitiSC Light', Tahoma, Verdana, Sans-Serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.wrap {
+  width: 1024px;
+  height: 768px;
+  overflow: hidden;
+  background: url('../image/bg.jpg') no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+.title {
+  margin-left: 30px;
+  margin-top: 30px;
+  width: 275px;
+  height: 108px;
+  border-bottom: 1px solid #e88a12;
+}

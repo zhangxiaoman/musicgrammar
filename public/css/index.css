@@ -1,0 +1,118 @@
+html {
+	font-size: 16px;
+	font-family: Helvetica, 'STHeitiSC Light', Tahoma, Verdana, Sans-Serif;
+    -webkit-font-smoothing: antialiased;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+.wrap {
+	width: 1024px;
+	height: 768px;
+	overflow: hidden;
+	background: url('../image/bg.jpg') no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.container {
+	width: 400px;
+	margin: 0 auto;
+}
+.logo {
+	margin: 65px auto 0;
+	width: 380px;
+	height: 274px;
+	background: url('../image/logo.png') no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+.t-label {
+	font-size: 25px;
+	display: inline-block;
+	width: 116px;
+}
+.username {
+	margin-top: 54px;
+	margin-bottom: 48px;
+	height: 32px;
+	line-height: 32px;
+}
+.username input {
+	vertical-align: top;
+	width: 270px;
+	height: 32px;
+	padding: 0 16px;
+	color: #333;
+	font-size: 22px;
+	text-align: center;
+	outline: none;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #333;
+}
+.ilb {
+	display: inline-block;
+}
+.group .t-label {
+	vertical-align: top;
+	margin-top: 20px;
+}
+.group-item {
+	display: inline-block;
+	margin-right: 16px;
+	width: 77px;
+	text-align: center;
+}
+.group-item:last-child {
+	margin-right: 0;
+}
+.group-item .group-bg {
+	width: 77px;
+	height: 77px;
+	overflow: hidden;
+	background: url('../image/btn_level_bg.png') no-repeat;
+}
+.group-item.selected .group-bg {
+	background-image: url(../image/btn_level_selected_bg.png);
+	background-position: -3px -4px;
+}
+.gruop-text {
+	margin-top: 8px;
+	font-size: 14px;
+	text-align: center;
+	color: #333;
+}
+.group-item .group-icon {
+	margin-top: 4px;
+	margin-left: 3px;
+	width: 65px;
+	height: 66px;
+}
+.group-a .group-icon {
+	background: url('../image/A.png') no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.group-b .group-icon {
+	background: url('../image/B.png') no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.group-c .group-icon {
+	background: url('../image/C.png') no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.btn-start {
+	margin-top: 60px;
+	margin-left: 25px;
+	width: 340px;
+	height: 70px;
+	background: url('../image/btn_start.png') no-repeat;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
+}
