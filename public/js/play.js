@@ -6,12 +6,16 @@ $(function() {
     var $edition_t = $('.edition-t'); // 模式显示
     var $buttons = $('.buttons');
 
-    var Reaygo = new Audio('../../public/audio/ready_go.mp3');
-    var Tabour = new Audio('../../public/audio/Tabour.wav');
-    var Bigbong = new Audio('../../public/audio/bigbong.wav');
-    var Maluo = new Audio('../../public/audio/maluo.wav');
-    var Dabo = new Audio('../../public/audio/dabo.wav');
-    var Tanggu = new Audio('../../public/audio/tanggu.wav');
+    var Grammar = {
+        xiaogu: new Audio('../../public/audio/Tabour.wav'),
+        daluo: new Audio('../../public/audio/bigbong.wav'),
+        xiaoluo: new Audio('../../public/audio/maluo.wav'),
+        dabo: new Audio('../../public/audio/dabo.wav'),
+        tanggu: new Audio('../../public/audio/tanggu.wav')
+
+    };
+
+    var Readygo = new Audio('../../public/audio/ready_go.mp3');
 
     var game = {
         init: function() {
@@ -20,25 +24,14 @@ $(function() {
                 $readyText: $('.ready-text'),
                 $ktvStart: $('.ktv-start')
             };
+            this._bindEvent();
             this.showCountDown();
         },
         _bindEvent: function() {
             $('.hit-area').on('click', '.grammar', function() {
                 var $this = $(this);
-                var id = $this.attr('id');
-                switch(id) {
-                    case 'tabour':
-                        Tabour.play(); break;
-                    case 'bigbong':
-                        Bigbong.play(); break;
-                    case 'maluo':
-                        Maluo.play(); break;
-                    case 'dabo':
-                        Dabo.play(); break;
-                    case 'tanggu':
-                        Tanggu.play(); break;
-                    default:
-                }
+                var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
+                Grammar[g].play();
             });
         },
         showCountDown: function() {
@@ -56,7 +49,7 @@ $(function() {
                 $k2.addClass('show');
                 setTimeout(function() {
                     $k3.addClass('show');
-                    Reaygo.play();
+                    Readygo.play();
                     setTimeout(function() {
                         $ktvStart.hide();
                         $ktvStart.find('span').removeClass('show');
