@@ -13,24 +13,6 @@ $(function() {
     var Dabo = new Audio('../../public/audio/dabo.wav');
     var Tanggu = new Audio('../../public/audio/tanggu.wav');
 
-    $('.handler-area').on('click', '.operat-button', function() {
-        var $this = $(this);
-        var id = $this.attr('id');
-        switch(id) {
-            case 'tabour':
-                Tabour.play(); break;
-            case 'bigbong':
-                Bigbong.play(); break;
-            case 'maluo':
-                Maluo.play(); break;
-            case 'dabo':
-                Dabo.play(); break;
-            case 'tanggu':
-                Tanggu.play(); break;
-            default:
-        }
-    });
-
     var game = {
         init: function() {
             this.$el = $('.game-scene');
@@ -39,6 +21,25 @@ $(function() {
                 $ktvStart: $('.ktv-start')
             };
             this.showCountDown();
+        },
+        _bindEvent: function() {
+            $('.hit-area').on('click', '.grammar', function() {
+                var $this = $(this);
+                var id = $this.attr('id');
+                switch(id) {
+                    case 'tabour':
+                        Tabour.play(); break;
+                    case 'bigbong':
+                        Bigbong.play(); break;
+                    case 'maluo':
+                        Maluo.play(); break;
+                    case 'dabo':
+                        Dabo.play(); break;
+                    case 'tanggu':
+                        Tanggu.play(); break;
+                    default:
+                }
+            });
         },
         showCountDown: function() {
             var self = this;
