@@ -83,6 +83,6 @@
 <div class="mask"></div>
 <script src="../../public/js/jquery-1.11.1.min.js"></script>
 <script src="../../public/js/play.js"></script>
-<script src="../../public/js/exec.js"></script>
+<script src="../../public/js/create.js"></script>
 </body>
 </html>

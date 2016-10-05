@@ -13,7 +13,7 @@
         <div class="group-icon"></div>
         <div class="user-name">小苹果大眼睛</div>
     </div>
-    <a href="/home/select"><div class="edition-t create"></div></a>
+    <div class="edition-t create"></div>
     <div id="main">
         <div class="student-play-area group-a">
             <div class="group-title"></div>
