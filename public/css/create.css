@@ -1,0 +1,74 @@
+#main {
+  position: relative;
+}
+.btn-teacher-hit {
+  position: absolute;
+  left: 460px;
+  top: 204px;
+  width: 107px;
+  height: 108px;
+  background: url('../image/btn1.png') no-repeat;
+}
+.student-play-area {
+  position: absolute;
+  width: 400px;
+  text-align: center;
+}
+.student-play-area .group-title {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 68px;
+  height: 71px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.group-a {
+  left: 310px;
+}
+.group-b {
+  top: 210px;
+  left: 16px;
+}
+.group-c {
+  top: 210px;
+  left: 610px;
+}
+.group-a .group-title  {
+  background-image: url('../image/azu_big.png');
+}
+.group-b .group-title  {
+  background-image: url('../image/bzu_big.png');
+}
+.group-c .group-title  {
+  background-image: url('../image/czu_big.png');
+}
+.grammar-lt > span {
+  margin: 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.grammar-lt .sidedrum {
+  width: 40px;
+  height: 46px;
+  background: url('../image/xiaogu_s.png') center no-repeat;
+}
+.grammar-lt .tupan {
+  width: 67px;
+  height: 42px;
+  background: url('../image/tanggu_s.png') center no-repeat;
+}
+.grammar-lt .tam {
+  width: 60px;
+  height: 72px;
+  background: url('../image/daluo_s.png') center no-repeat;
+}
+.grammar-lt .cymbal {
+  width: 53px;
+  height: 50px;
+  background: url('../image/dabo_s.png') center no-repeat;
+}
+.grammar-lt .mule {
+  width: 55px;
+  height: 55px;
+  background: url('../image/xiaoluo_s.png') center no-repeat;
+}
