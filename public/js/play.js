@@ -2,8 +2,6 @@
  * Created by chaofan on 2016/10/4.
  */
 $(function() {
-    var $playArea = $('#playArea'); // 游戏区域
-    var $edition_t = $('.edition-t'); // 模式显示
     var $buttons = $('.buttons');
 
     var Grammar = {
@@ -12,10 +10,62 @@ $(function() {
         xiaoluo: new Audio('../../public/audio/maluo.wav'),
         dabo: new Audio('../../public/audio/dabo.wav'),
         tanggu: new Audio('../../public/audio/tanggu.wav')
-
     };
 
     var Readygo = new Audio('../../public/audio/ready_go.mp3');
+
+    var mock = {
+        "code": 0,
+        "data": {
+            "id": "1",
+            "content": [
+                [
+                    {
+                        "name": "tupan",
+                        "begin": 0,
+                        "begin_time": 0
+                    }
+                ],
+                [
+                    {
+                        "name": "tupan",
+                        "begin": 0,
+                        "begin_time": 3440
+                    },
+                    {
+                        "name": "mule",
+                        "begin": 5,
+                        "begin_time": 5160
+                    }
+                ],
+                [
+                    {
+                        "name": "tupan",
+                        "begin": 0,
+                        "begin_time": 6880
+                    },
+                    {
+                        "name": "tam",
+                        "begin": 0,
+                        "begin_time": 6880
+                    },
+                    {
+                        "name": "cymbal",
+                        "begin": 0,
+                        "begin_time": 6880
+                    },
+                    {
+                        "name": "sidedrum",
+                        "begin": 0,
+                        "begin_time": 6880
+                    }
+                ]
+            ],
+            "length": "10320",
+            "temps": 3,
+            "temps_time": "3440"
+        }
+    };
 
     var game = {
         init: function() {
@@ -24,6 +74,7 @@ $(function() {
                 $readyText: $('.ready-text'),
                 $ktvStart: $('.ktv-start')
             };
+            this.startTime = 0;
             this._bindEvent();
             this.showCountDown();
         },
@@ -33,6 +84,9 @@ $(function() {
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 Grammar[g].play();
             });
+        },
+        _createScene: function() {
+
         },
         showCountDown: function() {
             var self = this;
@@ -60,6 +114,7 @@ $(function() {
         },
         start: function() {
             var self = this;
+            this.startTime = Date.now();
             var $content = this.$el.find('.rhythm-container');
             var wrapWidth = this.$el.width();
             var contentWidth = $content.width();
