@@ -62,6 +62,31 @@
     <div class="btn-reload"></div>
     <div class="btn-next"></div>
 </div>
+<div id="waitingArea" class="waiting-wrap">
+    <h2>等待其他小伙伴</h2>
+    <div class="player-list">
+        <!--            <div class="player">-->
+        <!--                <div class="player-avatar wait"></div>-->
+        <!--                <div class="player-name">小苹果大眼睛</div>-->
+        <!--            </div>-->
+        <!--            <div class="player">-->
+        <!--                <div class="player-avatar avatar_2"></div>-->
+        <!--                <div class="player-name">小苹果大眼睛</div>-->
+        <!--            </div>-->
+        <!--            <div class="player">-->
+        <!--                <div class="player-avatar avatar_3"></div>-->
+        <!--                <div class="player-name">小苹果大眼睛</div>-->
+        <!--            </div>-->
+        <!--            <div class="player">-->
+        <!--                <div class="player-avatar avatar_4"></div>-->
+        <!--                <div class="player-name">小苹果大眼睛</div>-->
+        <!--            </div>-->
+        <!--            <div class="player">-->
+        <!--                <div class="player-avatar avatar_5"></div>-->
+        <!--                <div class="player-name">小苹果大眼睛</div>-->
+        <!--            </div>-->
+    </div>
+</div>
 <div class="select-level">
     <div class="level one selected" data-level="1">
         <span class="level-text"></span>
@@ -69,7 +94,6 @@
     <div class="level two" data-level="2"><span class="level-text"></span></div>
     <div class="level three" data-level="3"><span class="level-text"></span></div>
     <div class="level four" data-level="4"><span class="level-text"></span></div>
-    <div class="level five" data-level="5"><span class="level-text"></span></div>
 </div>
 <div class="mask"></div>
 <script src="../../public/js/jquery-1.11.1.min.js"></script>

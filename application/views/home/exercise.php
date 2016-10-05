@@ -19,8 +19,9 @@
                     <div class="game-name exec1"></div>
                     <div class="music-name third"></div>
                 </div>
-                <div>
+                <div class="buttons">
                     <div class="btn-freedom-exec"></div>
+                    <div class="btn-select-level" style="margin: 20px auto;"></div>
                     <div class="btn-start-exec"></div>
                 </div>
                 <div class="ktv-start" style="display: none;">
@@ -58,29 +59,38 @@
         </div>
     </div>
     <div id="waitingArea" class="waiting-wrap">
-        <h2>等待其他小伙伴</h2>
-        <div class="player-list">
-<!--            <div class="player">-->
-<!--                <div class="player-avatar wait"></div>-->
-<!--                <div class="player-name">小苹果大眼睛</div>-->
-<!--            </div>-->
-<!--            <div class="player">-->
-<!--                <div class="player-avatar avatar_2"></div>-->
-<!--                <div class="player-name">小苹果大眼睛</div>-->
-<!--            </div>-->
-<!--            <div class="player">-->
-<!--                <div class="player-avatar avatar_3"></div>-->
-<!--                <div class="player-name">小苹果大眼睛</div>-->
-<!--            </div>-->
-<!--            <div class="player">-->
-<!--                <div class="player-avatar avatar_4"></div>-->
-<!--                <div class="player-name">小苹果大眼睛</div>-->
-<!--            </div>-->
-<!--            <div class="player">-->
-<!--                <div class="player-avatar avatar_5"></div>-->
-<!--                <div class="player-name">小苹果大眼睛</div>-->
-<!--            </div>-->
+            <h2>等待其他小伙伴</h2>
+            <div class="player-list">
+                <!--            <div class="player">-->
+                <!--                <div class="player-avatar wait"></div>-->
+                <!--                <div class="player-name">小苹果大眼睛</div>-->
+                <!--            </div>-->
+                <!--            <div class="player">-->
+                <!--                <div class="player-avatar avatar_2"></div>-->
+                <!--                <div class="player-name">小苹果大眼睛</div>-->
+                <!--            </div>-->
+                <!--            <div class="player">-->
+                <!--                <div class="player-avatar avatar_3"></div>-->
+                <!--                <div class="player-name">小苹果大眼睛</div>-->
+                <!--            </div>-->
+                <!--            <div class="player">-->
+                <!--                <div class="player-avatar avatar_4"></div>-->
+                <!--                <div class="player-name">小苹果大眼睛</div>-->
+                <!--            </div>-->
+                <!--            <div class="player">-->
+                <!--                <div class="player-avatar avatar_5"></div>-->
+                <!--                <div class="player-name">小苹果大眼睛</div>-->
+                <!--            </div>-->
+            </div>
+    </div>
+    <div class="select-level">
+        <div class="level one selected" data-level="1">
+            <span class="level-text"></span>
         </div>
+        <div class="level two" data-level="2"><span class="level-text"></span></div>
+        <div class="level three" data-level="3"><span class="level-text"></span></div>
+        <div class="level four" data-level="4"><span class="level-text"></span></div>
+        <!--<div class="level five" data-level="5"><span class="level-text"></span></div>-->
     </div>
     <div class="mask"></div>
     <div class="freedom-exec-mask"></div>

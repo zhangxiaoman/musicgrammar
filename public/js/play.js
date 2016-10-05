@@ -82,7 +82,7 @@ $(function() {
             this.level = level || 1;
             this.type = type || 'exec';
             this.startTime = 0;
-            this.data = mock.data;
+            this.data = this._getLevelData(level);
             this.result = [];
             this._createScene();
             this.showCountDown();
@@ -113,7 +113,7 @@ $(function() {
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 var n = (Date.now() - self.startTime) / ~~self.data.temps_time;
                 n = Math.floor(n);
-                result[n] ? result[n].push(g) : (result[n] = [g]);
+                self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
                 //var selector = '.' + n + '-' + g;
                 //if ($(selector).length > 0) { // 计算分数
                 //    $(selector).removeClass();
