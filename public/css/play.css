@@ -331,6 +331,12 @@ html, body {
   height: 101px;
   background: url('../image/success.png') no-repeat;
 }
+.fail .result-text {
+  margin: 30px auto 0;
+  width: 221px;
+  height: 108px;
+  background: url('../image/fail.png') no-repeat;
+}
 .btn-reload {
   position: absolute;
   left: 65px;

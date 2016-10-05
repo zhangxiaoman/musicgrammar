@@ -3,8 +3,10 @@
  */
 $(function() {
     var $buttons = $('.buttons');
-    var fourthBarrier = new Audio('../../public/audio/fourthbarrier.mp3');
-    var fifthBarrier = new Audio('../../public/audio/fifthbarrier.mp3');
+    var FOUTHBARRIER = new Audio('../../public/audio/fourthbarrier.mp3');
+    var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
+    var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
+    var FAILSOUND = new Audio('../../public/audio/fail.mp3');
 
     var Grammar = {
         sidedrum: new Audio('../../public/audio/Tabour.wav'),
@@ -70,13 +72,15 @@ $(function() {
     };
 
     var game = {
-        init: function() {
+        init: function(level, type) {
             this.$el = $('.game-scene');
             this.comp = {
                 $readyText: $('.ready-text'),
                 $ktvStart: $('.ktv-start'),
                 $container: $('.rhythm-container')
             };
+            this.level = level || 1;
+            this.type = type || 'exec';
             this.startTime = 0;
             this.data = mock.data;
             this.result = 0;
@@ -92,7 +96,7 @@ $(function() {
                 n = Math.floor(n);
                 var selector = '.' + n + '-' + g;
                 if ($(selector).length > 0) { // 计算分数
-                    $(selector).removeClass().hide();
+                    $(selector).removeClass();
                     self.result += 10;
                 }
                 Grammar[g].play();
@@ -145,6 +149,12 @@ $(function() {
             var $content = this.$el.find('.rhythm-container');
             this._bindEvent();
             this.startTime = Date.now();
+            if (this.level == 4) {
+                FOUTHBARRIER.play();
+            }
+            if (this.level == 5) {
+                FIFTHBARRIER.play();
+            }
             $content.show().animate(
                 { left: -134 * self.data.temps },
                 ~~self.data.length,
@@ -156,10 +166,20 @@ $(function() {
         end: function() {
             $buttons.show();
             this._unbindEvent();
-            console.log(this.result)
+            if (this.type === 'brk') {
+                this.showResult();
+            }
         },
-        fixScore: function() {
-            $buttons.show()
+        showResult: function() {
+            $('.mask').show();
+            if (this.result > 20) {
+                $('.result').removeClass('fail').addClass('success').show();
+                SUCCESSSOUND.play();
+            } else {
+                $('.result').removeClass('success').addClass('fail').show();
+                FAILSOUND.play();
+            }
+
         }
     };
     window.Game = game;
