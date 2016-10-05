@@ -82,8 +82,13 @@ $(function() {
             this.level = level || 1;
             this.type = type || 'exec';
             this.startTime = 0;
+<<<<<<< HEAD
             this.data = this._getLevelData(level);
             this.result = 0;
+=======
+            this.data = mock.data;
+            this.result = [];
+>>>>>>> 4c605d16ef2c034f94f582f5e3c128624ad6c765
             this._createScene();
             this.showCountDown();
         },
@@ -113,11 +118,12 @@ $(function() {
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 var n = (Date.now() - self.startTime) / ~~self.data.temps_time;
                 n = Math.floor(n);
-                var selector = '.' + n + '-' + g;
-                if ($(selector).length > 0) { // 计算分数
-                    $(selector).removeClass();
-                    self.result += 10;
-                }
+                result[n] ? result[n].push(g) : (result[n] = [g]);
+                //var selector = '.' + n + '-' + g;
+                //if ($(selector).length > 0) { // 计算分数
+                //    $(selector).removeClass();
+                //    self.result += 10;
+                //}
                 Grammar[g].play();
             });
         },
@@ -191,6 +197,8 @@ $(function() {
             }
         },
         showResult: function() {
+            console.log(this.result);
+            $.ajax({});
             $('.mask').show();
             if (this.result > 20) {
                 $('.result').removeClass('fail').addClass('success').show();
