@@ -110,6 +110,10 @@ html, body {
 .game-info .music-name.third {
   background-position: 0 -86px;
 }
+.game-info .music-name.fourth {
+  width: 98px;
+  background-image: url('../image/level4.png');
+}
 .btn-freedom-exec {
   margin: 20px auto;
   width: 147px;
@@ -471,6 +475,7 @@ html, body {
   left: 0;
   top: 0;
   z-index: 199;
+  display: none;
   height: 565px;
   width: 100%;
   background: rgba(0,0,0,.5) url('../image/over_text.png') center 276px no-repeat;

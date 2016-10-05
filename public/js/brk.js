@@ -15,8 +15,7 @@ $(function() {
         '1': 'music-name',
         '2': 'music-name second',
         '3': 'music-name third',
-        '4': 'music-name',
-        '5': 'music-name'
+        '4': 'music-name fourth'
     };
 
     var beginCheckUserCount = false;
