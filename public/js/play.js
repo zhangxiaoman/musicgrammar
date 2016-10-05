@@ -72,10 +72,13 @@ $(function() {
             this.$el = $('.game-scene');
             this.comp = {
                 $readyText: $('.ready-text'),
-                $ktvStart: $('.ktv-start')
+                $ktvStart: $('.ktv-start'),
+                $container: $('.rhythm-container')
             };
             this.startTime = 0;
+            this.data = mock.data;
             this._bindEvent();
+            this._createScene();
             this.showCountDown();
         },
         _bindEvent: function() {
@@ -86,7 +89,19 @@ $(function() {
             });
         },
         _createScene: function() {
-
+            var content = this.data.content;
+            var tempTime = ~~this.data.temps_time;
+            var i, j, len;
+            this.comp.$container.width(134 * this.data.temps);
+            this.comp.$container.css('right', -134 * this.data.temps);
+            for(i = 0, len = content.length; i < len; i++) {
+                var t = content[i];
+                for (j = 0; j < t.length; j++) {
+                    var span = $('<span />');
+                    span.css('left', t[j].begin_time / tempTime * 134);
+                    $('.' + t[j].name + '-row').append(span);
+                }
+            }
         },
         showCountDown: function() {
             var self = this;
@@ -118,21 +133,19 @@ $(function() {
             var $content = this.$el.find('.rhythm-container');
             var wrapWidth = this.$el.width();
             var contentWidth = $content.width();
-            $content.css('right', -contentWidth);
             $content.show().animate(
-                {right: contentWidth + wrapWidth},
-                wrapWidth * 10,
+                { right: contentWidth + wrapWidth },
+                ~~self.data.length,
                 'linear',
                 function() {
                     self.end();
                 });
         },
         end: function() {
-            console.log('end');
-            $('.btn-start').show();
+            $buttons.show();
         },
         fixScore: function() {
-
+            $buttons.show()
         }
     };
     window.Game = game;

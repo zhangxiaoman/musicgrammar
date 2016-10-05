@@ -8,7 +8,7 @@ $(function() {
     var $mask = $('.mask');
 
     var beginCheckUserCount = false;
-
+    window.Game.init();
     // 自由练习
     $freedomBtn.click(function() {
         window.Game.init();
