@@ -110,9 +110,12 @@ html, body {
 .game-info .music-name.third {
   background-position: 0 -86px;
 }
+.game-info .music-name.fourth {
+  width: 98px;
+  background-image: url('../image/level4.png');
+}
 .btn-freedom-exec {
-  margin: 40px auto 36px;
-  display: inline-block;
+  margin: 20px auto;
   width: 147px;
   height: 49px;
   background: url('../image/ziyou.png') no-repeat;
@@ -309,7 +312,6 @@ html, body {
 }
 .btn-select-level {
   margin: 40px auto 36px;
-  display: inline-block;
   width: 147px;
   height: 49px;
   background: url('../image/chose.png') no-repeat;
@@ -467,4 +469,14 @@ html, body {
 .container {
   width: 400px;
   margin: 0 auto;
+}
+.freedom-exec-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 199;
+  display: none;
+  height: 565px;
+  width: 100%;
+  background: rgba(0,0,0,.5) url('../image/over_text.png') center 276px no-repeat;
 }
