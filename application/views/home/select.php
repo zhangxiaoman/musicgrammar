@@ -15,8 +15,8 @@
         <div class="container">
             <div class="h3">请选择训练模式</div>
             <a href="/home/exercise"><div class="edition btn-exercise"></div></a>
-            <div class="edition btn-breakthrough"></div>
-            <div class="edition btn-create"></div>
+            <a href="/home/breakthrough"><div class="edition btn-breakthrough"></div></a>
+            <a href="/home/create"><div class="edition btn-create"></div></a>
         </div>
     </div>
 <script src="../../public/js/jquery-1.11.1.min.js"></script>

@@ -77,9 +77,11 @@ class Home extends MY_Controller
 
     public  function get_musical()
     {
-        $id = $this->input->get("id");
+        $id = $this->input->post("id");
 
-        $id = 1;
+        if ($id >3 ){
+            $id = 3;
+        }
         $musical = $this->musical_model->get($id);
 
         $musical_content = json_decode($musical['content'], true);
@@ -105,5 +107,21 @@ class Home extends MY_Controller
         $this->success($musical);
 
     }
+
+    // 创作版
+    public function create()
+    {
+        $list = $this->group_model->group_list();
+
+        $this->load->view('home/create');
+    }
+
+    // 创作版
+    public function breakthrough()
+    {
+        $this->load->view('home/breakthrough');
+    }
+
+
 
 }

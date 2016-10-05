@@ -82,10 +82,29 @@ $(function() {
             this.level = level || 1;
             this.type = type || 'exec';
             this.startTime = 0;
-            this.data = mock.data;
+            this.data = this._getLevelData(level);
             this.result = 0;
             this._createScene();
             this.showCountDown();
+        },
+
+        _getLevelData: function(level)
+        {
+            var _data;
+            $.ajax({
+                url: '/home/get_musical',
+                type: 'post',
+                async: false,
+                data: {
+                    id: level
+                },
+                dataType: 'json',
+                success: function(re) {
+                    _data = re.data;
+                }
+            });
+
+            return _data;
         },
         _bindEvent: function() {
             var self = this;
@@ -106,6 +125,7 @@ $(function() {
             $('.hit-area').unbind('click');
         },
         _createScene: function() {
+            console.log(this.data);
             var content = this.data.content;
             var tempTime = ~~this.data.temps_time;
             var i, j, len;

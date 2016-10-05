@@ -19,8 +19,6 @@ $(function() {
         '5': 'music-name'
     };
 
-    var beginCheckUserCount = false;
-
     // 选择关卡
     $selectBtn.click(function() {
         $selectLevel.show();

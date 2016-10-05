@@ -12,7 +12,7 @@
             <div class="group-icon <?php echo $group_alias; ?>"></div>
             <div class="user-name"><?php echo $user_name; ?></div>
         </div>
-        <div class="edition-t exec"></div>
+        <a href="/home/select"><div class="edition-t exec"></div></a>
         <div id="main">
             <div class="left-area">
                 <div class="game-info">
@@ -29,7 +29,7 @@
                     <span class="k3"></span>
                 </div>
             </div>
-            <<div class="game-scene">
+            <div class="game-scene">
                 <div class="play-line">
                     <div class="line"></div>
                 </div>
