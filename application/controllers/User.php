@@ -1,11 +1,14 @@
 <?php
 class User extends MY_Controller {
 
+
     public function __construct()
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('group_model');
         $this->load->helper('url_helper');
+        $this->load->library('session');
     }
 
     public function index()
@@ -18,36 +21,65 @@ class User extends MY_Controller {
 
     public function create()
     {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $name = $this->input->post('username');
+        $group_id = $this->input->post('group_id');
 
-        $is_ajax = $this->input->post('ajax');
-        $data['title'] = 'Create a news user';
-
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('group_id', 'Group', 'required');
-
-        if ($this->form_validation->run() === FALSE)
+        if (empty($name) || empty($group_id))
         {
-            $this->load->view('user/create',$data);
+            $this->error(1, "参数错误");
         }
-        else
-        {
-            $data['id'] = $this->user_model->create();
-            if ($is_ajax) {
-                die(json_encode(array('code' => 0, 'data' => array())));
-            }
-            $this->load->view('user/success', $data);
+
+        $user_count = $this->user_model->get_count_by_group($group_id);
+        if ($user_count >= 5) {
+            $this->error(1,"当前组下已经有5个小伙伴啦...");
         }
+        $user = $this->user_model->create($name, $group_id);
+
+        $group_info = $this->group_model->get_group($group_id);
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_name'] = $name;
+        $_SESSION['group_name'] = $group_info['name'];
+        $_SESSION['group_alias'] = $group_info['alias'];
+        $_SESSION['group_id'] = $group_info['id'];
+        $_SESSION['avatar'] = $user['avatar'];
+        $this->success($user);
     }
 
+    /**
+     * Ready.
+     */
     public function ready()
     {
-        $result = $this->user_model->update_status();
+        $id = $this->input->post("id");
+        $result = $this->user_model->update_status(User_Model::STATUS_READY, array($id));
         if($result) {
-            die(json_encode(array('code' => 0, 'data' => array())));
+           $this->success();
         }
-        die(json_encode(array('code' => 1, 'message' => '网络异常,请稍后再试', 'data' => array())));
+        $this->error();
+    }
+
+    /**
+     * End
+     */
+    public function end()
+    {
+        $id = $this->input->post("id");
+        $result = $this->user_model->update_status(User_Model::STATUS_END, array($id));
+        if($result) {
+            $this->success();
+        }
+        $this->error();
+    }
+
+    public function view()
+    {
+        $id = $this->input->post("id");
+        $user = $this->user_model->get($id);
+        if (empty($user)) {
+            $this->error();
+        }
+        $user['create_at'] = date("Y-m-d H:i:s", $user['create_at']);
+        $this->success($user);
     }
 
 }
