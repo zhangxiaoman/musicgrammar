@@ -133,7 +133,7 @@ html, body {
 }
 .play-line {
   position: absolute;
-  left: 57px;
+  left: 122px;
   top: 0;
   z-index: 2;
   width: 27px;
@@ -165,7 +165,6 @@ html, body {
   width: 100%;
   height: 20%;
   line-height: 78px;
-  padding: 0 4px;
   text-align: left;
   font-size: 0;
 }
@@ -212,24 +211,24 @@ html, body {
   color: #4a4a4a;
   text-align: center;
 }
-.grammar.g-dabo {
+.grammar.g-cymbal {
   margin-left: 30px;
   background: url('../image/dabo.png') no-repeat;
   background-size: 146px 146px;
 }
-.grammar.g-daluo {
+.grammar.g-tam {
    background: url('../image/daluo.png') no-repeat;
    background-size: 146px 146px;
  }
-.grammar.g-xiaoluo {
+.grammar.g-mule {
   background: url('../image/xiaoluo.png') no-repeat;
   background-size: 146px 146px;
 }
-.grammar.g-tanggu {
+.grammar.g-tupan {
   background: url('../image/tanggu.png') no-repeat;
   background-size: 146px 146px;
 }
-.grammar.g-xiaogu {
+.grammar.g-sidedrum {
   background: url('../image/xiaogu.png') no-repeat;
   background-size: 146px 146px;
 }

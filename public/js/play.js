@@ -3,13 +3,15 @@
  */
 $(function() {
     var $buttons = $('.buttons');
+    var fourthBarrier = new Audio('../../public/audio/fourthbarrier.mp3');
+    var fifthBarrier = new Audio('../../public/audio/fifthbarrier.mp3');
 
     var Grammar = {
-        xiaogu: new Audio('../../public/audio/Tabour.wav'),
-        daluo: new Audio('../../public/audio/bigbong.wav'),
-        xiaoluo: new Audio('../../public/audio/maluo.wav'),
-        dabo: new Audio('../../public/audio/dabo.wav'),
-        tanggu: new Audio('../../public/audio/tanggu.wav')
+        sidedrum: new Audio('../../public/audio/Tabour.wav'),
+        tam: new Audio('../../public/audio/bigbong.wav'),
+        mule: new Audio('../../public/audio/maluo.wav'),
+        cymbal: new Audio('../../public/audio/dabo.wav'),
+        tupan: new Audio('../../public/audio/tanggu.wav')
     };
 
     var Readygo = new Audio('../../public/audio/ready_go.mp3');
@@ -77,28 +79,39 @@ $(function() {
             };
             this.startTime = 0;
             this.data = mock.data;
-            this._bindEvent();
+            this.result = 0;
             this._createScene();
             this.showCountDown();
         },
         _bindEvent: function() {
+            var self = this;
             $('.hit-area').on('click', '.grammar', function() {
                 var $this = $(this);
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
+                var n = (Date.now() - self.startTime) / ~~self.data.temps_time;
+                n = Math.floor(n);
+                var selector = '.' + n + '-' + g;
+                if ($(selector).length > 0) { // 计算分数
+                    $(selector).removeClass().hide();
+                    self.result += 10;
+                }
                 Grammar[g].play();
             });
+        },
+        _unbindEvent: function() {
+            $('.hit-area').unbind('click');
         },
         _createScene: function() {
             var content = this.data.content;
             var tempTime = ~~this.data.temps_time;
             var i, j, len;
             this.comp.$container.width(134 * this.data.temps);
-            this.comp.$container.css('right', -134 * this.data.temps);
+            this.comp.$container.css('left', '134px');
             for(i = 0, len = content.length; i < len; i++) {
                 var t = content[i];
                 for (j = 0; j < t.length; j++) {
                     var span = $('<span />');
-                    span.css('left', t[j].begin_time / tempTime * 134);
+                    span.addClass(i + '-' + t[j].name).css('left', t[j].begin_time / tempTime * 134);
                     $('.' + t[j].name + '-row').append(span);
                 }
             }
@@ -129,12 +142,11 @@ $(function() {
         },
         start: function() {
             var self = this;
-            this.startTime = Date.now();
             var $content = this.$el.find('.rhythm-container');
-            var wrapWidth = this.$el.width();
-            var contentWidth = $content.width();
+            this._bindEvent();
+            this.startTime = Date.now();
             $content.show().animate(
-                { right: contentWidth + wrapWidth },
+                { left: -134 * self.data.temps },
                 ~~self.data.length,
                 'linear',
                 function() {
@@ -143,6 +155,8 @@ $(function() {
         },
         end: function() {
             $buttons.show();
+            this._unbindEvent();
+            console.log(this.result)
         },
         fixScore: function() {
             $buttons.show()
