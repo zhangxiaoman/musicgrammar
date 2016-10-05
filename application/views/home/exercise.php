@@ -24,37 +24,32 @@
                     <div class="btn-start-exec"></div>
                 </div>
             </div>
-            <div class="game-scene">
+            <<div class="game-scene">
                 <div class="play-line">
                     <div class="line"></div>
                 </div>
-                <div class="mg-wrap">
-                    <div class="rhythm">
-                        <div class="mg-row">
-                            <div class="xiaogu"></div>
+                <div class="rhythm-wrap">
+                    <div class="rhythm-container">
+                        <div class="mg-row sidedrum-row">
                         </div>
-                        <div class="mg-row">
-                            <div class="tanggu"></div>
+                        <div class="mg-row tupan-row">
                         </div>
-                        <div class="mg-row">
-                            <div class="daluo"></div>
+                        <div class="mg-row tam-row">
                         </div>
-                        <div class="mg-row">
-                            <div class="dabo"></div>
+                        <div class="mg-row cymbal-row">
                         </div>
-                        <div class="mg-row">
-                            <div class="xiaoluo"></div>
+                        <div class="mg-row mule-row">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hit-area">
-            <div class="grammar g-dabo">大钵</div>
-            <div class="grammar g-daluo">大锣</div>
-            <div class="grammar g-xiaoluo">小罗</div>
-            <div class="grammar g-tanggu">堂鼓</div>
-            <div class="grammar g-xiaogu">小鼓</div>
+            <div class="grammar g-cymbal">大钵</div>
+            <div class="grammar g-tam">大锣</div>
+            <div class="grammar g-mule">小罗</div>
+            <div class="grammar g-tupan">堂鼓</div>
+            <div class="grammar g-sidedrum">小鼓</div>
         </div>
     </div>
     <div id="waitingArea" class="waiting-wrap">
@@ -84,6 +79,7 @@
     </div>
     <div class="mask"></div>
     <script src="../../public/js/jquery-1.11.1.min.js"></script>
+    <script src="../../public/js/play.js"></script>
     <script src="../../public/js/exec.js"></script>
 </body>
 
