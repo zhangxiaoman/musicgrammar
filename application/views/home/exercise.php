@@ -23,6 +23,11 @@
                     <div class="btn-freedom-exec"></div>
                     <div class="btn-start-exec"></div>
                 </div>
+                <div class="ktv-start" style="display: none;">
+                    <span class="k1"></span>
+                    <span class="k2"></span>
+                    <span class="k3"></span>
+                </div>
             </div>
             <<div class="game-scene">
                 <div class="play-line">
