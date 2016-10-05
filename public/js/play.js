@@ -83,7 +83,7 @@ $(function() {
             this.type = type || 'exec';
             this.startTime = 0;
             this.data = mock.data;
-            this.result = 0;
+            this.result = [];
             this._createScene();
             this.showCountDown();
         },
@@ -94,11 +94,12 @@ $(function() {
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 var n = (Date.now() - self.startTime) / ~~self.data.temps_time;
                 n = Math.floor(n);
-                var selector = '.' + n + '-' + g;
-                if ($(selector).length > 0) { // 计算分数
-                    $(selector).removeClass();
-                    self.result += 10;
-                }
+                result[n] ? result[n].push(g) : (result[n] = [g]);
+                //var selector = '.' + n + '-' + g;
+                //if ($(selector).length > 0) { // 计算分数
+                //    $(selector).removeClass();
+                //    self.result += 10;
+                //}
                 Grammar[g].play();
             });
         },
@@ -171,6 +172,8 @@ $(function() {
             }
         },
         showResult: function() {
+            console.log(this.result);
+            $.ajax({});
             $('.mask').show();
             if (this.result > 20) {
                 $('.result').removeClass('fail').addClass('success').show();
