@@ -466,3 +466,12 @@ html, body {
   width: 400px;
   margin: 0 auto;
 }
+.freedom-exec-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 199;
+  height: 565px;
+  width: 100%;
+  background: rgba(0,0,0,.5) url('../image/over_text.png') center 276px no-repeat;
+}
