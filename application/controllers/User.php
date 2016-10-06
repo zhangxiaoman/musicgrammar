@@ -7,6 +7,8 @@ class User extends MY_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('group_model');
+        $this->load->model('musical_model');
+        $this->load->model('recordDetail_model');
         $this->load->helper('url_helper');
         $this->load->library('session');
     }
@@ -63,9 +65,15 @@ class User extends MY_Controller {
      */
     public function end()
     {
-        $id = $this->input->post("id");
-        $result = $this->user_model->update_status(User_Model::STATUS_END, array($id));
+
+        $user_id = $_SESSION['user_id'];
+        $group_id = $_SESSION['group_id'];
+        $record_id = $_SESSION['record_id'];
+        $musical_result = $this->input->post('result');
+
+        $result = $this->user_model->update_status(User_Model::STATUS_END, array($user_id));
         if($result) {
+            $this->recordDetail_model->save($record_id, $user_id, $group_id, $musical_result);
             $this->success();
         }
         $this->error();
@@ -73,13 +81,34 @@ class User extends MY_Controller {
 
     public function view()
     {
-        $id = $this->input->post("id");
-        $user = $this->user_model->get($id);
+        $user_id = $_SESSION['user_id'];
+        $user = $this->user_model->get($user_id);
         if (empty($user)) {
             $this->error();
         }
         $user['create_at'] = date("Y-m-d H:i:s", $user['create_at']);
-        $this->success($user);
+        $this->success(array('user' => $user));
+    }
+
+    public function cal_score()
+    {
+        $record_id = $_SESSION['record_id'];
+        $group_id = $_SESSION['group_id'];
+        $musical_id = $_SESSION['musical_id'];
+        $musical_info = $this->musical_model->get($musical_id);
+        $musical_content = json_decode($musical_info['content'], true);
+
+        $detail = $this->recordDetail_model->getDetail($record_id);
+
+        $sum_result = array();
+        foreach($detail as $item) {
+            $result = json_decode($item['result'], true);
+            var_dump($result);
+            $sum_result = array_merge($sum_result, $result);
+        }
+
+        var_dump($sum_result);
+
     }
 
 }

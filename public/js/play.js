@@ -188,9 +188,23 @@ $(function() {
             $buttons.show();
             this._unbindEvent();
             if (this.type === 'brk') {
-                this.showResult();
+                var _result = this.result;
+                $.ajax({
+                    url: '/user/end',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        result:JSON.stringify(_result)
+                    },
+                    success: function (re) {
+
+                    }
+
+                });
             }
         },
+
+
         showResult: function() {
             console.log(this.result);
             $.ajax({});

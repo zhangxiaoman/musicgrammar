@@ -48,9 +48,14 @@ class User_Model extends CI_Model {
         return $this->db->update('user',array('status' => $status), $where);
     }
 
-    public function group_users($groupId)
+    public function group_users($groupId, $level = 0)
     {
-        $this->db->where('group_id', $groupId)->where("is_deleted", 0);
+        if (empty($level)) {
+            $this->db->where('group_id', $groupId)->where("is_deleted", 0);
+        } else {
+            $this->db->where('group_id', $groupId)->where("is_deleted", 0)->where('musical_id', $level);
+        }
+
         $this->db->limit(10);
         $this->db->order_by("create_at", "desc");
         $query = $this->db->get('user');
@@ -85,4 +90,10 @@ class User_Model extends CI_Model {
         return $result['num'];
     }
 
+
+    public function update_musical($user_id, $musical_id)
+    {
+        $where = "id = {$user_id}";
+        return $this->db->update('user',array('musical_id' => $musical_id), $where);
+    }
 }
