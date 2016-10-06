@@ -12,6 +12,8 @@ $(function() {
     var $result = $('.result');
     var beginCheckUserCount = false;
     var level = '1';
+
+    var intervalCheckCount, intervalBegin;
     var musicNameObj = {
         '1': 'music-name',
         '2': 'music-name second',
@@ -35,9 +37,13 @@ $(function() {
     });
 
     $startBtn.click(function () {
+        beginCheckUserCount = false;
         $.ajax({
-            url: '/home/begin_exercise',
+            url: '/home/ready_break',
             type: 'post',
+            data: {
+                'level': level
+            },
             dataType: 'json',
             success: function(re) {
                 if (re.code == 0) {
@@ -80,7 +86,8 @@ $(function() {
         }
 
         if (!beginCheckUserCount) {
-            setInterval(checkGroupUserCount, 1000);
+            intervalCheckCount =setInterval(checkGroupUserCount, 2000);
+            intervalBegin = setInterval(checkBegin, 2000);
             beginCheckUserCount = true;
         }
 
@@ -106,7 +113,7 @@ $(function() {
         window.Game.init(level, 'brk');
         $mask.hide();
         $result.hide();
-    })
+    });
 
     function checkGroupUserCount()
     {
@@ -124,4 +131,28 @@ $(function() {
             }
         });
     }
+
+    function checkBegin()
+    {
+        $.ajax({
+            url: '/user/view',
+            type: 'post',
+            dataType: 'json',
+            success: function(re) {
+                if (re.code == 0) {
+                    var user = re.data.user;
+                    if (user.status == 2) {
+                        clearInterval(intervalCheckCount);
+                        clearInterval(intervalBegin);
+                        window.Game.init(level, 'brk');
+                        $mask.hide();
+                        $waitArea.hide();
+                        $result.hide();
+
+                    }
+                }
+            }
+        });
+    }
+
 });

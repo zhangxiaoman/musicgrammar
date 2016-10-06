@@ -24,7 +24,8 @@ $(function() {
         '1': 'music-name',
         '2': 'music-name second',
         '3': 'music-name third',
-        '4': 'music-name fourth'
+        '4': 'music-name fourth',
+        '5': 'music-name five'
     };
 
     // 自由练习

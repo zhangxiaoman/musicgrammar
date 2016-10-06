@@ -9,8 +9,8 @@
 <body>
 <div class="wrap">
     <div class="title">
-        <div class="group-icon"></div>
-        <div class="user-name">小苹果大眼睛</div>
+        <div class="group-icon <?php echo $group_alias; ?>"></div>
+        <div class="user-name"><?php echo $user_name; ?></div>
     </div>
     <div class="edition-t brk"></div>
     <div id="main">
@@ -99,6 +99,7 @@
 <script src="../../public/js/jquery-1.11.1.min.js"></script>
 <script src="../../public/js/play.js"></script>
 <script src="../../public/js/brk.js"></script>
+<script src="../../public/js/json2.js"></script>
 <script>
 </script>
 </body>

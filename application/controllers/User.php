@@ -7,6 +7,9 @@ class User extends MY_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('group_model');
+        $this->load->model('musical_model');
+        $this->load->model('record_model');
+        $this->load->model('recordDetail_model');
         $this->load->helper('url_helper');
         $this->load->library('session');
     }
@@ -63,9 +66,15 @@ class User extends MY_Controller {
      */
     public function end()
     {
-        $id = $this->input->post("id");
-        $result = $this->user_model->update_status(User_Model::STATUS_END, array($id));
+
+        $user_id = $_SESSION['user_id'];
+        $group_id = $_SESSION['group_id'];
+        $record_id = $_SESSION['record_id'];
+        $musical_result = $this->input->post('result');
+
+        $result = $this->user_model->update_status(User_Model::STATUS_END, array($user_id));
         if($result) {
+            $this->recordDetail_model->save($record_id, $user_id, $group_id, $musical_result);
             $this->success();
         }
         $this->error();
@@ -73,13 +82,60 @@ class User extends MY_Controller {
 
     public function view()
     {
-        $id = $this->input->post("id");
-        $user = $this->user_model->get($id);
+        $user_id = $_SESSION['user_id'];
+        $user = $this->user_model->get($user_id);
         if (empty($user)) {
             $this->error();
         }
         $user['create_at'] = date("Y-m-d H:i:s", $user['create_at']);
-        $this->success($user);
+        $this->success(array('user' => $user));
+    }
+
+    public function cal_score()
+    {
+        $record_id = $_SESSION['record_id'];
+        $group_id = $_SESSION['group_id'];
+        $musical_id = $_SESSION['musical_id'];
+        $musical_info = $this->musical_model->get($musical_id);
+        $musical_content = json_decode($musical_info['content'], true);
+
+        $detail = $this->recordDetail_model->getDetail($record_id);
+
+        $sum_result = array();
+        foreach($detail as $item) {
+            $result = json_decode($item['result'], true);
+            $sum_result = array_merge_recursive($sum_result, $result);
+        }
+        $musical_content_final =  array();
+        foreach($musical_content as $key => $value) {
+            foreach ($value as $v) {
+                $musical_content_final[$key."d"][] = $v['name'];
+            }
+        }
+        $reduc = 0;
+        foreach ($musical_content_final as $key => $muv) {
+            if (!isset($sum_result[$key])) {
+                $reduc ++;
+                continue;
+            }
+
+            $diff = array_diff_assoc($muv, $sum_result[$key]);
+
+            if (count($diff) > 2) {
+                $reduc++;
+                continue;
+            }
+        }
+
+
+        if ($reduc > 5 ){
+            $this->record_model->update($record_id, 60);
+
+            $this->success(array('is_success' => 1));
+        }
+        $this->record_model->update($record_id, 40);
+        $this->success(array('is_success' => 0));
+
     }
 
 }

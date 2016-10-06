@@ -53,25 +53,32 @@ class Home extends MY_Controller
     }
 
 
-    // 开始练习
-    public function begin_exercise()
+    // 准备闯关
+    public function ready_break()
     {
         $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
         $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
         $data['group_alias'] =  empty($_SESSION['group_alias']) ? "" : $_SESSION['group_alias'];
         $data['group_id'] =  empty($_SESSION['group_id']) ? "" : $_SESSION['group_id'];
+        $data['user_id'] =  empty($_SESSION['user_id']) ? "" : $_SESSION['user_id'];
 
+        $level = $this->input->post('level');
         if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
             redirect("/");
         }
 
-        $users = $this->user_model->group_users($data['group_id']);
+        $_SESSION['musical_id'] = $level;
+        $result = $this->user_model->update_musical($data['user_id'], $level);
+        $this->user_model->update_status(User_Model::STATUS_READY, array($data['user_id']));
+
+        if (empty($result)) {
+            $this->error(2, "网络错误,请稍后再试");
+        }
+        $users = $this->user_model->group_users($data['group_id'], $level);
 
         if (count($users) < 5) {
             $this->error(1, "人数未满", array('users' => $users));
         }
-
-        $this->load->view('home/begin_exercise', $data);
     }
 
 
@@ -119,7 +126,10 @@ class Home extends MY_Controller
     // 创作版
     public function breakthrough()
     {
-        $this->load->view('home/breakthrough');
+        $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
+        $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
+        $data['group_alias'] =  empty($_SESSION['group_alias']) ? "" : $_SESSION['group_alias'];
+        $this->load->view('home/breakthrough',$data);
     }
 
 
