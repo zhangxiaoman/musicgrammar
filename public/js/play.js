@@ -7,7 +7,7 @@ $(function() {
     var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
-
+    var $result = $('.result');
     var Grammar = window.grammar = {
         sidedrum: new Audio('../../public/audio/Tabour.wav'),
         tam: new Audio('../../public/audio/bigbong.wav'),
@@ -192,6 +192,8 @@ $(function() {
             this._unbindEvent();
             if (this.type === 'brk') {
                 var _result = this.result;
+                var self = this;
+
                 $.ajax({
                     url: '/user/end',
                     type: 'post',
@@ -200,14 +202,36 @@ $(function() {
                         result:JSON.stringify(_result)
                     },
                     success: function (re) {
-
+                        self.getScore();
                     }
 
                 });
             }
         },
 
+        getScore :function (){
 
+            setInterval(
+                $.ajax({
+                url: '/user/cal_score',
+                type: 'post',
+                dataType: 'json',
+                success: function(re) {
+                    if (re.code == 0) {
+
+                        if (re.data.is_success == 1) {
+                            $result.removeClass('fail').addClass("success").show();
+                            $('.mask').show();
+                            SUCCESSSOUND.play();
+                        } else {
+                            $result.removeClass('success').addClass("fail").show();
+                            $('.mask').show();
+                            FAILSOUND.play();
+                        }
+                    }
+                }
+            }), 2000);
+        },
         showResult: function() {
             console.log(this.result);
             $.ajax({});

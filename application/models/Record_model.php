@@ -18,4 +18,10 @@ class Record_Model extends CI_Model {
         $id = $this->db->insert_id();
         return $id;
     }
+
+    public function update($id,$score)
+    {
+         $where = "id = {$id}";
+         return $this->db->update('record',array('score' => $score), $where);
+    }
 }

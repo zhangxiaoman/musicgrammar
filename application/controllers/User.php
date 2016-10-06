@@ -8,6 +8,7 @@ class User extends MY_Controller {
         $this->load->model('user_model');
         $this->load->model('group_model');
         $this->load->model('musical_model');
+        $this->load->model('record_model');
         $this->load->model('recordDetail_model');
         $this->load->helper('url_helper');
         $this->load->library('session');
@@ -103,11 +104,37 @@ class User extends MY_Controller {
         $sum_result = array();
         foreach($detail as $item) {
             $result = json_decode($item['result'], true);
-            var_dump($result);
-            $sum_result = array_merge($sum_result, $result);
+            $sum_result = array_merge_recursive($sum_result, $result);
+        }
+        $musical_content_final =  array();
+        foreach($musical_content as $key => $value) {
+            foreach ($value as $v) {
+                $musical_content_final[$key."d"][] = $v['name'];
+            }
+        }
+        $reduc = 0;
+        foreach ($musical_content_final as $key => $muv) {
+            if (!isset($sum_result[$key])) {
+                $reduc ++;
+                continue;
+            }
+
+            $diff = array_diff_assoc($muv, $sum_result[$key]);
+
+            if (count($diff) > 2) {
+                $reduc++;
+                continue;
+            }
         }
 
-        var_dump($sum_result);
+
+        if ($reduc > 5 ){
+            $this->record_model->update($record_id, 60);
+
+            $this->success(array('is_success' => 1));
+        }
+        $this->record_model->update($record_id, 40);
+        $this->success(array('is_success' => 0));
 
     }
 
