@@ -4,6 +4,7 @@
 </style>
 <h2>组管理</h2>
 
+<button class="begin_brk"  type="button">开始闯关</button>
 <?php foreach ($groups as $item): ?>
 
 <h3><?php echo $item['name']; ?>
@@ -61,6 +62,17 @@
                 data:{
                     group_id:group_id
                 },
+                dataType: 'json',
+                success: function(re) {
+                    location.reload();
+                }
+            });
+        });
+        $(".begin_brk").click(function(){
+
+            $.ajax({
+                url: '/group/begin_brk',
+                type: 'post',
                 dataType: 'json',
                 success: function(re) {
                     location.reload();

@@ -15,6 +15,7 @@ class Group extends MY_Controller {
         $this->load->model('group_model');
         $this->load->model('user_model');
         $this->load->model('record_model');
+        $this->load->model('musical_model');
         $this->load->helper('url_helper');
     }
 
@@ -160,6 +161,11 @@ class Group extends MY_Controller {
         $data['groups'] = $result;
 
         $this->load->view('group/index',$data);
+    }
+
+    public function begin_brk()
+    {
+        $this->musical_model->begin_brk();
     }
 
 

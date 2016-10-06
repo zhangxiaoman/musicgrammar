@@ -134,6 +134,16 @@ class Home extends MY_Controller
         $this->load->view('home/breakthrough',$data);
     }
 
+    public function check_begin_brk()
+    {
+        $musical_id = 5;
+        $musical = $this->musical_model->get($musical_id);
+
+        if ($musical['status'] == 1 ) {
+            $this->success(array('is_begin' => 1));
+        }
+        $this->success(array('is_begin' => 0));
+    }
 
 
 }

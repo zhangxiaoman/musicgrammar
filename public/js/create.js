@@ -19,19 +19,35 @@ $(function() {
         end();
     });
 
-    function start() {
-        $('.hit-area').on('click', '.grammar', function() {
-            var $this = $(this);
-            var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-            Grammar[g].play();
-            result.push(g);
-        });
-        FIFTHBARRIER.play();
-    }
+    $('.hit-area').on('click', '.grammar', function() {
+        var $this = $(this);
+        var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
+        Grammar[g].play();
+        result.push(g);
+    });
 
     function end() {
         $('.hit-area').unbind('click');
         console.log(result);
     }
-    start();
+
+    function check_begin_brk() {
+
+        $.ajax({
+            url: '/home/check_begin_brk',
+            type: 'post',
+            dataType: 'json',
+            success: function(re) {
+                if (re.code == 0) {
+                    if (re.data.is_begin == 1) {
+                        clearInterval(checkBeginBrkInterval);
+                        FIFTHBARRIER.play();
+                    }
+                }
+            }
+        });
+    }
+
+
+    var checkBeginBrkInterval =  setInterval(check_begin_brk, 1000);
 });
