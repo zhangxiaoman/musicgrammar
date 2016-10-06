@@ -9,15 +9,6 @@ $(function() {
     var $selectLevel = $('.select-level');
     var $musicName = $('.music-name');
 
-
-    var Grammar = {
-        sidedrum: new Audio('../../public/audio/Tabour.wav'),
-        tam: new Audio('../../public/audio/bigbong.wav'),
-        mule: new Audio('../../public/audio/maluo.wav'),
-        cymbal: new Audio('../../public/audio/dabo.wav'),
-        tupan: new Audio('../../public/audio/tanggu.wav')
-    };
-
     // 关卡
     var level = 1;
     var musicNameObj = {
@@ -25,24 +16,14 @@ $(function() {
         '2': 'music-name second',
         '3': 'music-name third',
         '4': 'music-name fourth',
-        '5': 'music-name five'
+        '5': 'music-name fifth'
     };
 
-    // 自由练习
-    $freedomBtn.click(function() {
-        $('.freedom-exec-mask').show();
-        $('.hit-area').on('click', '.grammar', function() {
-            var $this = $(this);
-            var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-            Grammar[g].load();
-            Grammar[g].play();
-        });
-    });
-
-    // 关闭自由练习
-    $('.freedom-exec-mask').click(function() {
-        $(this).hide();
-        $('.hit-area').unbind('click');
+    $('.hit-area').on('touchstart', '.grammar', function() {
+        var $this = $(this);
+        var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
+        window.grammar[g].load();
+        window.grammar[g].play();
     });
 
     // 选择关卡

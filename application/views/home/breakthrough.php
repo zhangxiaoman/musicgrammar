@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>闯关</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
     <link rel="stylesheet" href="../../public/css/normalize.css">
     <link rel="stylesheet" href="../../public/css/play.css">
 </head>
@@ -33,6 +34,10 @@
             <div class="play-line">
                 <div class="line"></div>
             </div>
+            <div class="division-line" style="left: 268px;"></div>
+            <div class="division-line" style="left: 402px;"></div>
+            <div class="division-line" style="left: 536px;"></div>
+            <div class="division-line" style="left: 670px;"></div>
             <div class="rhythm-wrap">
                 <div class="rhythm-container">
                     <div class="mg-row sidedrum-row">
