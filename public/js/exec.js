@@ -19,14 +19,16 @@ $(function() {
         '5': 'music-name fifth'
     };
 
-    $('.hit-area').on('touchstart', '.grammar', function() {
+    $('.hit-area').on('click', '.grammar', function() {
         var $this = $(this);
         var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-        //window.grammar[g].load();
-        if (window.grammar[g].currentTime > 0) {
-            window.grammar[g].currentTime = 0;
-        } else {
-            window.grammar[g].play();
+
+        var grammarIndex  = window.grammarIndex || 0;
+
+        window.grammar[g][grammarIndex].play();
+        window.grammarIndex++;
+        if(window.grammarIndex == 10) {
+            window.grammarIndex = 0;
         }
 
     });
