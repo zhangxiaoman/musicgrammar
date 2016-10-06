@@ -10,7 +10,7 @@ $(function() {
     var $musicName = $('.music-name');
 
 
-    var Grammar = {
+    var Grammar = window.Grammar = {
         sidedrum: new Audio('../../public/audio/Tabour.wav'),
         tam: new Audio('../../public/audio/bigbong.wav'),
         mule: new Audio('../../public/audio/maluo.wav'),
@@ -34,8 +34,13 @@ $(function() {
         $('.hit-area').on('click', '.grammar', function() {
             var $this = $(this);
             var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-            Grammar[g].load();
-            Grammar[g].play();
+
+            if ( Grammar[g].currentTime > 0 ){
+                Grammar[g].currentTime = 0;
+            }else {
+                Grammar[g].play();
+            }
+
         });
     });
 

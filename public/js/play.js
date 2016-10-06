@@ -121,8 +121,11 @@ $(function() {
                 //}
                 //
                 //
-                Grammar[g].load();
-                Grammar[g].play();
+                if ( Grammar[g].currentTime > 0 ){
+                    Grammar[g].currentTime = 0;
+                }else {
+                    Grammar[g].play();
+                }
             });
         },
         _unbindEvent: function() {

@@ -95,6 +95,11 @@
     </div>
     <div class="mask"></div>
     <div class="freedom-exec-mask"></div>
+<!--    <audio id="sidedrum" preload="auto" src="../../public/audio/dabo.wav"></audio>-->
+<!--    <audio id="tam" preload="auto" src="../../public/audio/bigbong.wav"></audio>-->
+<!--    <audio id="mule" preload="auto" src="../../public/audio/maluo.wav"></audio>-->
+<!--    <audio id="cymbal" preload="auto" src="../../public/audio/dabo.wav"></audio>-->
+<!--    <audio id="tupan" preload="auto" src="../../public/audio/tanggu.wav"></audio>-->
     <script src="../../public/js/jquery-1.11.1.min.js"></script>
     <script src="../../public/js/play.js"></script>
     <script src="../../public/js/exec.js"></script>
