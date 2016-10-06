@@ -8,7 +8,7 @@ $(function() {
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
 
-    var Grammar = {
+    var Grammar = window.grammar = {
         sidedrum: new Audio('../../public/audio/Tabour.wav'),
         tam: new Audio('../../public/audio/bigbong.wav'),
         mule: new Audio('../../public/audio/maluo.wav'),
@@ -119,6 +119,9 @@ $(function() {
                 //    $(selector).removeClass();
                 //    self.result += 10;
                 //}
+                //
+                //
+                Grammar[g].load();
                 Grammar[g].play();
             });
         },

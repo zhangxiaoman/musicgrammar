@@ -33,6 +33,7 @@ $(function() {
         $('.hit-area').on('click', '.grammar', function() {
             var $this = $(this);
             var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
+            Grammar[g].load();
             Grammar[g].play();
         });
     });
