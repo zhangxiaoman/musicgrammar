@@ -16,6 +16,8 @@ $(function() {
         cymbal: new Audio('../../public/audio/dabo.wav'),
         tupan: new Audio('../../public/audio/tanggu.wav')
     };
+    var CountMusic = new Audio('../../public/audio/daojishi.wav');
+    CountMusic.load();
 
     for (var k in window.grammar) {
         window.grammar[k].load();
@@ -120,7 +122,7 @@ $(function() {
                     n = Math.floor(n);
                     var selector = '.' + n + '-' + g;
                     if ($(selector).length > 0) { // 计算分数
-                        $(selector).addClass('animated pulse');
+                        $(selector).addClass('animated shake');
                     }
                     self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
                 }
@@ -152,6 +154,7 @@ $(function() {
         },
         showCountDown: function() {
             var self = this;
+            var time = ~~this.data.temps_time / 4;
             var $ktvStart = self.comp.$ktvStart;
             var $k1 = $ktvStart.find('.k1');
             var $k2 = $ktvStart.find('.k2');
@@ -161,18 +164,23 @@ $(function() {
             $ktvStart.show();
 
             $k1.addClass('show');
+            CountMusic.play();
             setTimeout(function() {
                 $k2.addClass('show');
+                CountMusic.play();
                 setTimeout(function() {
                     $k3.addClass('show');
-                    Readygo.play();
+                    CountMusic.play();
                     setTimeout(function() {
-                        $ktvStart.hide();
-                        $ktvStart.find('span').removeClass('show');
-                        self.start();
-                    }, 1200);
-                }, 1000);
-            }, 1000);
+                        Readygo.play();
+                        setTimeout(function() {
+                            $ktvStart.hide();
+                            $ktvStart.find('span').removeClass('show');
+                            self.start();
+                        }, 1000);
+                    }, time);
+                }, time);
+            }, time);
         },
         start: function() {
             var self = this;
