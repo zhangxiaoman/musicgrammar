@@ -34,10 +34,6 @@
             <div class="play-line">
                 <div class="line"></div>
             </div>
-            <div class="division-line" style="left: 268px;"></div>
-            <div class="division-line" style="left: 402px;"></div>
-            <div class="division-line" style="left: 536px;"></div>
-            <div class="division-line" style="left: 670px;"></div>
             <div class="rhythm-wrap">
                 <div class="rhythm-container">
                     <div class="mg-row sidedrum-row">
