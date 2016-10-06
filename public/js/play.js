@@ -211,7 +211,7 @@ $(function() {
         },
         showCountDown: function() {
             var self = this;
-            var time = ~~this.data.temps_time / 4;
+            var time = ~~this.data.temps_time;
             var $ktvStart = self.comp.$ktvStart;
             var $k1 = $ktvStart.find('.k1');
             var $k2 = $ktvStart.find('.k2');
@@ -228,14 +228,11 @@ $(function() {
                 setTimeout(function() {
                     $k3.addClass('show');
                     CountMusic.play();
+                    self.start();
                     setTimeout(function() {
-                        Readygo.play();
-                        setTimeout(function() {
-                            $ktvStart.hide();
-                            $ktvStart.find('span').removeClass('show');
-                            self.start();
-                        }, 1000);
-                    }, time);
+                        $ktvStart.hide();
+                        $ktvStart.find('span').removeClass('show');
+                    }, 200);
                 }, time);
             }, time);
         },
