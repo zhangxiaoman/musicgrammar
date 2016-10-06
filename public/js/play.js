@@ -197,7 +197,7 @@ $(function() {
             var i, j, len;
             $container.width(134 * this.data.temps);
             $container.css('left', '134px');
-            console.log($container.html());
+            console.log(content.length);
             for(i = 0, len = content.length; i < len; i++) {
                 var t = content[i];
                 $container.append('<div class="division-line" style="left:'+ 134 * i +'px;">');
@@ -250,11 +250,19 @@ $(function() {
                 FIFTHBARRIER.play();
             }
             $content.show().animate(
-                { left: -134 * self.data.temps },
-                ~~self.data.length,
-                'linear',
-                function() {
-                    self.end();
+                {
+                    left: -130 * self.data.temps,
+                    speed:~~this.data.temps_time
+                },
+                {
+                    duration: ~~self.data.length,
+                    easing: "linear",
+                    speed:~~this.data.temps_time,
+                    complete: function(){
+                        self.end();
+                    },
+                    step: function(now, fx ) {
+                    }
                 });
         },
         end: function() {
