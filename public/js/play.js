@@ -124,8 +124,11 @@ $(function() {
                     }
                     self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
                 }
-                Grammar[g].load()
-                Grammar[g].play();
+                if (Grammar[g].currentTime > 0) {
+                    Grammar[g].currentTime = 0;
+                } else {
+                    Grammar[g].play();
+                }
             });
         },
         _unbindEvent: function() {
