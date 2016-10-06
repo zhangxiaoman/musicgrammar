@@ -75,10 +75,6 @@ $(function() {
     var CountMusic = new Audio('../../public/audio/daojishi.wav');
     CountMusic.load();
 
-    for (var k in window.grammar) {
-        //window.grammar[k].load();
-    }
-
     var Readygo = new Audio('../../public/audio/ready_go.mp3');
 
     var mock = {
@@ -198,21 +194,24 @@ $(function() {
             console.log(this.data);
             var content = this.data.content;
             var tempTime = ~~this.data.temps_time;
+            var $container = this.comp.$container;
             var i, j, len;
-            this.comp.$container.width(134 * this.data.temps);
-            this.comp.$container.css('left', '134px');
+            $container.width(134 * this.data.temps);
+            $container.css('left', '134px');
             for(i = 0, len = content.length; i < len; i++) {
                 var t = content[i];
+                $container.append('<div class="division-line" style="left:'+ 134 * i +'px;">');
                 for (j = 0; j < t.length; j++) {
                     var span = $('<span />');
                     span.addClass(i + '-' + t[j].name).css('left', t[j].begin_time / tempTime * 134);
                     $('.' + t[j].name + '-row').append(span);
                 }
             }
+            $container.append('<div class="division-line" style="left:'+ 134 * i +'px;">');
         },
         showCountDown: function() {
             var self = this;
-            var time = ~~this.data.temps_time / 4;
+            var time = ~~this.data.temps_time;
             var $ktvStart = self.comp.$ktvStart;
             var $k1 = $ktvStart.find('.k1');
             var $k2 = $ktvStart.find('.k2');
@@ -229,14 +228,11 @@ $(function() {
                 setTimeout(function() {
                     $k3.addClass('show');
                     CountMusic.play();
+                    self.start();
                     setTimeout(function() {
-                        Readygo.play();
-                        setTimeout(function() {
-                            $ktvStart.hide();
-                            $ktvStart.find('span').removeClass('show');
-                            self.start();
-                        }, 1000);
-                    }, time);
+                        $ktvStart.hide();
+                        $ktvStart.find('span').removeClass('show');
+                    }, 200);
                 }, time);
             }, time);
         },
