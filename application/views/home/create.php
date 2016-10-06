@@ -19,41 +19,41 @@
         <div class="student-play-area group-a">
             <div class="group-title"></div>
             <div class="grammar-lt">
+                <span class="cymbal"></span>
+                <span class="tam"></span>
                 <span class="sidedrum"></span>
                 <span class="tupan"></span>
-                <span class="tam"></span>
-                <span class="cymbal"></span>
                 <span class="mule"></span>
             </div>
         </div>
         <div class="student-play-area group-b">
             <div class="group-title"></div>
             <div class="grammar-lt">
+                <span class="cymbal"></span>
+                <span class="tam"></span>
                 <span class="sidedrum"></span>
                 <span class="tupan"></span>
-                <span class="tam"></span>
-                <span class="cymbal"></span>
                 <span class="mule"></span>
             </div>
         </div>
         <div class="student-play-area group-c">
             <div class="group-title"></div>
             <div class="grammar-lt">
+                <span class="cymbal"></span>
+                <span class="tam"></span>
                 <span class="sidedrum"></span>
                 <span class="tupan"></span>
-                <span class="tam"></span>
-                <span class="cymbal"></span>
                 <span class="mule"></span>
             </div>
         </div>
         <div class="btn-teacher-hit"></div>
     </div>
     <div class="hit-area">
+        <div class="grammar g-cymbal">大钵</div>
+        <div class="grammar g-tam">大锣</div>
         <div class="grammar g-sidedrum">小鼓</div>
         <div class="grammar g-tupan">堂鼓</div>
-        <div class="grammar g-tam">大锣</div>
-        <div class="grammar g-cymbal">大钵</div>
-        <div class="grammar g-mule">小罗</div>
+        <div class="grammar g-mule">马锣</div>
     </div>
 </div>
 <div id="waitingArea" class="waiting-wrap">

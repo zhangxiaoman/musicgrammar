@@ -86,9 +86,6 @@ class Home extends MY_Controller
     {
         $id = $this->input->post("id");
 
-        if ($id > 4 ){
-            $id = 4;
-        }
         $musical = $this->musical_model->get($id);
 
         $musical_content = json_decode($musical['content'], true);

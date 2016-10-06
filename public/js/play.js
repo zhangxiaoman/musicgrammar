@@ -197,7 +197,6 @@ $(function() {
             var i, j, len;
             $container.width(134 * this.data.temps);
             $container.css('left', '134px');
-            console.log(content.length);
             for(i = 0, len = content.length; i < len; i++) {
                 var t = content[i];
                 $container.append('<div class="division-line" style="left:'+ 134 * i +'px;">');
@@ -267,6 +266,7 @@ $(function() {
         },
         end: function() {
             this.comp.$container.find("div span").remove();
+            this.comp.$container.find("div.division-line").remove();
             $buttons.show();
             this.startTime = 0;
             this._unbindEvent();

@@ -18,7 +18,7 @@
             <div class="left-area">
                 <div class="game-info">
                     <div class="game-name exec1"></div>
-                    <div class="music-name third"></div>
+                    <div class="music-name "></div>
                 </div>
                 <div class="buttons">
                     <!--<div class="btn-freedom-exec"></div>-->
