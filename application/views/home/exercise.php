@@ -37,16 +37,11 @@
                 </div>
                 <div class="rhythm-wrap">
                     <div class="rhythm-container">
-                        <div class="mg-row sidedrum-row">
-                        </div>
-                        <div class="mg-row tupan-row">
-                        </div>
-                        <div class="mg-row tam-row">
-                        </div>
-                        <div class="mg-row cymbal-row">
-                        </div>
-                        <div class="mg-row mule-row">
-                        </div>
+                        <div class="mg-row tupan-row"> </div>
+                        <div class="mg-row mule-row"> </div>
+                        <div class="mg-row tam-row"> </div>
+                        <div class="mg-row cymbal-row"> </div>
+                        <div class="mg-row sidedrum-row"> </div>
                     </div>
                 </div>
             </div>
