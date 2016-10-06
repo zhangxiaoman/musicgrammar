@@ -227,11 +227,13 @@ $(function() {
                 setTimeout(function() {
                     $k3.addClass('show');
                     CountMusic.play();
-                    self.start();
                     setTimeout(function() {
-                        $ktvStart.hide();
-                        $ktvStart.find('span').removeClass('show');
-                    }, 200);
+                        self.start();
+                        setTimeout(function () {
+                            $ktvStart.hide();
+                            $ktvStart.find('span').removeClass('show');
+                        }, 200);
+                    },time);
                 }, time);
             }, time);
         },
