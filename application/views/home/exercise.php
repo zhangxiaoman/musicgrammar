@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
     <link rel="stylesheet" href="../../public/css/normalize.css">
     <link rel="stylesheet" href="../../public/css/play.css">
 </head>
@@ -20,8 +21,8 @@
                     <div class="music-name third"></div>
                 </div>
                 <div class="buttons">
-                    <div class="btn-freedom-exec"></div>
-                    <div class="btn-select-level" style="margin: 20px auto;"></div>
+                    <!--<div class="btn-freedom-exec"></div>-->
+                    <div class="btn-select-level"></div>
                     <div class="btn-start-exec"></div>
                 </div>
                 <div class="ktv-start" style="display: none;">
@@ -34,6 +35,10 @@
                 <div class="play-line">
                     <div class="line"></div>
                 </div>
+                <div class="division-line" style="left: 268px;"></div>
+                <div class="division-line" style="left: 402px;"></div>
+                <div class="division-line" style="left: 536px;"></div>
+                <div class="division-line" style="left: 670px;"></div>
                 <div class="rhythm-wrap">
                     <div class="rhythm-container">
                         <div class="mg-row sidedrum-row">
@@ -90,7 +95,7 @@
         <div class="level two" data-level="2"><span class="level-text"></span></div>
         <div class="level three" data-level="3"><span class="level-text"></span></div>
         <div class="level four" data-level="4"><span class="level-text"></span></div>
-<!--        <div class="level five" data-level="5"><span class="level-text"></span></div>-->
+        <div class="level five" data-level="5"><span class="level-text"></span></div>
     </div>
     <div class="mask"></div>
     <div class="freedom-exec-mask"></div>

@@ -8,6 +8,7 @@ $(function() {
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
     var $result = $('.result');
+
     var Grammar = window.grammar = {
         sidedrum: new Audio('../../public/audio/Tabour.wav'),
         tam: new Audio('../../public/audio/bigbong.wav'),
@@ -15,6 +16,10 @@ $(function() {
         cymbal: new Audio('../../public/audio/dabo.wav'),
         tupan: new Audio('../../public/audio/tanggu.wav')
     };
+
+    for (var k in window.grammar) {
+        window.grammar[k].load();
+    }
 
     var Readygo = new Audio('../../public/audio/ready_go.mp3');
 
@@ -87,9 +92,8 @@ $(function() {
             this._createScene();
             this.showCountDown();
         },
-
-        _getLevelData: function(level)
-        {
+        _getLevelData: function(level) {
+            return mock.data;
             var _data;
             $.ajax({
                 url: '/home/get_musical',
@@ -108,20 +112,19 @@ $(function() {
         },
         _bindEvent: function() {
             var self = this;
-            $('.hit-area').on('click', '.grammar', function() {
+            $('.hit-area').on('touchstart', '.grammar', function() {
                 var $this = $(this);
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-                var n = (Date.now() - self.startTime) / ~~self.data.temps_time;
-                n = Math.floor(n);
-                self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
-                //var selector = '.' + n + '-' + g;
-                //if ($(selector).length > 0) { // 计算分数
-                //    $(selector).removeClass();
-                //    self.result += 10;
-                //}
-                //
-                //
-                Grammar[g].load();
+                if (self.startTime > 0) {
+                    var n = (Date.now() - self.startTime) / (~~self.data.length / (~~self.data.temps + 1));
+                    n = Math.floor(n);
+                    var selector = '.' + n + '-' + g;
+                    if ($(selector).length > 0) { // 计算分数
+                        $(selector).addClass('animated pulse');
+                    }
+                    self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
+                }
+                Grammar[g].load()
                 Grammar[g].play();
             });
         },
@@ -189,6 +192,7 @@ $(function() {
         },
         end: function() {
             $buttons.show();
+            this.startTime = 0;
             this._unbindEvent();
             if (this.type === 'brk') {
                 var _result = this.result;

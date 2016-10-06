@@ -2,7 +2,6 @@
  * Created by chaofan on 2016/10/5.
  */
 $(function() {
-    var $buttons = $('.buttons');
     var $selectBtn = $('.btn-select-level');
     var $startBtn = $('.btn-start-cg');
     var $selectLevel = $('.select-level');
@@ -18,7 +17,8 @@ $(function() {
         '1': 'music-name',
         '2': 'music-name second',
         '3': 'music-name third',
-        '4': 'music-name fourth'
+        '4': 'music-name fourth',
+        '5': 'music-name fifth'
     };
 
     // 选择关卡
@@ -96,6 +96,7 @@ $(function() {
     $mask.click(function() {
         $(this).hide();
         $result.hide();
+        $waitArea.hide();
     });
 
     $('.btn-reload').click(function() {

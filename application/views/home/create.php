@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>创作版</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
     <link rel="stylesheet" href="../../public/css/normalize.css">
     <link rel="stylesheet" href="../../public/css/play.css">
     <link rel="stylesheet" href="../../public/css/create.css">
