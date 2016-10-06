@@ -28,21 +28,34 @@ $(function() {
 
     function end() {
         $('.hit-area').unbind('click');
-        console.log(result);
+        $.ajax({
+            url: '/user/end',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                result:JSON.stringify([])
+            },
+            success: function (re) {
+                //self.getScore();
+            }
+
+        });
     }
 
-    function check_begin_brk() {
-
+    function check_begin_brk()
+    {
         $.ajax({
-            url: '/home/check_begin_brk',
+            url: '/user/view',
             type: 'post',
             dataType: 'json',
             success: function(re) {
                 if (re.code == 0) {
-                    if (re.data.is_begin == 1) {
+                    var user = re.data.user;
+                    if (user.status == 2) {
                         clearInterval(checkBeginBrkInterval);
                         FIFTHBARRIER.play();
                     }
+
                 }
             }
         });
