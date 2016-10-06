@@ -232,7 +232,6 @@ $(function() {
         },
         showResult: function() {
             console.log(this.result);
-            $.ajax({});
             $('.mask').show();
             if (this.result > 20) {
                 $('.result').removeClass('fail').addClass('success').show();
