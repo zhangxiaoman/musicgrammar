@@ -211,23 +211,24 @@ $(function() {
 
         getScore :function (){
             $.ajax({
-            url: '/user/cal_score',
-            type: 'post',
-            dataType: 'json',
-            success: function(re) {
-                if (re.code == 0) {
+                url: '/user/cal_score',
+                type: 'post',
+                dataType: 'json',
+                success: function (re) {
+                    if (re.code == 0) {
 
-                    if (re.data.is_success == 1) {
-                        $result.removeClass('fail').addClass("success").show();
-                        $('.mask').show();
-                        SUCCESSSOUND.play();
-                    } else {
-                        $result.removeClass('success').addClass("fail").show();
-                        $('.mask').show();
-                        FAILSOUND.play();
+                        if (re.data.is_success == 1) {
+                            $result.removeClass('fail').addClass("success").show();
+                            $('.mask').show();
+                            SUCCESSSOUND.play();
+                        } else {
+                            $result.removeClass('success').addClass("fail").show();
+                            $('.mask').show();
+                            FAILSOUND.play();
+                        }
                     }
                 }
-            }
+            });
         },
         showResult: function() {
             console.log(this.result);
