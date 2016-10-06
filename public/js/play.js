@@ -147,7 +147,6 @@ $(function() {
             this.showCountDown();
         },
         _getLevelData: function(level) {
-            return mock.data;
             var _data;
             $.ajax({
                 url: '/home/get_musical',
