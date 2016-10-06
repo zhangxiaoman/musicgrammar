@@ -51,11 +51,11 @@
         </div>
     </div>
     <div class="hit-area">
+        <div class="grammar g-cymbal">大钵</div>
+        <div class="grammar g-tam">大锣</div>
         <div class="grammar g-sidedrum">小鼓</div>
         <div class="grammar g-tupan">堂鼓</div>
-        <div class="grammar g-tam">大锣</div>
-        <div class="grammar g-cymbal">大钵</div>
-        <div class="grammar g-mule">小罗</div>
+        <div class="grammar g-mule">马锣</div>
     </div>
 </div>
 <div class="result success">
