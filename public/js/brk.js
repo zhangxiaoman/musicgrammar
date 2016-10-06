@@ -98,6 +98,11 @@ $(function() {
         $result.hide();
         $waitArea.hide();
     });
+    $waitArea.click(function() {
+        $(this).hide();
+        $result.hide();
+        $mask.hide();
+    });
 
     $('.btn-reload').click(function() {
         window.Game.init(level, 'brk');

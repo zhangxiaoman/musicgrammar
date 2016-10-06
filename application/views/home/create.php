@@ -11,10 +11,9 @@
 <body>
 <div class="wrap">
     <div class="title">
-        <div class="group-icon"></div>
-        <div class="user-name">小苹果大眼睛</div>
+        <div class="user-name"><?php echo $user_name; ?></div>
     </div>
-    <div class="edition-t create"></div>
+    <a href="/home/select"><div class="edition-t create"></div></a>
     <div id="main">
         <div class="student-play-area group-a">
             <div class="group-title"></div>

@@ -6,7 +6,10 @@
 
 <?php foreach ($groups as $item): ?>
 
-<h3><?php echo $item['name']; ?><button class="begin" data-group-id = <?php echo $item['id'];?> type="button">开始</button></h3>
+<h3><?php echo $item['name']; ?>
+    <button class="begin" data-group-id = <?php echo $item['id'];?> type="button">开始</button>
+    <button class="reset" data-group-id = <?php echo $item['id'];?> type="button">重置</button>
+</h3>
 <div class="main">
     <table>
         <tbody>
@@ -39,6 +42,21 @@
             var group_id = $(this).data('group-id');
             $.ajax({
                 url: '/group/begin',
+                type: 'post',
+                data:{
+                    group_id:group_id
+                },
+                dataType: 'json',
+                success: function(re) {
+                    location.reload();
+                }
+            });
+        });
+        $(".reset").click(function(){
+
+            var group_id = $(this).data('group-id');
+            $.ajax({
+                url: '/group/clear',
                 type: 'post',
                 data:{
                     group_id:group_id
