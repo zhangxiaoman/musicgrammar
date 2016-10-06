@@ -114,6 +114,10 @@ html, body {
   width: 98px;
   background-image: url('../image/level4.png');
 }
+.game-info .music-name.fifth {
+  width: 98px;
+  background-image: url('../image/level5.png');
+}
 .btn-freedom-exec {
   margin: 20px auto;
   width: 147px;
@@ -479,4 +483,13 @@ html, body {
   height: 565px;
   width: 100%;
   background: rgba(0,0,0,.5) url('../image/over_text.png') center 276px no-repeat;
+}
+.division-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-left: 2px solid #f7d3a1;
+  opacity: .5;
 }
