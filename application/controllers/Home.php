@@ -64,7 +64,7 @@ class Home extends MY_Controller
 
         $level = $this->input->post('level');
         if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
-            redirect("/");
+            $this->error(1, "");
         }
 
         $_SESSION['musical_id'] = $level;
@@ -74,11 +74,8 @@ class Home extends MY_Controller
         if (empty($result)) {
             $this->error(2, "网络错误,请稍后再试");
         }
-        $users = $this->user_model->group_users($data['group_id'], $level);
-
-        if (count($users) < 5) {
-            $this->error(1, "人数未满", array('users' => $users));
-        }
+        $users = $this->user_model->group_users($data['group_id'], $level,User_Model::STATUS_READY);
+        $this->success(array('users' => $users));
     }
 
 

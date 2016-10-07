@@ -48,12 +48,13 @@ class User_Model extends CI_Model {
         return $this->db->update('user',array('status' => $status), $where);
     }
 
-    public function group_users($groupId, $level = 0)
+    public function group_users($groupId, $level = 0,$status = 0 )
     {
-        if (empty($level)) {
+
+        if (empty($level) || empty($status)) {
             $this->db->where('group_id', $groupId)->where("is_deleted", 0);
         } else {
-            $this->db->where('group_id', $groupId)->where("is_deleted", 0)->where('musical_id', $level);
+            $this->db->where('group_id', $groupId)->where("is_deleted", 0)->where('musical_id', $level)->where('status', self::STATUS_READY);
         }
 
         $this->db->limit(10);

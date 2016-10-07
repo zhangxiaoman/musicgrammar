@@ -46,11 +46,11 @@ $(function() {
             },
             dataType: 'json',
             success: function(re) {
-                if (re.code == 0) {
+                if (re.code == 1) {
                     location.href= "/home/select";
                 }
 
-                if (re.code == 1) {
+                if (re.code == 0) {
                     renderWaitUser(re.data.users);
                     $waitArea.show();
                     $mask.show();
@@ -84,7 +84,6 @@ $(function() {
             var cloneTemp = temp.clone();
             $(".player-list").append(cloneTemp);
         }
-
         if (!beginCheckUserCount) {
             intervalCheckCount =setInterval(checkGroupUserCount, 2000);
             intervalBegin = setInterval(checkBegin, 2000);
@@ -132,7 +131,7 @@ $(function() {
             success: function(re) {
                 if (re.code == 0) {
                     var users = re.data.users;
-                    if (users.length < 5) {
+                    if (users.length <= 5) {
                         renderWaitUser(users);
                     }
                 }
