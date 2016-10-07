@@ -131,10 +131,16 @@ html, body {
   background: url('../image/ziyou.png') no-repeat;
 }
 .btn-start-exec {
+   margin: 0 auto;
+   width: 147px;
+   height: 49px;
+   background: url('../image/start_s.png') no-repeat;
+ }
+.btn-ready {
   margin: 0 auto;
   width: 147px;
   height: 49px;
-  background: url('../image/start_s.png') no-repeat;
+  background: url('../image/ready_create.png') no-repeat;
 }
 .game-scene {
   float: right;

@@ -15,6 +15,12 @@
     </div>
     <a href="/home/select"><div class="edition-t create"></div></a>
     <div id="main">
+        <div class="left-area">
+            <div class="buttons">
+                <!--<div class="btn-freedom-exec"></div>-->
+                <div class="btn-ready"></div>
+            </div>
+        </div>
         <div class="student-play-area group-a">
             <div class="group-title"></div>
             <div class="grammar-lt">
@@ -45,7 +51,7 @@
                 <span class="mule"></span>
             </div>
         </div>
-        <div class="btn-teacher-hit"></div>
+        <div class="btn-teacher-hit "></div>
     </div>
     <div class="hit-area">
         <div class="grammar g-cymbal">
@@ -71,29 +77,13 @@
     </div>
 </div>
 <div id="waitingArea" class="waiting-wrap">
-    <h2>等待其他小伙伴</h2>
+    <h2>等待开始</h2>
     <div class="player-list">
-        <div class="player">
-            <div class="player-avatar avatar_1"></div>
-            <div class="player-name">小苹果大眼睛</div>
-        </div>
-        <div class="player">
-            <div class="player-avatar wait"></div>
-            <div class="player-name">等待中</div>
-        </div>
-        <div class="player">
-            <div class="player-avatar wait"></div>
-            <div class="player-name">等待中</div>
-        </div>
-        <div class="player">
-            <div class="player-avatar wait"></div>
-            <div class="player-name">等待中</div>
-        </div>
-        <div class="player">
-            <div class="player-avatar wait"></div>
-            <div class="player-name">等待中</div>
-        </div>
     </div>
+</div>
+<div class="result success">
+    <div class="result-text"></div>
+    <div class="btn-reload" style="left:110px;"></div>
 </div>
 <div class="mask"></div>
 <script src="../../public/js/jquery-1.11.1.min.js"></script>

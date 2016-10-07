@@ -29,8 +29,11 @@ class RecordDetail_Model extends CI_Model {
         return $id;
     }
 
-    public function getDetail($record_id)
+    public function getDetail($record_id, $group_id)
     {
-        return $this->db->where('record_id', $record_id)->get('record_detail')->result_array();
+        return $this->db
+            ->where('record_id', $record_id)
+            ->where('group_id', $group_id)
+            ->get('record_detail')->result_array();
     }
 }

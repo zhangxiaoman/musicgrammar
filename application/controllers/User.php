@@ -69,7 +69,13 @@ class User extends MY_Controller {
 
         $user_id = $_SESSION['user_id'];
         $group_id = $_SESSION['group_id'];
-        $record_id = $_SESSION['record_id'];
+
+        $user_info = $this->user_model->get($user_id);
+
+        $record_id = $user_info['record_id'];
+
+        $_SESSION['record_id'] = $record_id;
+
         $musical_result = $this->input->post('result');
 
         $result = $this->user_model->update_status(User_Model::STATUS_END, array($user_id));
@@ -95,46 +101,26 @@ class User extends MY_Controller {
     {
         $record_id = $_SESSION['record_id'];
         $group_id = $_SESSION['group_id'];
-        $musical_id = $_SESSION['musical_id'];
-        $musical_info = $this->musical_model->get($musical_id);
-        $musical_content = json_decode($musical_info['content'], true);
+//        $musical_id = $_SESSION['musical_id'];
+//        $musical_info = $this->musical_model->get($musical_id);
+//        $musical_content = json_decode($musical_info['content'], true);
 
-        $detail = $this->recordDetail_model->getDetail($record_id);
+        $detail = $this->recordDetail_model->getDetail($record_id, $group_id);
 
-        $sum_result = array();
+
+        // 组员不够5人
+        if (count($detail) < 5) {
+            $this->success(array('is_success' => 0));
+        }
+
         foreach($detail as $item) {
-            $result = json_decode($item['result'], true);
-            $sum_result = array_merge_recursive($sum_result, $result);
-        }
-        $musical_content_final =  array();
-        foreach($musical_content as $key => $value) {
-            foreach ($value as $v) {
-                $musical_content_final[$key."d"][] = $v['name'];
-            }
-        }
-        $reduc = 0;
-        foreach ($musical_content_final as $key => $muv) {
-            if (!isset($sum_result[$key])) {
-                $reduc ++;
-                continue;
-            }
-
-            $diff = array_diff_assoc($muv, $sum_result[$key]);
-
-            if (count($diff) > 2) {
-                $reduc++;
-                continue;
+            // 有学生没有敲击
+            if (empty($item['result'])) {
+                $this->success(array('is_success' => 0, "result" => $detail));
             }
         }
 
-
-        if ($reduc > 5 ){
-            $this->record_model->update($record_id, 60);
-
-            $this->success(array('is_success' => 1));
-        }
-        $this->record_model->update($record_id, 40);
-        $this->success(array('is_success' => 0));
+        $this->success(array('is_success' => 1, "result" => array($record_id, $group_id, $detail)));
 
     }
 

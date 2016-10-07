@@ -98,6 +98,13 @@ class User_Model extends CI_Model {
         return $this->db->update('user',array('musical_id' => $musical_id), $where);
     }
 
+    public function update_record($user_ids, $record_id)
+    {
+        $user_id_str  =  implode(',', $user_ids);
+        $where = "id in ({$user_id_str})";
+        return $this->db->update('user',array('record_id' => $record_id), $where);
+    }
+
     public function musical_ready_user($musical_id)
     {
         $this->db->where('musical_id', $musical_id)->where("is_deleted", 0);

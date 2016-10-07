@@ -101,6 +101,8 @@ class Group extends MY_Controller {
 
         $record_id = $this->record_model->save();
 
+        $this->user_model->update_record($user_ids, $record_id);
+
         $_SESSION['record_id'] = $record_id;
 
         if($result) {
@@ -174,9 +176,11 @@ class Group extends MY_Controller {
         $result = $this->user_model->update_status(User_Model::STATUS_BEGIN, $user_ids);
         $record_id = $this->record_model->save();
 
+        $result = $this->user_model->update_record($user_ids, $record_id);
+
         $_SESSION['record_id'] = $record_id;
 
-        $this->success();
+        $this->success($result);
 
     }
 

@@ -2,13 +2,23 @@
   position: relative;
 }
 .btn-teacher-hit {
+   position: absolute;
+   left: 460px;
+   top: 204px;
+   width: 140px;
+   height: 140px;
+   background: url('../image/btn1.png') no-repeat;
+ }
+.btn-teacher-hit-hover {
   position: absolute;
-  left: 460px;
-  top: 204px;
-  width: 107px;
-  height: 108px;
-  background: url('../image/btn1.png') no-repeat;
+  left: 450px;
+  top: 195px;
+  width: 140px;
+  height: 140px;
+  background: url('../image/btn1-hover.png') no-repeat;
 }
+
+
 .student-play-area {
   position: absolute;
   width: 400px;
