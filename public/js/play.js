@@ -4,7 +4,7 @@
 $(function() {
     var $buttons = $('.buttons');
     var FOUTHBARRIER = new Audio('../../public/audio/4.mp3');
-    var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
+    var FIFTHBARRIER = new Audio('../../public/audio/5.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
     var $result = $('.result');

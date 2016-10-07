@@ -95,7 +95,7 @@ class Home extends MY_Controller
 
         // 每一拍时间.
         $temps_time = number_format($musical['length']/$temps,0,"","");
-        $temps_time = 850;
+        $temps_time = 859;
         foreach($musical_content as $key => &$item) {
             $item_begin = $key * $temps_time;
             foreach($item as $k => &$value) {
