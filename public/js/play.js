@@ -250,7 +250,7 @@ $(function() {
             }
             $content.show().animate(
                 {
-                    left: -130 * self.data.temps,
+                    left: -134 * (self.data.temps - 1),
                     speed:~~this.data.temps_time
                 },
                 {

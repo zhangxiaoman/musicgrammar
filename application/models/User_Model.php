@@ -84,7 +84,7 @@ class User_Model extends CI_Model {
 
     public function get_count_by_group($group_id)
     {
-        $sql = "select count(1) as num from user where group_id = {$group_id}";
+        $sql = "select count(1) as num from user where group_id = {$group_id} and is_deleted = 0";
         $result = $this->db->query($sql)->row_array();
 
         return $result['num'];
@@ -95,5 +95,15 @@ class User_Model extends CI_Model {
     {
         $where = "id = {$user_id}";
         return $this->db->update('user',array('musical_id' => $musical_id), $where);
+    }
+
+    public function musical_ready_user($musical_id)
+    {
+        $this->db->where('musical_id', $musical_id)->where("is_deleted", 0);
+        $this->db->where('status', self::STATUS_READY);
+        $this->db->limit(10);
+        $this->db->order_by("create_at", "desc");
+        $query = $this->db->get('user');
+        return $query->result_array();
     }
 }

@@ -122,6 +122,11 @@ class Home extends MY_Controller
         if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
             redirect("/");
         }
+        $data['user_id'] =  empty($_SESSION['user_id']) ? "" : $_SESSION['user_id'];
+
+        $result = $this->user_model->update_musical($data['user_id'], 5);
+        $this->user_model->update_status(User_Model::STATUS_READY, array($data['user_id']));
+
         $this->load->view('home/create',$data);
     }
 

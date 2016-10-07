@@ -165,7 +165,18 @@ class Group extends MY_Controller {
 
     public function begin_brk()
     {
-        $this->musical_model->begin_brk();
+        $users = $this->user_model->musical_ready_user(5);
+        $user_ids = array();
+        foreach ($users as $item) {
+            $user_ids[] = $item['id'];
+        }
+        $result = $this->user_model->update_status(User_Model::STATUS_BEGIN, $user_ids);
+        $record_id = $this->record_model->save();
+
+        $_SESSION['record_id'] = $record_id;
+
+        $this->success();
+
     }
 
 
