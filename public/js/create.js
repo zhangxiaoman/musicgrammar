@@ -34,7 +34,6 @@ $(function() {
 
 
     $teacherHit.on('touchstart',function(){
-        alert(FIFTHBARRIER.readyState);
         var $this = $(this);
         $this.addClass("btn-teacher-hit-hover");
         var g = "sidedrum";
