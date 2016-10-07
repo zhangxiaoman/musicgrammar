@@ -8,22 +8,21 @@ $(function() {
     var $teacherHit = $('.btn-teacher-hit');
     var $ready = $('.btn-ready');
     var $result = $('.result');
-    var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
+    var FIFTHBARRIER = new Audio('../../public/audio/firstbarrier.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
-    //var Grammar    = {
-        //    sidedrum: new Audio('../../public/audio/Tabour.wav'),
-        //    tam: new Audio('../../public/audio/bigbong.wav'),
-        //    mule: new Audio('../../public/audio/maluo.wav'),
-        //    cymbal: new Audio('../../public/audio/dabo.wav'),
-        //    tupan: new Audio('../../public/audio/tanggu.wav')
-        //};
 
     var result = [];
 
-    $ready.on('touchstart',function(){
+    $ready.on('touchstart',function($e){
+
+        $e.stopPropagation();
         FIFTHBARRIER.load();
         FIFTHBARRIER.pause();
+        FAILSOUND.load();
+        FAILSOUND.pause();
+        SUCCESSSOUND.load();
+        SUCCESSSOUND.pause();
         $mask.show();
         $waitArea.show();
     });
@@ -67,6 +66,17 @@ $(function() {
         console.log(JSON.stringify(result));
     }).on('touchend', '.grammar', function() {
         $(this).removeClass('hover');
+    });
+
+    $mask.on('touchstart',function() {
+        $(this).hide();
+        $result.hide();
+        $waitArea.hide();
+    });
+    $waitArea.on('touchstart',function() {
+        $(this).hide();
+        $result.hide();
+        $mask.hide();
     });
 
     $('.btn-reload').click(function() {
