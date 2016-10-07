@@ -3,77 +3,84 @@
  */
 $(function() {
     var $buttons = $('.buttons');
-    var FOUTHBARRIER = new Audio('../../public/audio/fourthbarrier.mp3');
-    var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
+    var FOUTHBARRIER = new Audio('../../public/audio/4.mp3');
+    var FIFTHBARRIER = new Audio('../../public/audio/5.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
     var $result = $('.result');
-
-    window.grammarIndex = 0;
+    window.grammarIndex = {
+        sidedrum : 0,
+        tam : 0,
+        mule : 0,
+        cymbal : 0,
+        tupan : 0,
+    };
     var Grammar = window.grammar = {
         sidedrum: [
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav')
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3')
         ],
         tam: [
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav')
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3')
         ],
         mule: [
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav')
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3')
         ],
         cymbal: [
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav')
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3')
         ],
         tupan: [
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav')
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3')
         ]
     };
-    var CountMusic = new Audio('../../public/audio/daojishi.wav');
-    CountMusic.load();
+    var CountMusic1 = new Audio('../../public/audio/daojishi.wav');
+    var CountMusic2 = new Audio('../../public/audio/daojishi.wav');
+    CountMusic1.load();
+    CountMusic2.load();
 
     var Readygo = new Audio('../../public/audio/ready_go.mp3');
 
@@ -139,6 +146,14 @@ $(function() {
                 $container: $('.rhythm-container')
             };
             this.level = level || 1;
+
+            if (this.level == 4) {
+                FOUTHBARRIER.load();
+            }
+
+            if (this.level == 5) {
+                FIFTHBARRIER.load();
+            }
             this.type = type || 'exec';
             this.startTime = 0;
             this.data = this._getLevelData(level);
@@ -147,7 +162,6 @@ $(function() {
             this.showCountDown();
         },
         _getLevelData: function(level) {
-            return mock.data;
             var _data;
             $.ajax({
                 url: '/home/get_musical',
@@ -166,7 +180,7 @@ $(function() {
         },
         _bindEvent: function() {
             var self = this;
-            $('.hit-area').on('touchstart', '.grammar', function() {
+            $('.hit-area').off('click').on('click', '.grammar', function() {
                 var $this = $(this);
                 $this.addClass('hover');
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
@@ -179,10 +193,12 @@ $(function() {
                     }
                     self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
                 }
-                if (Grammar[g].currentTime > 0) {
-                    Grammar[g].currentTime = 0;
-                } else {
-                    Grammar[g].play();
+                var grammarIndex  = window.grammarIndex[g] || 0;
+                window.grammar[g][grammarIndex].currentTime = 0.02;
+                window.grammar[g][grammarIndex].play();
+                window.grammarIndex[g]++;
+                if(window.grammarIndex[g] == 10) {
+                    window.grammarIndex[g] = 0;
                 }
             });
         },
@@ -222,18 +238,20 @@ $(function() {
             $ktvStart.show();
 
             $k1.addClass('show');
-            CountMusic.play();
+            CountMusic1.play();
             setTimeout(function() {
                 $k2.addClass('show');
-                CountMusic.play();
+                CountMusic2.play();
                 setTimeout(function() {
                     $k3.addClass('show');
-                    CountMusic.play();
-                    self.start();
+                    CountMusic1.play();
                     setTimeout(function() {
-                        $ktvStart.hide();
-                        $ktvStart.find('span').removeClass('show');
-                    }, 200);
+                        self.start();
+                        setTimeout(function () {
+                            $ktvStart.hide();
+                            $ktvStart.find('span').removeClass('show');
+                        }, 200);
+                    },time);
                 }, time);
             }, time);
         },
@@ -243,20 +261,31 @@ $(function() {
             this._bindEvent();
             this.startTime = Date.now();
             if (this.level == 4) {
+                FOUTHBARRIER.currentTime = 0.02;
                 FOUTHBARRIER.play();
             }
             if (this.level == 5) {
                 FIFTHBARRIER.play();
             }
             $content.show().animate(
-                { left: -134 * self.data.temps },
-                ~~self.data.length,
-                'linear',
-                function() {
-                    self.end();
+                {
+                    left: -134 * (self.data.temps - 1),
+                    speed:~~this.data.temps_time
+                },
+                {
+                    duration: ~~self.data.length,
+                    easing: "linear",
+                    speed:~~this.data.temps_time,
+                    complete: function(){
+                        self.end();
+                    },
+                    step: function(now, fx ) {
+                    }
                 });
         },
         end: function() {
+            this.comp.$container.find("div span").remove();
+            this.comp.$container.find("div.division-line").remove();
             $buttons.show();
             this.startTime = 0;
             this._unbindEvent();

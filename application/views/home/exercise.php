@@ -12,13 +12,14 @@
         <div class="title">
             <div class="group-icon <?php echo $group_alias; ?>"></div>
             <div class="user-name"><?php echo $user_name; ?></div>
+            <div class="hehe"></div>
         </div>
         <a href="/home/select"><div class="edition-t exec"></div></a>
         <div id="main">
             <div class="left-area">
                 <div class="game-info">
                     <div class="game-name exec1"></div>
-                    <div class="music-name third"></div>
+                    <div class="music-name "></div>
                 </div>
                 <div class="buttons">
                     <!--<div class="btn-freedom-exec"></div>-->
@@ -37,16 +38,11 @@
                 </div>
                 <div class="rhythm-wrap">
                     <div class="rhythm-container">
-                        <div class="mg-row sidedrum-row">
-                        </div>
-                        <div class="mg-row tupan-row">
-                        </div>
-                        <div class="mg-row tam-row">
-                        </div>
-                        <div class="mg-row cymbal-row">
-                        </div>
-                        <div class="mg-row mule-row">
-                        </div>
+                        <div class="mg-row tupan-row"> </div>
+                        <div class="mg-row mule-row"> </div>
+                        <div class="mg-row tam-row"> </div>
+                        <div class="mg-row cymbal-row"> </div>
+                        <div class="mg-row sidedrum-row"> </div>
                     </div>
                 </div>
             </div>
@@ -54,9 +50,10 @@
         <div class="hit-area">
             <div class="grammar g-cymbal">大钵</div>
             <div class="grammar g-tam">大锣</div>
-            <div class="grammar g-mule">小罗</div>
-            <div class="grammar g-tupan">堂鼓</div>
             <div class="grammar g-sidedrum">小鼓</div>
+            <div class="grammar g-tupan">堂鼓</div>
+            <div class="grammar g-mule">马锣</div>
+
         </div>
     </div>
     <div id="waitingArea" class="waiting-wrap">

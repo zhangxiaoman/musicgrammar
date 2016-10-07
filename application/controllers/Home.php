@@ -86,9 +86,6 @@ class Home extends MY_Controller
     {
         $id = $this->input->post("id");
 
-        if ($id > 4 ){
-            $id = 4;
-        }
         $musical = $this->musical_model->get($id);
 
         $musical_content = json_decode($musical['content'], true);
@@ -98,7 +95,7 @@ class Home extends MY_Controller
 
         // 每一拍时间.
         $temps_time = number_format($musical['length']/$temps,0,"","");
-
+        $temps_time = 859;
         foreach($musical_content as $key => &$item) {
             $item_begin = $key * $temps_time;
             foreach($item as $k => &$value) {
@@ -118,9 +115,19 @@ class Home extends MY_Controller
     // 创作版
     public function create()
     {
-        $list = $this->group_model->group_list();
+        $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
+        $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
+        $data['group_alias'] =  empty($_SESSION['group_alias']) ? "" : $_SESSION['group_alias'];
 
-        $this->load->view('home/create');
+        if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
+            redirect("/");
+        }
+        $data['user_id'] =  empty($_SESSION['user_id']) ? "" : $_SESSION['user_id'];
+
+        $result = $this->user_model->update_musical($data['user_id'], 5);
+        $this->user_model->update_status(User_Model::STATUS_READY, array($data['user_id']));
+
+        $this->load->view('home/create',$data);
     }
 
     // 创作版
@@ -132,6 +139,16 @@ class Home extends MY_Controller
         $this->load->view('home/breakthrough',$data);
     }
 
+    public function check_begin_brk()
+    {
+        $musical_id = 5;
+        $musical = $this->musical_model->get($musical_id);
+
+        if ($musical['status'] == 1 ) {
+            $this->success(array('is_begin' => 1));
+        }
+        $this->success(array('is_begin' => 0));
+    }
 
 
 }

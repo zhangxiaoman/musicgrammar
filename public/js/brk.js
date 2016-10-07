@@ -98,9 +98,15 @@ $(function() {
         $result.hide();
         $waitArea.hide();
     });
+    $waitArea.click(function() {
+        $(this).hide();
+        $result.hide();
+        $mask.hide();
+    });
 
     $('.btn-reload').click(function() {
-        window.Game.init(level, 'brk');
+        //window.Game.init(level, 'brk');
+        $startBtn.trigger('click');
         $mask.hide();
         $result.hide();
     });
@@ -111,7 +117,8 @@ $(function() {
         } else {
             alert('已经最后一关了');
         }
-        window.Game.init(level, 'brk');
+        $startBtn.trigger('click');
+        //window.Game.init(level, 'brk');
         $mask.hide();
         $result.hide();
     });

@@ -23,12 +23,12 @@ $(function() {
         $this.addClass('hover');
         var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
 
-        var grammarIndex  = window.grammarIndex || 0;
-
+        var grammarIndex  = window.grammarIndex[g] || 0;
+        window.grammar[g][grammarIndex].currentTime = 0.02;
         window.grammar[g][grammarIndex].play();
-        window.grammarIndex++;
-        if(window.grammarIndex == 10) {
-            window.grammarIndex = 0;
+        window.grammarIndex[g]++;
+        if(window.grammarIndex[g] == 10) {
+            window.grammarIndex[g] = 0;
         }
 
     }).on('touchend', '.grammar', function() {

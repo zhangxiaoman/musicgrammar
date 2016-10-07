@@ -15,6 +15,7 @@ class Group extends MY_Controller {
         $this->load->model('group_model');
         $this->load->model('user_model');
         $this->load->model('record_model');
+        $this->load->model('musical_model');
         $this->load->helper('url_helper');
     }
 
@@ -160,6 +161,22 @@ class Group extends MY_Controller {
         $data['groups'] = $result;
 
         $this->load->view('group/index',$data);
+    }
+
+    public function begin_brk()
+    {
+        $users = $this->user_model->musical_ready_user(5);
+        $user_ids = array();
+        foreach ($users as $item) {
+            $user_ids[] = $item['id'];
+        }
+        $result = $this->user_model->update_status(User_Model::STATUS_BEGIN, $user_ids);
+        $record_id = $this->record_model->save();
+
+        $_SESSION['record_id'] = $record_id;
+
+        $this->success();
+
     }
 
 

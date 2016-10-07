@@ -4,9 +4,13 @@
 </style>
 <h2>组管理</h2>
 
+<button class="begin_brk"  type="button">开始闯关</button>
 <?php foreach ($groups as $item): ?>
 
-<h3><?php echo $item['name']; ?><button class="begin" data-group-id = <?php echo $item['id'];?> type="button">开始</button></h3>
+<h3><?php echo $item['name']; ?>
+    <button class="begin" data-group-id = <?php echo $item['id'];?> type="button">开始</button>
+    <button class="reset" data-group-id = <?php echo $item['id'];?> type="button">重置</button>
+</h3>
 <div class="main">
     <table>
         <tbody>
@@ -43,6 +47,32 @@
                 data:{
                     group_id:group_id
                 },
+                dataType: 'json',
+                success: function(re) {
+                    location.reload();
+                }
+            });
+        });
+        $(".reset").click(function(){
+
+            var group_id = $(this).data('group-id');
+            $.ajax({
+                url: '/group/clear',
+                type: 'post',
+                data:{
+                    group_id:group_id
+                },
+                dataType: 'json',
+                success: function(re) {
+                    location.reload();
+                }
+            });
+        });
+        $(".begin_brk").click(function(){
+
+            $.ajax({
+                url: '/group/begin_brk',
+                type: 'post',
                 dataType: 'json',
                 success: function(re) {
                     location.reload();
