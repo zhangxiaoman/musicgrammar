@@ -196,9 +196,9 @@ html, body {
   vertical-align: middle;
 }
 .mg-row.sidedrum-row > span {
-  width: 67px;
-  background: url('../image/xiaogu_s.png') center no-repeat;
-}
+   width: 67px;
+   background: url('../image/xiaogu_s.png') center no-repeat;
+ }
 .mg-row.tupan-row > span {
   width: 67px;
   background: url('../image/tanggu_s.png') center no-repeat;

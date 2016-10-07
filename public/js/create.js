@@ -8,10 +8,10 @@ $(function() {
     var $teacherHit = $('.btn-teacher-hit');
     var $ready = $('.btn-ready');
     var $result = $('.result');
-    var FIFTHBARRIER = new Audio('../../public/audio/firstbarrier.mp3');
+    var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
-
+    var renderInterval ;
     var result = [];
 
     $ready.on('touchstart',function($e){
@@ -85,6 +85,7 @@ $(function() {
     });
 
     function end() {
+        clearInterval(renderInterval);
         $('.hit-area').unbind('click');
         $.ajax({
             url: '/user/end',
@@ -138,11 +139,75 @@ $(function() {
                         $waitArea.hide();
                         result = [];
                         FIFTHBARRIER.play();
+                        render_xiaotu();
                     }
 
                 }
             }
         });
+    }
+
+
+    function render_xiaotu()
+    {
+        var count = 1;
+        var teacher = [
+            1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+            25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+            49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,
+            73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88
+        ];
+        var group_a = [17,18,19,20,21,22,23,24];
+        var group_b = [41,42,43,44,45,46,47,48];
+        var group_c = [65,66,67,68,69,70,71,72];
+
+
+        renderInterval = setInterval(function(){
+            if ($.inArray(count, teacher) == 0 || $.inArray(count, teacher) != -1 ) {
+                $teacherHit.addClass("btn-teacher-hit-hover");
+                setTimeout(function(){
+                    $teacherHit.removeClass("btn-teacher-hit-hover");
+                }, 300);
+            }
+            if ($.inArray(count, group_a) == 0 || $.inArray(count, group_a) != -1 ) {
+                $(".group-a").find(".grammar-lt span").each(function( index ) {
+                    var $this = $(this);
+                    var oldClass = $(this).attr('class');
+                    var newClass = oldClass + "_hover";
+
+                    $(this).addClass(newClass);
+                    setTimeout(function(){
+                        $this.removeClass(newClass);
+                    }, 300);
+                });
+            }
+            if ($.inArray(count, group_b) == 0 || $.inArray(count, group_b) != -1) {
+                $(".group-b").find(".grammar-lt span").each(function( index ) {
+                    var $this = $(this);
+                    var oldClass = $(this).attr('class');
+                    var newClass = oldClass + "_hover";
+
+                    $(this).addClass(newClass);
+                    setTimeout(function(){
+                        $this.removeClass(newClass);
+                    }, 300);
+                });
+            }
+            if ($.inArray(count, group_c) == 0 || $.inArray(count, group_c) != -1) {
+                $(".group-c").find(".grammar-lt span").each(function( index ) {
+                    var $this = $(this);
+                    var oldClass = $(this).attr('class');
+                    var newClass = oldClass + "_hover";
+
+                    $(this).addClass(newClass);
+                    setTimeout(function(){
+                        $this.removeClass(newClass);
+                    }, 300);
+                });
+
+            }
+            count++;
+        }, 6/7*1000);
     }
 
     var checkBeginBrkInterval =  setInterval(check_begin_brk, 1000);

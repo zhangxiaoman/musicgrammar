@@ -51,7 +51,7 @@
                 <span class="mule"></span>
             </div>
         </div>
-        <div class="btn-teacher-hit "></div>
+        <div class="btn-teacher-hit"></div>
     </div>
     <div class="hit-area">
         <div class="grammar g-cymbal">
