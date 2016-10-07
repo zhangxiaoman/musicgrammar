@@ -19,6 +19,12 @@ html, body {
   -webkit-background-size: cover;
   background-size: cover;
 }
+.wrap.exec-bg {
+  background-image: url('../image/bg_exec.png');
+}
+.wrap.create-bg {
+  background-image: url('../image/bg_create.jpg');
+}
 #main {
   width: 100%;
   height: 425px;
@@ -143,8 +149,8 @@ html, body {
   left: 122px;
   top: 0;
   z-index: 2;
-  width: 27px;
-  height: 412px;
+  width: 55px;
+  height: 418px;
   background: url('../image/play_icon.png') bottom center no-repeat;
   background-size: 100% auto;
 }
@@ -204,40 +210,46 @@ html, body {
   background: url('../image/xiaoluo_s.png') center no-repeat;
 }
 .hit-area {
-  margin-top: 12px;
   width: 100%;
   font-size: 0;
+  padding: 0 6px;
 }
 .grammar {
+  vertical-align: top;
   display: inline-block;
-  margin-left: 58px;
-  width: 146px;
+  width: 200px;
   height: 170px;
-  padding-top: 150px;
   font-size: 18px;
-  color: #4a4a4a;
+  color: #fff;
   text-align: center;
 }
-.grammar.g-cymbal {
-  margin-left: 30px;
-  background: url('../image/dabo.png') no-repeat;
-  background-size: 146px 146px;
+.grammar > p {
+  margin-top: -10px;
 }
-.grammar.g-tam {
-   background: url('../image/daluo.png') no-repeat;
-   background-size: 146px 146px;
- }
-.grammar.g-mule {
-  background: url('../image/xiaoluo.png') no-repeat;
-  background-size: 146px 146px;
+.grammar .grammar-image {
+  display: inline-block;
+  width: 194px;
+  height: 170px;
+  background: url('../image/grammars.png') no-repeat;
+  background-position-y: 0;
 }
-.grammar.g-tupan {
-  background: url('../image/xiaogu.png') no-repeat;
-  background-size: 146px 146px;
+.grammar.hover .grammar-image {
+  background-position-y: -170px;
 }
-.grammar.g-sidedrum {
-  background: url('../image/tanggu.png') no-repeat;
-  background-size: 146px 146px;
+.g-cymbal .grammar-image {
+  background-position-x: 0;
+}
+.g-tam .grammar-image {
+  background-position-x: -204px;
+}
+.g-mule .grammar-image {
+  background-position-x: -414px;
+}
+.g-tupan .grammar-image {
+  background-position-x: -622px;
+}
+.g-sidedrum .grammar-image {
+  background-position-x: -830px;
 }
 .mask {
   position: fixed;

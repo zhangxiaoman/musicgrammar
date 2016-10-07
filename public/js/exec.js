@@ -2,7 +2,6 @@
  * Created by chaofan on 2016/10/4.
  */
 $(function() {
-    var $freedomBtn = $('.btn-freedom-exec');
     var $startBtn = $('.btn-start-exec');
     var $mask = $('.mask');
     var $selectBtn = $('.btn-select-level');
@@ -21,6 +20,7 @@ $(function() {
 
     $('.hit-area').off("touchstart").on('touchstart', '.grammar', function() {
         var $this = $(this);
+        $this.addClass('hover');
         var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
 
         var grammarIndex  = window.grammarIndex[g] || 0;
@@ -31,6 +31,8 @@ $(function() {
             window.grammarIndex[g] = 0;
         }
 
+    }).on('touchend', '.grammar', function() {
+        $(this).removeClass('hover');
     });
 
     // 选择关卡

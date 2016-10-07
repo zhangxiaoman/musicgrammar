@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../public/css/play.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap bg-create">
     <div class="title">
         <div class="group-icon <?php echo $group_alias; ?>"></div>
         <div class="user-name"><?php echo $user_name; ?></div>
