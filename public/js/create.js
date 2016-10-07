@@ -5,13 +5,13 @@ $(function() {
     var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
-    var Grammar = {
-        sidedrum: new Audio('../../public/audio/Tabour.wav'),
-        tam: new Audio('../../public/audio/bigbong.wav'),
-        mule: new Audio('../../public/audio/maluo.wav'),
-        cymbal: new Audio('../../public/audio/dabo.wav'),
-        tupan: new Audio('../../public/audio/tanggu.wav')
-    };
+    //var Grammar    = {
+        //    sidedrum: new Audio('../../public/audio/Tabour.wav'),
+        //    tam: new Audio('../../public/audio/bigbong.wav'),
+        //    mule: new Audio('../../public/audio/maluo.wav'),
+        //    cymbal: new Audio('../../public/audio/dabo.wav'),
+        //    tupan: new Audio('../../public/audio/tanggu.wav')
+        //};
 
     var result = [];
 
@@ -22,7 +22,13 @@ $(function() {
     $('.hit-area').on('click', '.grammar', function() {
         var $this = $(this);
         var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-        Grammar[g].play();
+        var grammarIndex  = window.grammarIndex[g] || 0;
+        window.grammar[g][grammarIndex].currentTime = 0.02;
+        window.grammar[g][grammarIndex].play();
+        window.grammarIndex[g]++;
+        if(window.grammarIndex[g] == 10) {
+            window.grammarIndex[g] = 0;
+        }
         result.push(g);
     });
 

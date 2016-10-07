@@ -12,6 +12,7 @@
         <div class="title">
             <div class="group-icon <?php echo $group_alias; ?>"></div>
             <div class="user-name"><?php echo $user_name; ?></div>
+            <div class="hehe"></div>
         </div>
         <a href="/home/select"><div class="edition-t exec"></div></a>
         <div id="main">

@@ -8,8 +8,13 @@ $(function() {
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
     var $result = $('.result');
-
-    window.grammarIndex = 0;
+    window.grammarIndex = {
+        sidedrum : 0,
+        tam : 0,
+        mule : 0,
+        cymbal : 0,
+        tupan : 0,
+    };
     var Grammar = window.grammar = {
         sidedrum: [
             new Audio('../../public/audio/xiaogu.mp3'),
@@ -72,8 +77,10 @@ $(function() {
             new Audio('../../public/audio/tanggu.mp3')
         ]
     };
-    var CountMusic = new Audio('../../public/audio/daojishi.wav');
-    CountMusic.load();
+    var CountMusic1 = new Audio('../../public/audio/daojishi.wav');
+    var CountMusic2 = new Audio('../../public/audio/daojishi.wav');
+    CountMusic1.load();
+    CountMusic2.load();
 
     var Readygo = new Audio('../../public/audio/ready_go.mp3');
 
@@ -139,6 +146,14 @@ $(function() {
                 $container: $('.rhythm-container')
             };
             this.level = level || 1;
+
+            if (this.level == 4) {
+                FOUTHBARRIER.load();
+            }
+
+            if (this.level == 5) {
+                FIFTHBARRIER.load();
+            }
             this.type = type || 'exec';
             this.startTime = 0;
             this.data = this._getLevelData(level);
@@ -165,7 +180,7 @@ $(function() {
         },
         _bindEvent: function() {
             var self = this;
-            $('.hit-area').on('click', '.grammar', function() {
+            $('.hit-area').off('click').on('click', '.grammar', function() {
                 var $this = $(this);
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 if (self.startTime > 0) {
@@ -177,12 +192,12 @@ $(function() {
                     }
                     self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
                 }
-                var grammarIndex  = window.grammarIndex || 0;
+                var grammarIndex  = window.grammarIndex[g] || 0;
                 window.grammar[g][grammarIndex].currentTime = 0.02;
                 window.grammar[g][grammarIndex].play();
-                window.grammarIndex++;
-                if(window.grammarIndex == 10) {
-                    window.grammarIndex = 0;
+                window.grammarIndex[g]++;
+                if(window.grammarIndex[g] == 10) {
+                    window.grammarIndex[g] = 0;
                 }
             });
         },
@@ -222,13 +237,13 @@ $(function() {
             $ktvStart.show();
 
             $k1.addClass('show');
-            CountMusic.play();
+            CountMusic1.play();
             setTimeout(function() {
                 $k2.addClass('show');
-                CountMusic.play();
+                CountMusic2.play();
                 setTimeout(function() {
                     $k3.addClass('show');
-                    CountMusic.play();
+                    CountMusic1.play();
                     setTimeout(function() {
                         self.start();
                         setTimeout(function () {
