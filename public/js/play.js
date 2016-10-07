@@ -180,7 +180,7 @@ $(function() {
         },
         _bindEvent: function() {
             var self = this;
-            $('.hit-area').off('click').on('click', '.grammar', function() {
+            $('.hit-area').off('touchstart').on('touchstart', '.grammar', function() {
                 var $this = $(this);
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 if (self.startTime > 0) {

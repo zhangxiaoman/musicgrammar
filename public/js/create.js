@@ -19,7 +19,7 @@ $(function() {
         end();
     });
 
-    $('.hit-area').on('click', '.grammar', function() {
+    $('.hit-area').on('touchstart', '.grammar', function() {
         var $this = $(this);
         var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
         var grammarIndex  = window.grammarIndex[g] || 0;

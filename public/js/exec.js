@@ -19,7 +19,7 @@ $(function() {
         '5': 'music-name fifth'
     };
 
-    $('.hit-area').off("click").on('click', '.grammar', function() {
+    $('.hit-area').off("touchstart").on('touchstart', '.grammar', function() {
         var $this = $(this);
         var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
 
