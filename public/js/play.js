@@ -12,64 +12,64 @@ $(function() {
     window.grammarIndex = 0;
     var Grammar = window.grammar = {
         sidedrum: [
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav'),
-            new Audio('../../public/audio/Tabour.wav')
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3'),
+            new Audio('../../public/audio/xiaogu.mp3')
         ],
         tam: [
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav'),
-            new Audio('../../public/audio/bigbong.wav')
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3'),
+            new Audio('../../public/audio/daluo.mp3')
         ],
         mule: [
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav'),
-            new Audio('../../public/audio/maluo.wav')
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3'),
+            new Audio('../../public/audio/maluo.mp3')
         ],
         cymbal: [
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav'),
-            new Audio('../../public/audio/dabo.wav')
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3'),
+            new Audio('../../public/audio/dabo.mp3')
         ],
         tupan: [
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav'),
-            new Audio('../../public/audio/tanggu.wav')
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3'),
+            new Audio('../../public/audio/tanggu.mp3')
         ]
     };
     var CountMusic = new Audio('../../public/audio/daojishi.wav');
@@ -177,10 +177,12 @@ $(function() {
                     }
                     self.result[n] ? self.result[n].push(g) : (self.result[n] = [g]);
                 }
-                if (Grammar[g].currentTime > 0) {
-                    Grammar[g].currentTime = 0;
-                } else {
-                    Grammar[g].play();
+                var grammarIndex  = window.grammarIndex || 0;
+                window.grammar[g][grammarIndex].currentTime = 0.02;
+                window.grammar[g][grammarIndex].play();
+                window.grammarIndex++;
+                if(window.grammarIndex == 10) {
+                    window.grammarIndex = 0;
                 }
             });
         },
