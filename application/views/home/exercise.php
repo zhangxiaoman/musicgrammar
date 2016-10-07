@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>练习</title>
     <meta name="viewport" content="maximum-scale=1.0,user-scalable=0" />
     <link rel="stylesheet" href="../../public/css/normalize.css">
     <link rel="stylesheet" href="../../public/css/play.css">
@@ -34,8 +34,8 @@
             </div>
             <div class="game-scene">
                 <div class="play-line">
-                    <div class="line"></div>
                 </div>
+                <div class="line"></div>
                 <div class="rhythm-wrap">
                     <div class="rhythm-container">
                         <div class="mg-row tupan-row"> </div>

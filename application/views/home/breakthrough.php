@@ -32,7 +32,6 @@
         </div>
         <div class="game-scene">
             <div class="play-line">
-                <div class="line"></div>
             </div>
             <div class="rhythm-wrap">
                 <div class="rhythm-container">

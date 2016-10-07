@@ -57,6 +57,16 @@ $(function() {
                 }
             }
         });
+
+        window.FOUTHBARRIER.load();
+        window.FOUTHBARRIER.pause();
+
+        window.CountMusic1.load();
+        window.CountMusic1.pause();
+
+        window.CountMusic2.load();
+        window.CountMusic2.pause();
+
     });
 
     function renderWaitUser ($data) {

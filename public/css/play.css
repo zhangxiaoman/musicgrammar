@@ -98,10 +98,10 @@ html, body {
   top: -12px;
   width: 128px;
   height: 37px;
-  background: url('../image/exec1.png') no-repeat;
+  background: url('../image/exec.png') no-repeat;
 }
 .game-info .game-name.brk1 {
-  background-image: url('../image/brk1.png');
+  background-image: url('../image/brk.png');
 }
 .game-info .music-name {
   margin-top: 40px;
@@ -146,9 +146,9 @@ html, body {
 }
 .play-line {
   position: absolute;
-  left: 122px;
+  left: 106px;
   top: 0;
-  z-index: 2;
+  z-index: 1000;
   width: 55px;
   height: 418px;
   background: url('../image/play_icon.png') bottom center no-repeat;

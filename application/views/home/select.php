@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>五方连连奏</title>
     <meta name="viewport" content="maximum-scale=1.0,user-scalable=0" />
     <link rel="stylesheet" href="../../public/css/normalize.css">
     <link rel="stylesheet" href="../../public/css/selectMode.css">

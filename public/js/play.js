@@ -3,7 +3,7 @@
  */
 $(function() {
     var $buttons = $('.buttons');
-    var FOUTHBARRIER = new Audio('../../public/audio/4.mp3');
+    var FOUTHBARRIER = window.FOUTHBARRIER = new Audio('../../public/audio/4.mp3');
     var FIFTHBARRIER = new Audio('../../public/audio/5.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
@@ -77,10 +77,8 @@ $(function() {
             new Audio('../../public/audio/tanggu.mp3')
         ]
     };
-    var CountMusic1 = new Audio('../../public/audio/daojishi.wav');
-    var CountMusic2 = new Audio('../../public/audio/daojishi.wav');
-    CountMusic1.load();
-    CountMusic2.load();
+    var CountMusic1 = window.CountMusic1 = new Audio('../../public/audio/daojishi.wav');
+    var CountMusic2 = window.CountMusic2 = new Audio('../../public/audio/daojishi.wav');
 
     var Readygo = new Audio('../../public/audio/ready_go.mp3');
 
@@ -146,14 +144,8 @@ $(function() {
                 $container: $('.rhythm-container')
             };
             this.level = level || 1;
-
-            if (this.level == 4) {
-                FOUTHBARRIER.load();
-            }
-
-            if (this.level == 5) {
-                FIFTHBARRIER.load();
-            }
+            CountMusic1.load();
+            CountMusic2.load();
             this.type = type || 'exec';
             this.startTime = 0;
             this.data = this._getLevelData(level);
@@ -231,6 +223,13 @@ $(function() {
         },
         showCountDown: function() {
             var self = this;
+            if (this.level == 4 && this.type == 'exec') {
+                FOUTHBARRIER.load();
+            }
+
+            if (this.level == 5 && this.type == 'exec') {
+                FIFTHBARRIER.load();
+            }
             var time = ~~this.data.temps_time;
             var $ktvStart = self.comp.$ktvStart;
             var $k1 = $ktvStart.find('.k1');
