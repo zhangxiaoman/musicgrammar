@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../public/css/create.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap bg-create">
     <div class="title">
         <div class="user-name"><?php echo $user_name; ?></div>
     </div>
