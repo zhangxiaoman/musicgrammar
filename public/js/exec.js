@@ -21,12 +21,13 @@ $(function() {
     $('.hit-area').off("touchstart").on('touchstart', '.grammar', function() {
         var $this = $(this);
         $this.addClass('hover');
-        var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
 
+        var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
         var grammarIndex  = window.grammarIndex[g] || 0;
-        window.grammar[g][grammarIndex].currentTime = 0.02;
+        //window.grammar[g][grammarIndex].currentTime = 0.02;
         window.grammar[g][grammarIndex].play();
         window.grammarIndex[g]++;
+        window.grammar[g][9-grammarIndex].load();
         if(window.grammarIndex[g] == 10) {
             window.grammarIndex[g] = 0;
         }

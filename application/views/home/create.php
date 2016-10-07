@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../public/css/create.css">
 </head>
 <body>
-<div class="wrap bg-create">
+<div class="wrap create-bg">
     <div class="title">
         <div class="user-name"><?php echo $user_name; ?></div>
     </div>
@@ -48,11 +48,26 @@
         <div class="btn-teacher-hit"></div>
     </div>
     <div class="hit-area">
-        <div class="grammar g-cymbal">大钵</div>
-        <div class="grammar g-tam">大锣</div>
-        <div class="grammar g-sidedrum">小鼓</div>
-        <div class="grammar g-tupan">堂鼓</div>
-        <div class="grammar g-mule">马锣</div>
+        <div class="grammar g-cymbal">
+            <div class="grammar-image"></div>
+            <p>大钵</p>
+        </div>
+        <div class="grammar g-tam">
+            <div class="grammar-image"></div>
+            <p>大锣</p>
+        </div>
+        <div class="grammar g-sidedrum">
+            <div class="grammar-image"></div>
+            <p>小鼓</p>
+        </div>
+        <div class="grammar g-tupan">
+            <div class="grammar-image"></div>
+            <p>堂鼓</p>
+        </div>
+        <div class="grammar g-mule">
+            <div class="grammar-image"></div>
+            <p>马锣</p>
+        </div>
     </div>
 </div>
 <div id="waitingArea" class="waiting-wrap">

@@ -197,9 +197,12 @@ $(function() {
                 window.grammar[g][grammarIndex].currentTime = 0.02;
                 window.grammar[g][grammarIndex].play();
                 window.grammarIndex[g]++;
+                window.grammar[g][9-grammarIndex].load();
                 if(window.grammarIndex[g] == 10) {
                     window.grammarIndex[g] = 0;
                 }
+            }).on('touchend', '.grammar', function() {
+                $(this).removeClass('hover');
             });
         },
         _unbindEvent: function() {
