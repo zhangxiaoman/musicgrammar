@@ -127,6 +127,7 @@ $(function() {
                         clearInterval(checkBeginBrkInterval);
                         $mask.hide();
                         $waitArea.hide();
+                        result = [];
                         FIFTHBARRIER.play();
                     }
 
