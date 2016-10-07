@@ -165,7 +165,7 @@ $(function() {
         },
         _bindEvent: function() {
             var self = this;
-            $('.hit-area').on('touchstart', '.grammar', function() {
+            $('.hit-area').on('click', '.grammar', function() {
                 var $this = $(this);
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 if (self.startTime > 0) {
