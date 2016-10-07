@@ -133,6 +133,9 @@ class Home extends MY_Controller
         $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
         $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
         $data['group_alias'] =  empty($_SESSION['group_alias']) ? "" : $_SESSION['group_alias'];
+        if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
+            redirect("/");
+        }
         $this->load->view('home/breakthrough',$data);
     }
 
