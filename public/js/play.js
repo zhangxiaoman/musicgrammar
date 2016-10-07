@@ -3,7 +3,7 @@
  */
 $(function() {
     var $buttons = $('.buttons');
-    var FOUTHBARRIER = new Audio('../../public/audio/fourthbarrier.mp3');
+    var FOUTHBARRIER = new Audio('../../public/audio/4.mp3');
     var FIFTHBARRIER = new Audio('../../public/audio/fifthbarrier.mp3');
     var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
@@ -243,6 +243,7 @@ $(function() {
             this._bindEvent();
             this.startTime = Date.now();
             if (this.level == 4) {
+                FOUTHBARRIER.currentTime = 0.02;
                 FOUTHBARRIER.play();
             }
             if (this.level == 5) {
