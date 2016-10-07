@@ -138,6 +138,10 @@ $(function() {
                         $mask.hide();
                         $waitArea.hide();
                         result = [];
+                        $teacherHit.addClass("btn-teacher-hit-hover");
+                        setTimeout(function(){
+                            $teacherHit.removeClass("btn-teacher-hit-hover");
+                        }, 300);
                         FIFTHBARRIER.play();
                         render_xiaotu();
                     }
