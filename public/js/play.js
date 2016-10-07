@@ -168,6 +168,7 @@ $(function() {
             var self = this;
             $('.hit-area').on('touchstart', '.grammar', function() {
                 var $this = $(this);
+                $this.addClass('hover');
                 var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
                 if (self.startTime > 0) {
                     var n = (Date.now() - self.startTime) / (~~self.data.length / (~~self.data.temps + 1));
