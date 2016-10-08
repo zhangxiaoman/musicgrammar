@@ -95,14 +95,13 @@ $(function() {
                 result:JSON.stringify(result)
             },
             success: function (re) {
-                getScore();
+                setTimeout(getScore, 2000);
             }
 
         });
     };
     function getScore(){
 
-        setInterval(
             $.ajax({
                 url: '/user/cal_score',
                 type: 'post',
@@ -121,7 +120,7 @@ $(function() {
                         }
                     }
                 }
-            }), 2000);
+            });
     };
 
     function check_begin_brk()

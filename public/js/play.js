@@ -303,7 +303,7 @@ $(function() {
                         result:JSON.stringify(_result)
                     },
                     success: function (re) {
-                        self.getScore();
+                        setTimeout(self.getScore, 2000);
                     }
 
                 });
@@ -311,13 +311,11 @@ $(function() {
         },
 
         getScore :function (){
-
-            setInterval(
-                $.ajax({
+            $.ajax({
                 url: '/user/cal_score',
                 type: 'post',
                 dataType: 'json',
-                success: function(re) {
+                success: function (re) {
                     if (re.code == 0) {
 
                         if (re.data.is_success == 1) {
@@ -331,7 +329,7 @@ $(function() {
                         }
                     }
                 }
-            }), 2000);
+            });
         },
         showResult: function() {
             console.log(this.result);

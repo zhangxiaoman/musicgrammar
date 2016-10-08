@@ -108,17 +108,17 @@ class User extends MY_Controller {
         $detail = $this->recordDetail_model->getDetail($record_id, $group_id);
 
 
-        // 组员不够5人
-        if (count($detail) < 5) {
-            $this->success(array('is_success' => 0));
-        }
-
-        foreach($detail as $item) {
-            // 有学生没有敲击
-            if (empty($item['result'])) {
-                $this->success(array('is_success' => 0, "result" => $detail));
-            }
-        }
+//        // 组员不够5人
+//        if (count($detail) < 5) {
+//            $this->success(array('is_success' => 0));
+//        }
+//
+//        foreach($detail as $item) {
+//            // 有学生没有敲击
+//            if (empty($item['result'])) {
+//                $this->success(array('is_success' => 0, "result" => $detail));
+//            }
+//        }
 
         $this->success(array('is_success' => 1, "result" => array($record_id, $group_id, $detail)));
 
