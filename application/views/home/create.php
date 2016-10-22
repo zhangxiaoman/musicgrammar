@@ -26,8 +26,8 @@
             <div class="grammar-lt">
                 <span class="cymbal"></span>
                 <span class="tam"></span>
-                <span class="sidedrum"></span>
                 <span class="tupan"></span>
+                <span class="sidedrum"></span>
                 <span class="mule"></span>
             </div>
         </div>
@@ -36,8 +36,8 @@
             <div class="grammar-lt">
                 <span class="cymbal"></span>
                 <span class="tam"></span>
-                <span class="sidedrum"></span>
                 <span class="tupan"></span>
+                <span class="sidedrum"></span>
                 <span class="mule"></span>
             </div>
         </div>
@@ -46,8 +46,8 @@
             <div class="grammar-lt">
                 <span class="cymbal"></span>
                 <span class="tam"></span>
-                <span class="sidedrum"></span>
                 <span class="tupan"></span>
+                <span class="sidedrum"></span>
                 <span class="mule"></span>
             </div>
         </div>

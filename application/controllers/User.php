@@ -101,24 +101,24 @@ class User extends MY_Controller {
     {
         $record_id = $_SESSION['record_id'];
         $group_id = $_SESSION['group_id'];
-//        $musical_id = $_SESSION['musical_id'];
-//        $musical_info = $this->musical_model->get($musical_id);
-//        $musical_content = json_decode($musical_info['content'], true);
+        $musical_id = $_SESSION['musical_id'];
+        $musical_info = $this->musical_model->get($musical_id);
+        $musical_content = json_decode($musical_info['content'], true);
 
         $detail = $this->recordDetail_model->getDetail($record_id, $group_id);
 
 
-//        // 组员不够5人
-//        if (count($detail) < 5) {
-//            $this->success(array('is_success' => 0));
-//        }
-//
-//        foreach($detail as $item) {
-//            // 有学生没有敲击
-//            if (empty($item['result'])) {
-//                $this->success(array('is_success' => 0, "result" => $detail));
-//            }
-//        }
+        // 组员不够5人
+        if (count($detail) < 5) {
+            $this->success(array('is_success' => 0));
+        }
+
+        foreach($detail as $item) {
+            // 有学生没有敲击
+            if (empty($item['result'])) {
+                $this->success(array('is_success' => 0, "result" => $detail));
+            }
+        }
 
         $this->success(array('is_success' => 1, "result" => array($record_id, $group_id, $detail)));
 

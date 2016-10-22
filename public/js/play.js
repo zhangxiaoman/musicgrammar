@@ -5,7 +5,14 @@ $(function() {
     var $buttons = $('.buttons');
     var FOUTHBARRIER = window.FOUTHBARRIER = new Audio('../../public/audio/4.mp3');
     var FIFTHBARRIER = new Audio('../../public/audio/5.mp3');
-    var SUCCESSSOUND = new Audio('../../public/audio/success.mp3');
+
+    var SUCCESSSOUND = [
+        new Audio('../../public/audio/come_on.mp3'),
+        new Audio('../../public/audio/perfect.mp3'),
+        new Audio('../../public/audio/potential.mp3'),
+        new Audio('../../public/audio/wonderful.mp3')
+    ];
+
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
     var $result = $('.result');
     window.grammarIndex = {
@@ -311,6 +318,7 @@ $(function() {
         },
 
         getScore :function (){
+            var REALSUCCESSSOUND = SUCCESSSOUND[parseInt(Math.random()*10)%4];
             $.ajax({
                 url: '/user/cal_score',
                 type: 'post',
@@ -321,7 +329,7 @@ $(function() {
                         if (re.data.is_success == 1) {
                             $result.removeClass('fail').addClass("success").show();
                             $('.mask').show();
-                            SUCCESSSOUND.play();
+                            REALSUCCESSSOUND.play();
                         } else {
                             $result.removeClass('success').addClass("fail").show();
                             $('.mask').show();
@@ -330,6 +338,8 @@ $(function() {
                     }
                 }
             });
+            console.log(REALSUCCESSSOUND);
+            REALSUCCESSSOUND.load();
         },
         showResult: function() {
             console.log(this.result);
@@ -343,6 +353,12 @@ $(function() {
                 FAILSOUND.play();
             }
 
+        },
+
+        sleep : function (d) {
+            for(var t = Date.now();Date.now() - t <= d;){
+            };
+            console.log("sd");
         }
     };
     window.Game = game;

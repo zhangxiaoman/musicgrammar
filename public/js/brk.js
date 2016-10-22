@@ -11,7 +11,8 @@ $(function() {
     var $result = $('.result');
     var beginCheckUserCount = false;
     var level = '1';
-
+    var Readygo = new Audio('../../public/audio/ready_go.mp3');
+    Readygo.load();
     var intervalCheckCount, intervalBegin;
     var musicNameObj = {
         '1': 'music-name',
@@ -95,8 +96,8 @@ $(function() {
             $(".player-list").append(cloneTemp);
         }
         if (!beginCheckUserCount) {
-            intervalCheckCount =setInterval(checkGroupUserCount, 2000);
-            intervalBegin = setInterval(checkBegin, 2000);
+            intervalCheckCount =setInterval(checkGroupUserCount, 1000);
+            intervalBegin = setInterval(checkBegin, 200);
             beginCheckUserCount = true;
         }
 
@@ -161,6 +162,7 @@ $(function() {
                     if (user.status == 2) {
                         clearInterval(intervalCheckCount);
                         clearInterval(intervalBegin);
+                        Readygo.play();
                         window.Game.init(level, 'brk');
                         $mask.hide();
                         $waitArea.hide();

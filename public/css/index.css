@@ -30,6 +30,13 @@ html, body {
 	-webkit-background-size: 100%;
 	background-size: 100%;
 }
+.logo h2 {
+	margin: auto;
+	padding-top:15px;
+	line-height: 274px;
+	color: wheat;
+	text-align: center;
+}
 .t-label {
 	font-size: 25px;
 	display: inline-block;

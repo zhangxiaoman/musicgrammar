@@ -14,7 +14,6 @@
             <div class="user-name"><?php echo $user_name;?></div>
         </div>
         <div class="container">
-            <div class="h3">五方连连奏</div>
             <a href="/home/exercise"><div class="edition btn-exercise"></div></a>
             <a href="/home/breakthrough"><div class="edition btn-breakthrough"></div></a>
             <a href="/home/create"><div class="edition btn-create"></div></a>

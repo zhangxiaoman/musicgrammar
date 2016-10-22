@@ -10,7 +10,9 @@
 <body>
 	<div class="wrap">
 		<div class="container">
-			<div class="logo"></div>
+			<div class="logo">
+				<h2>五方练练奏</h2>
+			</div>
 			<div class="form">
 				<div class="username">
 					<label class="t-label" for="username">输入姓名</label>
