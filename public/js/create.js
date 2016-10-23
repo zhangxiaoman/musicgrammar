@@ -198,5 +198,5 @@ $(function() {
         }, 6/7*1000);
     }
 
-    var checkBeginBrkInterval =  setInterval(check_begin_brk, 1000);
+    var checkBeginBrkInterval =  setInterval(check_begin_brk, 50);
 });

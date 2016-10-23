@@ -88,7 +88,7 @@ $(function() {
         }
         if (!beginCheckUserCount) {
             intervalCheckCount =setInterval(checkGroupUserCount, 1000);
-            intervalBegin = setInterval(checkBegin, 200);
+            intervalBegin = setInterval(checkBegin, 100);
             beginCheckUserCount = true;
         }
 
