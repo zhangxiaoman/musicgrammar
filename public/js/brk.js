@@ -11,8 +11,6 @@ $(function() {
     var $result = $('.result');
     var beginCheckUserCount = false;
     var level = '1';
-    var Readygo = new Audio('../../public/audio/ready_go.mp3');
-    Readygo.load();
     var intervalCheckCount, intervalBegin;
     var musicNameObj = {
         '1': 'music-name',
@@ -61,13 +59,6 @@ $(function() {
 
         window.FOUTHBARRIER.load();
         window.FOUTHBARRIER.pause();
-
-        window.CountMusic1.load();
-        window.CountMusic1.pause();
-
-        window.CountMusic2.load();
-        window.CountMusic2.pause();
-
     });
 
     function renderWaitUser ($data) {
@@ -162,7 +153,6 @@ $(function() {
                     if (user.status == 2) {
                         clearInterval(intervalCheckCount);
                         clearInterval(intervalBegin);
-                        Readygo.play();
                         window.Game.init(level, 'brk');
                         $mask.hide();
                         $waitArea.hide();

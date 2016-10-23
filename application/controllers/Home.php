@@ -150,5 +150,9 @@ class Home extends MY_Controller
         $this->success(array('is_begin' => 0));
     }
 
+    public function test(){
+        $this->load->view('home/test');
+    }
+
 
 }

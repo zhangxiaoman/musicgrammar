@@ -35,15 +35,7 @@ $(function() {
     $teacherHit.on('touchstart',function(){
         var $this = $(this);
         $this.addClass("btn-teacher-hit-hover");
-        var g = "sidedrum";
-        var grammarIndex  = window.grammarIndex[g] || 0;
-        window.grammar[g][grammarIndex].currentTime = 0.02;
-        window.grammar[g][grammarIndex].play();
-        window.grammarIndex[g]++;
-        window.grammar[g][9-grammarIndex].load();
-        if(window.grammarIndex[g] == 10) {
-            window.grammarIndex[g] = 0;
-        }
+        window.audio.play(3);
     }).on("touchend",function(){
         $(this).removeClass("btn-teacher-hit-hover");
     });
@@ -51,15 +43,8 @@ $(function() {
         var $this = $(this);
         $this.addClass('hover');
         var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-        var grammarIndex  = window.grammarIndex[g] || 0;
-        window.grammar[g][grammarIndex].currentTime = 0.02;
-        window.grammar[g][grammarIndex].play();
-        window.grammarIndex[g]++;
-        window.grammar[g][9-grammarIndex].load();
-        if(window.grammarIndex[g] == 10) {
-            window.grammarIndex[g] = 0;
-        }
-
+        var _value = $this.data('value');
+        window.audio.play(_value);
         var time = Date.now();
         //console.error(time);
         result.push({time: time, item: g});

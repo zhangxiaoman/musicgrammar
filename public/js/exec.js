@@ -18,23 +18,7 @@ $(function() {
         '5': 'music-name fifth'
     };
 
-    $('.hit-area').off("touchstart").on('touchstart', '.grammar', function() {
-        var $this = $(this);
-        $this.addClass('hover');
-
-        var g = $this.attr('class').split(' ')[1].replace(/g-/, '');
-        var grammarIndex  = window.grammarIndex[g] || 0;
-        //window.grammar[g][grammarIndex].currentTime = 0.02;
-        window.grammar[g][grammarIndex].play();
-        window.grammarIndex[g]++;
-        window.grammar[g][9-grammarIndex].load();
-        if(window.grammarIndex[g] == 10) {
-            window.grammarIndex[g] = 0;
-        }
-
-    }).on('touchend', '.grammar', function() {
-        $(this).removeClass('hover');
-    });
+    window.Game._bindEvent();
 
     // 选择关卡
     $selectBtn.click(function() {

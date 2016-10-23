@@ -45,25 +45,25 @@
         </div>
     </div>
     <div class="hit-area">
-        <div class="grammar g-cymbal">
+        <div class="grammar g-cymbal" data-value = 0>
             <div class="grammar-image"></div>
             <p>大钵</p>
         </div>
-        <div class="grammar g-tam">
+        <div class="grammar g-tam"  data-value = 1>
             <div class="grammar-image"></div>
             <p>大锣</p>
         </div>
-        <div class="grammar g-sidedrum">
+        <div class="grammar g-mule"  data-value = 2>
             <div class="grammar-image"></div>
-            <p>小鼓</p>
+            <p>小锣</p>
         </div>
-        <div class="grammar g-tupan">
+        <div class="grammar g-tupan"  data-value = 3>
             <div class="grammar-image"></div>
             <p>堂鼓</p>
         </div>
-        <div class="grammar g-mule">
+        <div class="grammar g-sidedrum"  data-value = 4>
             <div class="grammar-image"></div>
-            <p>马锣</p>
+            <p>小鼓</p>
         </div>
     </div>
 </div>
