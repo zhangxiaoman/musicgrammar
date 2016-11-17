@@ -27,7 +27,7 @@
                 <span class="cymbal" data-name="cymbal"></span>
                 <span class="tam" data-name="tam"></span>
                 <span class="tupan" data-name="tupan"></span>
-                <span class="sidedrum"  data-name="siderum"></span>
+                <span class="sidedrum"  data-name="sidedrum"></span>
                 <span class="mule"  data-name="mule"></span>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 <span class="cymbal" data-name="cymbal"></span>
                 <span class="tam" data-name="tam"></span>
                 <span class="tupan" data-name="tupan"></span>
-                <span class="sidedrum"  data-name="siderum"></span>
+                <span class="sidedrum"  data-name="sidedrum"></span>
                 <span class="mule"  data-name="mule"></span>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <span class="cymbal" data-name="cymbal"></span>
                 <span class="tam" data-name="tam"></span>
                 <span class="tupan" data-name="tupan"></span>
-                <span class="sidedrum"  data-name="siderum"></span>
+                <span class="sidedrum"  data-name="sidedrum"></span>
                 <span class="mule"  data-name="mule"></span>
             </div>
         </div>
