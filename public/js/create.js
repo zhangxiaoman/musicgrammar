@@ -160,36 +160,30 @@ $(function() {
             if ($.inArray(count, group_a) == 0 || $.inArray(count, group_a) != -1 ) {
                 $(".group-a").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
-                    var oldClass = $(this).attr('class');
-                    var newClass = oldClass + "_hover";
-
-                    $(this).addClass(newClass);
+                    var _name = $this.data("name");
+                    $(this).addClass(_name+"_hover");
                     setTimeout(function(){
-                        $this.removeClass(newClass);
+                        $this.removeClass(_name+"_hover");
                     }, 300);
                 });
             }
             if ($.inArray(count, group_b) == 0 || $.inArray(count, group_b) != -1) {
                 $(".group-b").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
-                    var oldClass = $(this).attr('class');
-                    var newClass = oldClass + "_hover";
-
-                    $(this).addClass(newClass);
+                    var _name = $this.data("name");
+                    $(this).addClass(_name+"_hover");
                     setTimeout(function(){
-                        $this.removeClass(newClass);
+                        $this.removeClass(_name+"_hover");
                     }, 300);
                 });
             }
             if ($.inArray(count, group_c) == 0 || $.inArray(count, group_c) != -1) {
                 $(".group-c").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
-                    var oldClass = $(this).attr('class');
-                    var newClass = oldClass + "_hover";
-
-                    $(this).addClass(newClass);
+                    var _name = $this.data("name");
+                    $(this).addClass(_name+"_hover");
                     setTimeout(function(){
-                        $this.removeClass(newClass);
+                        $this.removeClass(_name+"_hover");
                     }, 300);
                 });
 

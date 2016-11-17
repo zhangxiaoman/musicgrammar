@@ -24,31 +24,31 @@
         <div class="student-play-area group-a">
             <div class="group-title"></div>
             <div class="grammar-lt">
-                <span class="cymbal"></span>
-                <span class="tam"></span>
-                <span class="tupan"></span>
-                <span class="sidedrum"></span>
-                <span class="mule"></span>
+                <span class="cymbal" data-name="cymbal"></span>
+                <span class="tam" data-name="tam"></span>
+                <span class="tupan" data-name="tupan"></span>
+                <span class="sidedrum"  data-name="siderum"></span>
+                <span class="mule"  data-name="mule"></span>
             </div>
         </div>
         <div class="student-play-area group-b">
             <div class="group-title"></div>
             <div class="grammar-lt">
-                <span class="cymbal"></span>
-                <span class="tam"></span>
-                <span class="tupan"></span>
-                <span class="sidedrum"></span>
-                <span class="mule"></span>
+                <span class="cymbal" data-name="cymbal"></span>
+                <span class="tam" data-name="tam"></span>
+                <span class="tupan" data-name="tupan"></span>
+                <span class="sidedrum"  data-name="siderum"></span>
+                <span class="mule"  data-name="mule"></span>
             </div>
         </div>
         <div class="student-play-area group-c">
             <div class="group-title"></div>
             <div class="grammar-lt">
-                <span class="cymbal"></span>
-                <span class="tam"></span>
-                <span class="tupan"></span>
-                <span class="sidedrum"></span>
-                <span class="mule"></span>
+                <span class="cymbal" data-name="cymbal"></span>
+                <span class="tam" data-name="tam"></span>
+                <span class="tupan" data-name="tupan"></span>
+                <span class="sidedrum"  data-name="siderum"></span>
+                <span class="mule"  data-name="mule"></span>
             </div>
         </div>
         <div class="btn-teacher-hit"></div>
