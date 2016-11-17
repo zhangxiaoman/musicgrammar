@@ -4,7 +4,7 @@
 $(function() {
     var $buttons = $('.buttons');
     var FOUTHBARRIER = window.FOUTHBARRIER = new Audio('../../public/audio/4.mp3');
-    var FIFTHBARRIER = new Audio('../../public/audio/5.mp3');
+    var FIFTHBARRIER = window.FIFTHBARRIER  =new Audio('../../public/audio/5.mp3');
 
     var FAILSOUND = new Audio('../../public/audio/fail.mp3');
     var $result = $('.result');
@@ -380,7 +380,9 @@ $(function() {
                 FOUTHBARRIER.play();
             }
             if (this.level == 5) {
+                //FIFTHBARRIER.defaultPlaybackRate = 2;
                 FIFTHBARRIER.play();
+                FIFTHBARRIER.playbackRate = 1.1;
             }
             $content.show().animate(
                 {
