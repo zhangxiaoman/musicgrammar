@@ -114,4 +114,18 @@ class User_Model extends CI_Model {
         $query = $this->db->get('user');
         return $query->result_array();
     }
+
+    public function check_user ($id)
+    {
+        $user_info = $this->db->where('id' , $id)->where("is_deleted", 0)->get('user')->row_array();
+
+
+        if (empty($user_info) || $user_info['is_deleted'] == 1) {
+            return false;
+        }
+
+        return true;
+    }
+
+
 }

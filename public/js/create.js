@@ -127,6 +127,7 @@ $(function() {
                             $teacherHit.removeClass("btn-teacher-hit-hover");
                         }, 300);
                         FIFTHBARRIER.play();
+                        //FIFTHBARRIER.playbackRate = 1.1;
                         render_xiaotu();
                     }
 
@@ -189,7 +190,7 @@ $(function() {
 
             }
             count++;
-        }, 6/7*1000);
+        }, 796);
     }
 
     var checkBeginBrkInterval =  setInterval(check_begin_brk, 50);
