@@ -193,7 +193,8 @@ class Home extends MY_Controller
 
     public function index()
     {
-        if ($_SESSION['is_checked'] == 1) {
+         
+        if (!empty($_SESSION['is_checked'])) {
             redirect("/home/start");
         }
         $this->load->view('home/start');
@@ -203,7 +204,7 @@ class Home extends MY_Controller
     {
         $school_name  = $this->input->post("school_name");
 
-        if ($school_name == '成都市现代职业技术学院') {
+        if (tirm($school_name) == '成都市现代技术职业学院') {
             $_SESSION['is_checked'] = 1;
             $this->success();
         }
