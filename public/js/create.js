@@ -168,8 +168,9 @@ $(function() {
                 $(".group-a").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
                     $this.addClass("grammar-show ")
-                        .animate({"box-shadow": "none" ,"left": "1px" , "top" :"1px"},300,function(){
-                            $this.removeClass("grammar-show ").css("left", 0).css("top",0);
+                        .animate({"box-shadow": "none" },300,function(){
+                            console.log("hehe");
+                            $this.removeClass("grammar-show ");
                         });
                 });
 
@@ -179,9 +180,9 @@ $(function() {
                 $(".group-b").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
                     $this.addClass("grammar-show ")
-                        .animate({"box-shadow": "none" ,"left": "1px" , "top" :"1px"},300,function(){
+                        .animate({"box-shadow": "none" },300,function(){
                             console.log("hehe");
-                            $this.removeClass("grammar-show ").css("left", 0).css("top",0);
+                            $this.removeClass("grammar-show ");
                         });
                 });
             }
@@ -189,9 +190,9 @@ $(function() {
                 $(".group-c").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
                     $this.addClass("grammar-show ")
-                        .animate({"box-shadow": "none" ,"left": "1px" , "top" :"1px"},300,function(){
+                        .animate({"box-shadow": "none" },300,function(){
                             console.log("hehe");
-                            $this.removeClass("grammar-show ").css("left", 0).css("top",0);
+                            $this.removeClass("grammar-show ");
                         });
                 });
 
