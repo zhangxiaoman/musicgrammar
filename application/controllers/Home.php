@@ -204,7 +204,7 @@ class Home extends MY_Controller
     {
         $school_name  = $this->input->post("school_name");
 
-        if (tirm($school_name) == '成都市现代技术职业学院') {
+        if (trim($school_name) == '成都市现代职业技术学校') {
             $_SESSION['is_checked'] = 1;
             $this->success();
         }
