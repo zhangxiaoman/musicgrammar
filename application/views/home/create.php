@@ -51,7 +51,7 @@
                 <span class="mule"  data-name="mule"></span>
             </div>
         </div>
-        <div class="btn-teacher-hit"></div>
+        <div class="btn-teacher-hit btn-teacher-hit-show"></div>
     </div>
     <div class="hit-area">
         <div class="grammar g-cymbal" data-value = 0>

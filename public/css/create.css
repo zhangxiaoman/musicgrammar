@@ -2,13 +2,37 @@
   position: relative;
 }
 .btn-teacher-hit {
-   position: absolute;
-   left: 460px;
-   top: 204px;
-   width: 140px;
-   height: 140px;
+  border-radius: 220px;
+  position: absolute;
+  left: 460px;
+  top: 204px;
+  width: 110px;
+  height: 110px;
    background: url('../image/btn1.png') no-repeat;
  }
+
+@-webkit-keyframes show {
+  from {
+    -webkit-box-shadow: 0 0 9px #333;
+  }
+  80% {
+    -webkit-box-shadow:0 0 80px #f7df13;
+  }
+  to {
+    -webkit-box-shadow: 0 0 9px #333;
+  }
+}
+.btn-teacher-hit-show {
+
+  -webkit-animation-name: show;
+  -webkit-animation-duration: 300ms;
+  -webkit-animation-iteration-count: 1;
+}
+/*@keyframes change {*/
+  /*0%{ text-shadow: 0 0 4px #f00}*/
+  /*50%{ text-shadow: 0 0 40px #f00}*/
+  /*100%{ text-shadow: 0 0 4px #f00}*/
+/*}*/
 .btn-teacher-hit-hover {
   position: absolute;
   left: 450px;
@@ -53,57 +77,36 @@
   background-image: url('../image/czu_big.png');
 }
 .grammar-lt > span {
-  margin: 0 10px;
+  width:75px;
+  height:75px;
+  position: relative;
+  border-radius: 100%;
   display: inline-block;
   vertical-align: middle;
 }
 .grammar-lt .sidedrum {
-  width: 40px;
-  height: 46px;
-  background: url('../image/xiaogu_s.png') center no-repeat;
+  background: url('../image/xiaogu.png') center no-repeat;
+  background-size: cover;
 }
 .grammar-lt .tupan {
-  width: 67px;
-  height: 42px;
-  background: url('../image/tanggu_s.png') center no-repeat;
+  background: url('../image/tanggu.png') center no-repeat;
+  background-size: cover;
 }
 .grammar-lt .tam {
-  width: 60px;
-  height: 72px;
-  background: url('../image/daluo_s.png') center no-repeat;
+  background: url('../image/daluo.png') center no-repeat;
+  background-size: cover;
 }
 .grammar-lt .cymbal {
-  width: 53px;
-  height: 50px;
-  background: url('../image/dabo_s.png') center no-repeat;
+  background: url('../image/dabo.png') center no-repeat;
+  background-size: cover;
 }
 .grammar-lt .mule {
-  width: 55px;
-  height: 55px;
-  background: url('../image/xiaoluo_s.png') center no-repeat;
+  background: url('../image/xiaoluo.png') center no-repeat;
+  background-size: cover;
 
-}.grammar-lt .sidedrum_hover {
-  width: 40px;
-  height: 46px;
-  background: url('../image/xiaogu_s_hover.png') center no-repeat;
 }
-.grammar-lt .tupan_hover {
-  width: 67px;
-  height: 42px;
-  background: url('../image/tanggu_s_hover.png') center no-repeat;
-}
-.grammar-lt .tam_hover {
-  width: 60px;
-  height: 72px;
-  background: url('../image/daluo_s_hover.png') center no-repeat;
-}
-.grammar-lt .cymbal_hover {
-  width: 53px;
-  height: 50px;
-  background: url('../image/dabo_s_hover.png') center no-repeat;
-}
-.grammar-lt .mule_hover {
-  width: 55px;
-  height: 55px;
-  background: url('../image/xiaoluo_s_hover.png') center no-repeat;
+
+.grammar-show {
+  -webkit-box-shadow : 0 0 40px #fbe33d;
+  border: 1px solid #fbe33d;
 }

@@ -25,6 +25,10 @@ $(function() {
         SUCCESSSOUND.pause();
         $mask.show();
         $waitArea.show();
+        //FIFTHBARRIER.play();
+        ////FIFTHBARRIER.playbackRate = 10;
+        //render_xiaotu();
+
     });
 
     FIFTHBARRIER.addEventListener('ended', function() {
@@ -32,9 +36,10 @@ $(function() {
     });
 
 
+
     $teacherHit.on('touchstart',function(){
         var $this = $(this);
-        $this.addClass("btn-teacher-hit-hover");
+        $this.addClass("btn-teacher-hit-show");
         window.audio.play(3);
     }).on("touchend",function(){
         $(this).removeClass("btn-teacher-hit-hover");
@@ -80,7 +85,7 @@ $(function() {
                 result:JSON.stringify(result)
             },
             success: function (re) {
-                setTimeout(getScore, 2000);
+                setTimeout(getScore, 3000);
             }
 
         });
@@ -127,7 +132,7 @@ $(function() {
                             $teacherHit.removeClass("btn-teacher-hit-hover");
                         }, 300);
                         FIFTHBARRIER.play();
-                        //FIFTHBARRIER.playbackRate = 1.1;
+                        FIFTHBARRIER.playbackRate = 1.1;
                         render_xiaotu();
                     }
 
@@ -154,6 +159,7 @@ $(function() {
         renderInterval = setInterval(function(){
             if ($.inArray(count, teacher) == 0 || $.inArray(count, teacher) != -1 ) {
                 $teacherHit.addClass("btn-teacher-hit-hover");
+                $.ant
                 setTimeout(function(){
                     $teacherHit.removeClass("btn-teacher-hit-hover");
                 }, 300);
@@ -161,37 +167,37 @@ $(function() {
             if ($.inArray(count, group_a) == 0 || $.inArray(count, group_a) != -1 ) {
                 $(".group-a").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
-                    var _name = $this.data("name");
-                    $(this).addClass(_name+"_hover");
-                    setTimeout(function(){
-                        $this.removeClass(_name+"_hover");
-                    }, 300);
+                    $this.addClass("grammar-show ")
+                        .animate({"box-shadow": "none" ,"left": "1px" , "top" :"1px"},300,function(){
+                            $this.removeClass("grammar-show ").css("left", 0).css("top",0);
+                        });
                 });
+
+
             }
             if ($.inArray(count, group_b) == 0 || $.inArray(count, group_b) != -1) {
                 $(".group-b").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
-                    var _name = $this.data("name");
-                    $(this).addClass(_name+"_hover");
-                    setTimeout(function(){
-                        $this.removeClass(_name+"_hover");
-                    }, 300);
+                    $this.addClass("grammar-show ")
+                        .animate({"box-shadow": "none" ,"left": "1px" , "top" :"1px"},300,function(){
+                            console.log("hehe");
+                            $this.removeClass("grammar-show ").css("left", 0).css("top",0);
+                        });
                 });
             }
             if ($.inArray(count, group_c) == 0 || $.inArray(count, group_c) != -1) {
                 $(".group-c").find(".grammar-lt span").each(function( index ) {
                     var $this = $(this);
-                    var _name = $this.data("name");
-                    $(this).addClass(_name+"_hover");
-                    setTimeout(function(){
-                        $this.removeClass(_name+"_hover");
-                    }, 300);
+                    $this.addClass("grammar-show ")
+                        .animate({"box-shadow": "none" ,"left": "1px" , "top" :"1px"},300,function(){
+                            console.log("hehe");
+                            $this.removeClass("grammar-show ").css("left", 0).css("top",0);
+                        });
                 });
 
             }
             count++;
         }, 796);
     }
-
     var checkBeginBrkInterval =  setInterval(check_begin_brk, 50);
 });
