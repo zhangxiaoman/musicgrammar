@@ -107,6 +107,12 @@
 }
 
 .grammar-show {
-  -webkit-box-shadow : 0 0 40px #fbe33d;
+  -webkit-box-shadow: 0 0 40px #fbe33d;
   border: 1px solid #fbe33d;
+
+}
+#log li {
+  float: left;
+  list-style: none;
+  margin-left: 2px;
 }

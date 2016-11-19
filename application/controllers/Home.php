@@ -14,9 +14,9 @@ class Home extends MY_Controller
 
     public function start()
     {
-        if (empty($_SESSION['is_checked'])) {
-            redirect("/");
-        }
+//        if (empty($_SESSION['is_checked'])) {
+//            redirect("/");
+//        }
         $groups = $this->group_model->group_list();
         $data['groups'] = $groups;
         $this->load->view('home/index', $data);
@@ -30,7 +30,7 @@ class Home extends MY_Controller
         $user_id = $_SESSION['user_id'];
 
         if (!$this->user_model->check_user($user_id)) {
-            redirect("/home/start");
+            redirect("/home/index");
         }
         if (empty($user_id)) {
             redirect("/");
@@ -52,19 +52,19 @@ class Home extends MY_Controller
 
     public function exercise()
     {
-        if (empty($_SESSION['is_checked'])) {
-            redirect("/");
-        }
+//        if (empty($_SESSION['is_checked'])) {
+//            redirect("/");
+//        }
         $user_id = empty($_SESSION['user_id']) ? "" : $_SESSION['user_id'];
         if (!$this->user_model->check_user($user_id)) {
-            redirect("/home/start");
+            redirect("/home/index");
         }
         $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
         $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
         $data['group_alias'] =  empty($_SESSION['group_alias']) ? "" : $_SESSION['group_alias'];
 
         if (empty($data['user_name']) || empty($data['group_name']) || empty($data['group_alias'])) {
-            redirect("/home/start");
+            redirect("/home/index");
         }
         $this->load->view('home/exercise', $data);
     }
@@ -133,12 +133,12 @@ class Home extends MY_Controller
     // 创作版
     public function create()
     {
-        if (empty($_SESSION['is_checked'])) {
-            redirect("/");
-        }
+//        if (empty($_SESSION['is_checked'])) {
+//            redirect("/");
+//        }
         $user_id = empty($_SESSION['user_id']) ? "" : $_SESSION['user_id'];
         if (!$this->user_model->check_user($user_id)) {
-            redirect("/home/start");
+            redirect("/home/index");
         }
         $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
         $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
@@ -159,9 +159,9 @@ class Home extends MY_Controller
     // 创作版
     public function breakthrough()
     {
-        if (empty($_SESSION['is_checked'])) {
-            redirect("/");
-        }
+//        if (empty($_SESSION['is_checked'])) {
+//            redirect("/");
+//        }
 
         $data['user_name'] = empty($_SESSION['user_name']) ? "" : $_SESSION['user_name'];
         $data['group_name'] = empty($_SESSION['group_name']) ? "" : $_SESSION['group_name'];
@@ -171,7 +171,7 @@ class Home extends MY_Controller
         }
         $user_id = empty($_SESSION['user_id']) ? "" : $_SESSION['user_id'];
         if (!$this->user_model->check_user($user_id)) {
-            redirect("/home/start");
+            redirect("/home/index");
         }
         $this->load->view('home/breakthrough',$data);
     }
@@ -195,17 +195,19 @@ class Home extends MY_Controller
     public function index()
     {
          
-        if (!empty($_SESSION['is_checked'])) {
-            redirect("/home/start");
-        }
-        $this->load->view('home/start');
+//        if (!empty($_SESSION['is_checked'])) {
+//            redirect("/home/start");
+//        }
+        $groups = $this->group_model->group_list();
+        $data['groups'] = $groups;
+        $this->load->view('home/index', $data);
     }
 
     public function check()
     {
         $school_name  = $this->input->post("school_name");
 
-        if (trim($school_name) == '成都市现代职业技术学校') {
+        if (true || trim($school_name) == '成都市现代职业技术学校') {
             $_SESSION['is_checked'] = 1;
             $this->success();
         }

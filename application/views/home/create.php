@@ -85,9 +85,13 @@
     <div class="result-text"></div>
     <div class="btn-reload" style="left:110px;"></div>
 </div>
+
+<ul id = "log">
+    <li>沙发上发</li>
+</ul>
 <div class="mask"></div>
 <script src="../../public/js/jquery-1.11.1.min.js"></script>
 <script src="../../public/js/play.js"></script>
-<script src="../../public/js/create.js"></script>
+<script src="../../public/js/create.js?t=<?php echo time();?>"></script>
 </body>
 </html>
